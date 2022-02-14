@@ -1,0 +1,45 @@
+.mat-toolbar{background-color: #d64161;
+height: 2cm;}
+
+.myblogs
+{
+    background-color:#f7786b ;
+    border-radius: 12px;
+    margin-left: 0.5cm;
+}
+.account
+{
+    background-color:#f7786b ;
+    border-radius: 12px;
+    margin-left: auto;
+}
+.colortheme
+{
+    background-color:#f7786b ;
+    border-radius: 12px;
+margin-left: 1310px;
+}
+.home
+{
+    background-color:#f7786b ;
+    border-radius: 12px;
+    margin-left: 1cm;
+    
+}
+.home:hover
+{
+    background-color: gainsboro;
+}
+.account:hover
+{ 
+    background-color: gainsboro;
+}
+.colortheme:hover
+{
+    background-color: gainsboro;
+}
+.myblogs:hover
+{ 
+    background-color: gainsboro;
+}
+
