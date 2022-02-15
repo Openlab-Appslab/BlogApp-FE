@@ -1,27 +1,37 @@
 .mat-toolbar{background-color: #d64161;
 height: 2cm;}
 
+.myblogs, .account, .colortheme, .home{
+    background-color:#f7786b ;
+    text-decoration: none;
+    display:flex;
+    flex-direction: row ;
+
+}
+ul {
+    display: flex;
+    flex-direction: row;
+}
+
 .myblogs
 {
-    background-color:#f7786b ;
     border-radius: 12px;
     margin-left: 0.5cm;
+
 }
 .account
 {
-    background-color:#f7786b ;
     border-radius: 12px;
-    margin-left: auto;
+    margin-left:0.5cm;
 }
 .colortheme
 {
-    background-color:#f7786b ;
     border-radius: 12px;
-margin-left: 1310px;
+    margin-left:35cm;
+    
 }
 .home
 {
-    background-color:#f7786b ;
     border-radius: 12px;
     margin-left: 1cm;
     
