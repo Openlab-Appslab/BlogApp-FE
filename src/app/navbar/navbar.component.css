@@ -1,7 +1,10 @@
 .mat-toolbar{background-color: #d64161;
-height: 2cm;}
+height: 2cm;
+display:flex;
+flex-direction: row;
+margin: 0px;}
 
-.myblogs, .account, .colortheme, .home{
+.myblogs, .account, .colortheme, .home, .signin{
     background-color:#f7786b ;
     text-decoration: none;
     display:flex;
@@ -11,6 +14,10 @@ height: 2cm;}
 ul {
     display: flex;
     flex-direction: row;
+}
+.blogAppLogo {
+    width: 50px;
+    margin-left: 5px;
 }
 
 .myblogs
@@ -22,12 +29,12 @@ ul {
 .account
 {
     border-radius: 12px;
-    margin-left:0.5cm;
+    flex: 1 5 right;
 }
 .colortheme
 {
     border-radius: 12px;
-    margin-left:35cm;
+    flex: 2 5 right;
     
 }
 .home
