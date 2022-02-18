@@ -7,14 +7,18 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import {MatIconModule} from '@angular/material/icon'
+import {MatIconModule} from '@angular/material/icon';
+import { MainTextComponent } from './main-text/main-text.component';
+import { MainblogComponent } from './mainblog/mainblog.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    MainTextComponent,
+    MainblogComponent
   ],
   imports: [
     BrowserModule,

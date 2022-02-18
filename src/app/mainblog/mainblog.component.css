@@ -1,0 +1,12 @@
+.class{
+    
+    background: #EF6767; 
+    border: 2px solid black;
+    color: white;
+    width: 50%;
+    margin-left: 50%;
+    position: fixed;
+    top: 120px;
+    left: 2px;
+
+}

@@ -1,9 +1,17 @@
 .mat-toolbar{background-color: #d64161;
-height: 2cm;
-display:flex;
-flex-direction: row;
-margin: 0px;}
 
+height: 70px;
+margin-top: 10px;
+border-radius: 40px;
+flex-direction: row;
+margin: 0px;
+}
+
+.maintitle {
+    margin-left: 20px;
+    font-family: "Forte";
+    font-size: 45px;
+}
 .myblogs, .account, .colortheme, .home, .signin{
     background-color:#f7786b ;
     text-decoration: none;
