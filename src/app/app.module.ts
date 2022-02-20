@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -10,6 +10,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import {MatIconModule} from '@angular/material/icon';
 import { MainTextComponent } from './main-text/main-text.component';
 import { MainblogComponent } from './mainblog/mainblog.component'
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
+
 
 @NgModule({
   declarations: [
@@ -18,18 +21,26 @@ import { MainblogComponent } from './mainblog/mainblog.component'
     FooterComponent,
     NavbarComponent,
     MainTextComponent,
-    MainblogComponent
+    MainblogComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
-
+    MatIconModule,    
+    MDBBootstrapModule.forRoot(),
     
+
   ],
-  providers: [],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  
+  providers: [
+        
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}
