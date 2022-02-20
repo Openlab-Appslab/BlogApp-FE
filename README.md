@@ -26,6 +26,9 @@
     </ul>
 </nav>
 
+<h3>DEMO</h3>
+<a href="https://blog-app-chi-snowy.vercel.app">Klikni sem!</a>
+
 
 
 <h4>Figma základný design of Home Page</h4>
