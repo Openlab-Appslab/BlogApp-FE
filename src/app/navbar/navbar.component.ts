@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-declare var $: any;
+import { FormControl, Validators, FormGroup } from '@angular/forms';
+
+
 
 
 @Component({
@@ -7,12 +9,21 @@ declare var $: any;
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
+  validatingForm: FormGroup;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    this.validatingForm = new FormGroup({
+      loginFormModalEmail: new FormControl('', Validators.email),
+      loginFormModalPassword: new FormControl('', Validators.required)
+    });
   }
-  
 
+  get loginFormModalEmail() {
+    return this.validatingForm.get('loginFormModalEmail');
+  }
+
+  get loginFormModalPassword() {
+    return this.validatingForm.get('loginFormModalPassword');
+  }
 }

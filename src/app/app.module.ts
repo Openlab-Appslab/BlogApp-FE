@@ -8,9 +8,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatIconModule} from '@angular/material/icon';
-import { MainTextComponent } from './main-text/main-text.component';
 import { MainblogComponent } from './mainblog/mainblog.component'
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ContactComponent } from './contact/contact.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 
 
 
@@ -20,9 +22,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     HeaderComponent,
     FooterComponent,
     NavbarComponent,
-    MainTextComponent,
     MainblogComponent,
-
+    ContactComponent,
 
   ],
   imports: [
@@ -32,14 +33,12 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     MatButtonModule,
     MatIconModule,    
     MDBBootstrapModule.forRoot(),
-    
-
+    ReactiveFormsModule,
+    MdbValidationModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   
-  providers: [
-        
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
