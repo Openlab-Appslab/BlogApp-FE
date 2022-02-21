@@ -27,7 +27,7 @@
 </nav>
 
 <h3>DEMO</h3>
-<a href="https://blog-app-chi-snowy.vercel.app">Klikni sem!</a>
+<a href="https://blog-app-omega-silk.vercel.app">Klikni sem!</a>
 
 
 
