@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "blogplex-f93a4": {
+      "hosting": {
+        "BlogApp": [
+          "blogplex-f93a4"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "blogplex-f93a4"
+  }
+}

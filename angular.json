@@ -113,6 +113,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "BlogApp:build:production",
+            "firebaseProject": "blogplex-f93a4",
+            "firebaseHostingSite": "blogplex-f93a4"
+          }
         }
       }
     }
