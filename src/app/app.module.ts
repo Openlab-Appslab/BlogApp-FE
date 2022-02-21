@@ -24,6 +24,13 @@ import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { providePerformance,getPerformance } from '@angular/fire/performance';
 import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { AuthComponentComponent } from './Authentication/auth-component/auth-component.component';
+import { ResetpasswordComponent } from './Authentication/resetpassword/resetpassword.component';
+import { SharedComponent } from './Authentication/shared/shared.component';
+import { VerifyMailComponent } from './Authentication/verify-mail/verify-mail.component';
+import { HomeComponent } from './Unauthenticated/home/home.component';
+import { UCreatePostComponent } from './Unauthenticated/u-create-post/u-create-post.component';
+import { UpostDetailComponent } from './Unauthenticated/upost-detail/upost-detail.component';
 
 
 @NgModule({
@@ -34,6 +41,13 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     NavbarComponent,
     MainblogComponent,
     ContactComponent,
+    AuthComponentComponent,
+    ResetpasswordComponent,
+    SharedComponent,
+    VerifyMailComponent,
+    HomeComponent,
+    UCreatePostComponent,
+    UpostDetailComponent,
    
 
   ],
