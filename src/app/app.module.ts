@@ -26,11 +26,21 @@ import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AuthComponentComponent } from './Authentication/auth-component/auth-component.component';
 import { ResetpasswordComponent } from './Authentication/resetpassword/resetpassword.component';
-import { SharedComponent } from './Authentication/shared/shared.component';
 import { VerifyMailComponent } from './Authentication/verify-mail/verify-mail.component';
 import { HomeComponent } from './Unauthenticated/home/home.component';
 import { UCreatePostComponent } from './Unauthenticated/u-create-post/u-create-post.component';
 import { UpostDetailComponent } from './Unauthenticated/upost-detail/upost-detail.component';
+//import { ACrudService } from './Authentication/shared/acrud.service';
+//import { CrudService } from './Unauthenticated/shared/crud.service';
+import { ToastrModule } from 'ngx-toastr';
+//import { AuthService } from './Authentication/shared/auth.service';
+import { NoSanitizePipe } from './Authentication/shared/no-sanitize.pipe';
+//import { AuthGuard } from './Authentication/shared/auth-guard.service';
+
+
+
+
+
 
 
 @NgModule({
@@ -43,11 +53,12 @@ import { UpostDetailComponent } from './Unauthenticated/upost-detail/upost-detai
     ContactComponent,
     AuthComponentComponent,
     ResetpasswordComponent,
-    SharedComponent,
     VerifyMailComponent,
     HomeComponent,
     UCreatePostComponent,
     UpostDetailComponent,
+    NoSanitizePipe,
+    
    
 
   ],
@@ -59,10 +70,6 @@ import { UpostDetailComponent } from './Unauthenticated/upost-detail/upost-detai
     MatIconModule,    
     ReactiveFormsModule,
     MdbValidationModule,
-    //AngularFireModule.initializeApp(environment.firebaseConfig),
-    //AngularFireAuthModule,
-    //AngularFireStorageModule,
-    //AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     MDBBootstrapModule.forRoot(),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
@@ -74,13 +81,19 @@ import { UpostDetailComponent } from './Unauthenticated/upost-detail/upost-detai
     providePerformance(() => getPerformance()),
     provideRemoteConfig(() => getRemoteConfig()),
     provideStorage(() => getStorage()),
+    BrowserModule,
+    ToastrModule.forRoot()
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   
   providers: [
-    ScreenTrackingService,UserTrackingService
+    //CrudService,
+    //AuthService,
+    //ACrudService,
+    //AuthGuard
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
+
 }
