@@ -26,8 +26,11 @@
     </ul>
 </nav>
 
-<h3>DEMO</h3>
+<h3>Project demo (credits for Vercel)</h3>
 <a href="https://blog-app-omega-silk.vercel.app">Klikni sem!</a>
+<br>
+<h3>Project board - trello</h3>
+<a href="https://trello.com/b/hdm8dwwr/blogplex">Klikni sem!</a>
 
 
 
