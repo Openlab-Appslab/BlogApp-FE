@@ -27,14 +27,14 @@
 </nav>
 
 <h3>Project demo (credits for Vercel)</h3>
-<a href="https://blog-app-omega-silk.vercel.app">Klikni sem!</a>
+<a href="https://blog-app-omega-silk.vercel.app">Click here!</a>
 <br>
 <h3>Project board - trello</h3>
-<a href="https://trello.com/b/hdm8dwwr/blogplex">Klikni sem!</a>
+<a href="https://trello.com/b/hdm8dwwr/blogplex">Click here!</a>
 
 
 
-<h4>Figma základný design of Home Page</h4>
+<h3>Figma základný design of Home Page</h3>
 <a href="https://www.figma.com/file/yIdFMHS2i8ksbzWOxr9pXU/BlogApp-design?node-id=0%3A1">Click Here to View Content</a>
 
 
