@@ -17,6 +17,10 @@ import { environment } from "src/environments/environment";
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedComponent } from './User/shared/shared.component';
+import { LoginComponent } from './service/login/login.component';
+import { RegisterComponent } from './service/register/register.component';
+import { ResetpasswordComponent } from './service/resetpassword/resetpassword.component';
+import { MailrespondComponent } from './service/mailrespond/mailrespond.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { SharedComponent } from './User/shared/shared.component';
     MainblogComponent,
     ContactComponent,
     SharedComponent,
+    LoginComponent,
+    RegisterComponent,
+    ResetpasswordComponent,
+    MailrespondComponent,
   
    
 
