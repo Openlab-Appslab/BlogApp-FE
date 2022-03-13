@@ -27,7 +27,7 @@
 </nav>
 
 <h3>Project demo (credits for Vercel)</h3>
-<a href="https://blog-app-4vpbddtc2-blogplex.vercel.app">Click Here to View Content</a>
+<a href="https://blog-app-peach-pi.vercel.app">Click Here to View Content</a>
 <br>
 <h3>Project board - trello</h3>
 <a href="https://trello.com/b/hdm8dwwr/blogplex">Click Here to View Content</a>
