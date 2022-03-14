@@ -22,8 +22,6 @@ import { RegisterComponent } from './service/register/register.component';
 import { ResetpasswordComponent } from './service/resetpassword/resetpassword.component';
 import { MailrespondComponent } from './service/mailrespond/mailrespond.component';
 
-import { OktaAuthModule } from '@okta/okta-angular';
-
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgxTimelineModule } from 'ngx-timeline';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -46,7 +44,7 @@ import { UserService } from './user.service';
     ResetpasswordComponent,
     MailrespondComponent,  
   ],
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
