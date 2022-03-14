@@ -22,6 +22,16 @@ import { RegisterComponent } from './service/register/register.component';
 import { ResetpasswordComponent } from './service/resetpassword/resetpassword.component';
 import { MailrespondComponent } from './service/mailrespond/mailrespond.component';
 
+import { OktaAuthModule } from '@okta/okta-angular';
+
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgxTimelineModule } from 'ngx-timeline';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { UserService } from './user.service';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,11 +44,9 @@ import { MailrespondComponent } from './service/mailrespond/mailrespond.componen
     LoginComponent,
     RegisterComponent,
     ResetpasswordComponent,
-    MailrespondComponent,
-  
-   
-
+    MailrespondComponent,  
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -51,12 +59,19 @@ import { MailrespondComponent } from './service/mailrespond/mailrespond.componen
     HttpClientModule,
     FormsModule,
     MDBBootstrapModule.forRoot(),
-    
-
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot(),
+    NgxTimelineModule,
+    ModalModule.forRoot(),
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
