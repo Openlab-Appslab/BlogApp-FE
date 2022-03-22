@@ -10,5 +10,15 @@ export class NavbarComponent {
 
   name = 'Angular';
 
+  constructor() { }
+
+  ngOnInit() {
+  }
+  navbarOpen = false;
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
+
 }
   
