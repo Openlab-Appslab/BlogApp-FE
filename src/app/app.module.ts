@@ -27,6 +27,7 @@ import { NgxTimelineModule } from 'ngx-timeline';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { UserService } from './user.service';
+import { BlogsComponent } from './blogs/blogs.component';
 
 
 
@@ -42,7 +43,8 @@ import { UserService } from './user.service';
     LoginComponent,
     RegisterComponent,
     ResetpasswordComponent,
-    MailrespondComponent,  
+    MailrespondComponent,
+    BlogsComponent,  
   ],
 
   imports: [
