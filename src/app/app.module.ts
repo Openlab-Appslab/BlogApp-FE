@@ -30,6 +30,7 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { AuthService } from './service/auth.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service'
+import { BlogsComponent } from './blogs/blogs.component';
 
 
 
@@ -46,6 +47,7 @@ import { CookieService } from 'ngx-cookie-service'
     RegisterComponent,
     ResetpasswordComponent,
     MailrespondComponent,
+    BlogsComponent,
   ],
 
   imports: [
@@ -53,7 +55,7 @@ import { CookieService } from 'ngx-cookie-service'
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule,    
+    MatIconModule,
     ReactiveFormsModule,
     MdbValidationModule,
     BrowserModule,
@@ -71,9 +73,9 @@ import { CookieService } from 'ngx-cookie-service'
     // ModalModule.forRoot(),
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  
+
   providers: [
-    CookieService, 
+    CookieService,
     UserService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
@@ -81,6 +83,6 @@ import { CookieService } from 'ngx-cookie-service'
   }],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
 
 }
