@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -13,11 +12,6 @@ export class NavbarComponent {
   constructor() { }
 
   ngOnInit() {
-  }
-  navbarOpen = false;
-
-  toggleNavbar() {
-    this.navbarOpen = !this.navbarOpen;
   }
 
 }
