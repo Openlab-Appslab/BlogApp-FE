@@ -29,7 +29,7 @@ import { UserService } from './user.service';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { AuthService } from './service/auth.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service'
+//import { CookieService } from 'ngx-cookie-service'
 import { BlogsComponent } from './blogs/blogs.component';
 
 
@@ -75,7 +75,7 @@ import { BlogsComponent } from './blogs/blogs.component';
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 
   providers: [
-    CookieService,
+   // CookieService,
     UserService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,

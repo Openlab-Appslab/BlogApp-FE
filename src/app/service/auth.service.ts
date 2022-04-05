@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { CookieService } from 'ngx-cookie-service';
+//import { CookieService } from 'ngx-cookie-service';
 
 
 @Injectable({
@@ -11,11 +11,11 @@ import { CookieService } from 'ngx-cookie-service';
 export class AuthService {
 
   token: string;
-  private cookieValue: string;
+ // private cookieValue: string;
 
   constructor(
     private readonly httpClient: HttpClient,
-    private cookieService: CookieService
+   // private cookieService: CookieService
   ) { }
 
   getToken(): string {
@@ -45,9 +45,9 @@ export class AuthService {
     this.token = null;
   }
 
-  ngOnInit(): void {
-    this.cookieService.set('cookie-name', 'our cookie value');
-    this.cookieValue = this.cookieService.get('cookie-name');
-   }
+  //ngOnInit(): void {
+   // this.cookieService.set('cookie-name', 'our cookie value');
+   // this.cookieValue = this.cookieService.get('cookie-name');
+   //}
 
 }
