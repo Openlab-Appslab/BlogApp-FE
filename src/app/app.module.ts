@@ -77,12 +77,5 @@ import { QuillModule } from 'ngx-quill';
     },
   ],
   bootstrap: [AppComponent],
-   // CookieService,
-    UserService, {
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true
-  }],
-  bootstrap: [AppComponent]
 })
 export class AppModule {}
