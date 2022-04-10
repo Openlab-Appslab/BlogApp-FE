@@ -5,6 +5,7 @@ import { ContactComponent } from './contact/contact.component';
 import { MainblogComponent } from './mainblog/mainblog.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
+import { EditorComponent } from './editor/editor.component';
 
 const routes: Routes = [
   { path: '', component: MainblogComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'blogs', component: BlogsComponent },
+  { path: 'editor', component: EditorComponent},
   
 ];
 
