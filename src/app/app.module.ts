@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserService } from './user.service';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+//import { CookieService } from 'ngx-cookie-service'
 import { BlogsComponent } from './blogs/blogs.component';
 import { EditorComponent } from './editor/editor.component';
 import { QuillModule } from 'ngx-quill';
@@ -42,7 +43,7 @@ import { QuillModule } from 'ngx-quill';
     MailrespondComponent,
     BlogsComponent,
     EditorComponent,
-    
+
   ],
 
   imports: [
@@ -76,5 +77,12 @@ import { QuillModule } from 'ngx-quill';
     },
   ],
   bootstrap: [AppComponent],
+   // CookieService,
+    UserService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
