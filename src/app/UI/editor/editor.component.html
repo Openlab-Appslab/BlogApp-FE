@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="left">
+        <app-navigation></app-navigation>
+    </div>
+    <div class="right">
+        <div class="content">
+            <form [formGroup]="editorForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="editor">
+                        <h1><strong>Nový blog</strong></h1><br>
+                    </label>
+                    <span>Title</span>
+                    <input type="text" formControlName="title">
+                    <quill-editor [style]="editorStyle" [module]="config" (onContentChanged)="maxLength($event)"
+                        formControlName="editor"></quill-editor>
+                    <span *ngIf="editorForm.get('editor').value != null">{{10000 -
+                        editorForm.get('editor').value.length}}</span>
+                </div>
+                <button class="btn btn-primary mt-3">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

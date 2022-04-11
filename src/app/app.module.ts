@@ -24,8 +24,15 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 //import { CookieService } from 'ngx-cookie-service'
 import { BlogsComponent } from './blogs/blogs.component';
-import { EditorComponent } from './editor/editor.component';
+import { EditorComponent } from './UI/editor/editor.component';
 import { QuillModule } from 'ngx-quill';
+import { ProfileComponent } from './UI/profile/profile.component';
+import { EditprofileComponent } from './UI/editprofile/editprofile.component';
+import { LikedblogsComponent } from './UI/likedblogs/likedblogs.component';
+import { UnreadblogsComponent } from './UI/unreadblogs/unreadblogs.component';
+import { NavigationComponent } from './UI/navigation/navigation.component';
+import { PublicComponent } from './UI/public/public.component';
+import { PrivateComponent } from './UI/private/private.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +49,13 @@ import { QuillModule } from 'ngx-quill';
     MailrespondComponent,
     BlogsComponent,
     EditorComponent,
+    ProfileComponent,
+    EditprofileComponent,
+    LikedblogsComponent,
+    UnreadblogsComponent,
+    NavigationComponent,
+    PublicComponent,
+    PrivateComponent,
 
   ],
 
