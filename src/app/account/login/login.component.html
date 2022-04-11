@@ -17,7 +17,7 @@
 
           <form (ngSubmit)="login()" class="sign-in-form" [formGroup]="loginGroup">
             <h2 class="title"> Sign in</h2>
-
+            <p *ngIf="signInError && signInError.length > 0" style="color: darkred"><i class="bi bi-exclamation-circle"></i>{{signInError}}</p>
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input formControlName="email" type="email" placeholder="mailos@mailos.sk" />

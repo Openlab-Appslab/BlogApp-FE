@@ -15,12 +15,11 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedComponent } from './User/shared/shared.component';
-import { LoginComponent } from './login/login/login.component';
-import { RegisterComponent } from './login/register/register.component';
-import { ResetpasswordComponent } from './login/resetpassword/resetpassword.component';
-import { MailrespondComponent } from './login/mailrespond/mailrespond.component';
+import { LoginComponent } from './account/login/login.component';
+import { RegisterComponent } from './account/register/register.component';
+import { ResetpasswordComponent } from './account/resetpassword/resetpassword.component';
+import { MailrespondComponent } from './account/mailrespond/mailrespond.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserService } from './user.service';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 //import { CookieService } from 'ngx-cookie-service'
@@ -68,14 +67,7 @@ import { QuillModule } from 'ngx-quill';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
-  providers: [
-    UserService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true,
-    },
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
