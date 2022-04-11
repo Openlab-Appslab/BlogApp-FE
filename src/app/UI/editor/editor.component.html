@@ -9,15 +9,18 @@
                     <label for="editor">
                         <h1><strong>Nový blog</strong></h1><br>
                     </label>
-                    <span>Title</span>
-                    <input type="text" formControlName="title">
                     <quill-editor [style]="editorStyle" [module]="config" (onContentChanged)="maxLength($event)"
                         formControlName="editor"></quill-editor>
                     <span *ngIf="editorForm.get('editor').value != null">{{10000 -
                         editorForm.get('editor').value.length}}</span>
                 </div>
                 <button class="btn btn-primary mt-3">Submit</button>
+                <p></p>
             </form>
+            <div class="bg-light p-4">
+                <h3>Output</h3>
+                <p class="my-5" [innerHTML]="editorContent"></p>
+            </div>
         </div>
     </div>
 </div>

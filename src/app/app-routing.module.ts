@@ -21,14 +21,14 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'blogs', component: BlogsComponent },
-  { path: 'editor', component: EditorComponent},
-  { path: 'navigation', component: NavigationComponent},
-  { path: 'profile', component: ProfileComponent},
-  { path: 'liked', component: LikedblogsComponent},
-  { path: 'unread', component: UnreadblogsComponent},
-  { path: 'editprofile', component: EditprofileComponent},
-  { path: 'private', component: PrivateComponent},
-  { path: 'public', component: PublicComponent},
+  { path: 'ui/profile/editor', component: EditorComponent},
+  { path: 'ui/profile/navigation', component: NavigationComponent},
+  { path: 'ui/profile', component: ProfileComponent},
+  { path: 'ui/profile/liked', component: LikedblogsComponent},
+  { path: 'ui/profile/unread', component: UnreadblogsComponent},
+  { path: 'ui/profile/editprofile', component: EditprofileComponent},
+  { path: 'ui/profile/private', component: PrivateComponent},
+  { path: 'ui/profile/public', component: PublicComponent},
   
 ];
 
