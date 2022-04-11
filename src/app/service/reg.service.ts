@@ -33,7 +33,7 @@ export class RegService {
       }),
       withCredentials: true
     };
-    return this.httpClient.get('http://localhost:8080/user', options).pipe(
+    return this.httpClient.get('http://localhost:8080/noAuth/register', options).pipe(
       tap(() => this.token = token)
     );
   }

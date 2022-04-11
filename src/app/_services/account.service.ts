@@ -24,16 +24,6 @@ export class AccountService {
         return this.userSubject.value;
     }
 
-    login(username, password) {
-        return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, { username, password })
-            .pipe(map(user => {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('user', JSON.stringify(user));
-                this.userSubject.next(user);
-                return user;
-            }));
-    }
-
     logout() {
         // remove user from local storage and set current user to null
         localStorage.removeItem('user');
@@ -42,7 +32,7 @@ export class AccountService {
     }
 
     register(user: User) {
-        return this.http.post(`${environment.apiUrl}/nologon`, user);
+        return this.http.post(`${environment.apiUrl}/noAuth/register`, user);
     }
 
     getAll() {
