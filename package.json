@@ -26,6 +26,7 @@
     "@okta/okta-angular": "1.2.1",
     "@schematics/angular": "^9.1.0",
     "@types/chart.js": "^2.9.35",
+    "@types/gapi.auth2": "^0.0.56",
     "angular-authentication-service": "^1.1.8",
     "angular-bootstrap-md": "^12.2.0",
     "angularjs-auth-interceptor": "^1.0.1",
