@@ -33,6 +33,7 @@ import { NavigationComponent } from './UI/navigation/navigation.component';
 import { PublicComponent } from './UI/public/public.component';
 import { PrivateComponent } from './UI/private/private.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,7 @@ import { PrivateComponent } from './UI/private/private.component';
     NavigationComponent,
     PublicComponent,
     PrivateComponent,
+   
 
   ],
 
@@ -80,7 +82,7 @@ import { PrivateComponent } from './UI/private/private.component';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
