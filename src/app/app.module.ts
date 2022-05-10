@@ -22,7 +22,7 @@ import { MailrespondComponent } from './account/mailrespond/mailrespond.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { BlogsComponent } from './blogs/blogs.component';
+import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { EditorComponent } from './UI/editor/editor.component';
 import { QuillModule } from 'ngx-quill';
 import { ProfileComponent } from './UI/profile/profile.component';
@@ -47,7 +47,7 @@ import { PrivateComponent } from './UI/private/private.component';
     RegisterComponent,
     ResetpasswordComponent,
     MailrespondComponent,
-    BlogsComponent,
+    BlogDetailComponent,
     EditorComponent,
     ProfileComponent,
     EditprofileComponent,

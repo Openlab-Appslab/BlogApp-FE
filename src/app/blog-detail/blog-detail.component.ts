@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Blog } from '../blog';
+import { BlogDetailService } from '../service/blog-detail.service';
 
 @Component({
   selector: 'app-blogs',
-  templateUrl: './blogs.component.html',
-  styleUrls: ['./blogs.component.css']
+  templateUrl: './blog-detail.component.html',
+  styleUrls: ['./blog-detail.component.css']
 })
-export class BlogsComponent implements OnInit {
+export class BlogDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private blogService: BlogDetailService) { }
 
   blog: Blog = {
     name: 'Yellowstonský národný park',
@@ -61,7 +62,7 @@ Počasie v Yellowstonskom parku sa môže niekoľkokrát zmeniť aj počas jedin
   };
 
   ngOnInit(): void {
-    // this.httpClient.get('http://localhost:8080/blogs').subcribe(blog => this.blog = blog);
+     this.blogService.getBlogDetail("yellowstone").subscribe(blog => this.blog = blog);
   }
 
 }
