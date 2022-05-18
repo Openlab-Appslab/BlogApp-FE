@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'blogs', component: BlogDetailComponent },
+  { path: 'blogs/:id', component: BlogDetailComponent },
   { path: 'ui/profile/editor', component: EditorComponent},
   { path: 'ui/profile/navigation', component: NavigationComponent},
   { path: 'ui/profile', component: ProfileComponent},
@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'ui/profile/editprofile', component: EditprofileComponent},
   { path: 'ui/profile/private', component: PrivateComponent},
   { path: 'ui/profile/public', component: PublicComponent},
-  
+
 ];
 
 @NgModule({

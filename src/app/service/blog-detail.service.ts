@@ -16,11 +16,11 @@ export class BlogDetailService {
       ) { }
 
   getBlogDetail(blogName: string): Observable<Blog> {
-      return this.httpClient.get<Blog>('http://localhost:8080/noAuth/blog/' + blogName);
+      return this.httpClient.get<Blog>('http://localhost:8080/blog/' + blogName);
   }
 
- 
 
- 
+
+
 
 }
