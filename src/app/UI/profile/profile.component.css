@@ -160,13 +160,6 @@ p {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
-.profile{
-    
-    position:relative; 
-    left:700px; 
-  bottom: 635px;
-
-}
 
 .obrazky{
 display: flex;
@@ -186,7 +179,31 @@ display: flex;
     flex: 10%;
     padding: 0 10px;
   }
-  
-  
 
+  .navigation ul {
+    font-size: 16px;
+    font-weight: 700;
+    list-style: none;
+    display: inline-block; 
+    margin-right: 35px;
+   
+}
+.navigation a:hover{
+color: grey;
+}
+
+.navigation li {
+    margin-bottom: 10px;
+   
+}
+
+.navigation a {
+    color: white;
+    text-align: center;
+}
+.cara {
+  
+    border: 1px solid black;
+  border-radius: 5px;
+}
 
