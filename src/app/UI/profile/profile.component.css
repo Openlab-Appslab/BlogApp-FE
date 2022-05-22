@@ -51,7 +51,7 @@ body {
 }
 
 .user-card-full .user-profile {
-    border-radius: 5px 0 0 5px;
+    border-radius: 55px 55px 55px 55px;
 }
 
 .bg-c-lite-green {
@@ -159,23 +159,12 @@ p {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
-<<<<<<< HEAD
-.profile{
-    
-    /* position:relative; 
-    left:700px; 
-  bottom: 635px; */
-  margin: auto;
-
-
-}
-=======
->>>>>>> ee01fd659e58a1c0ee218c1fdeeead6035ad8de8
 
 .obrazky{
 display: flex;
     margin-bottom: 100px;
    margin-left: 50px;
+   margin-right: 50px;
   
 }
   .row {
@@ -209,12 +198,28 @@ color: grey;
 }
 
 .navigation a {
+    display: center;
     color: white;
     text-align: center;
+   
+    
 }
+
 .cara {
   
     border: 1px solid black;
   border-radius: 5px;
+}
+.bestblogs {
+    font-size: 30px;
+    font-weight: 500;
+    color: #3333ff;
+    text-align: center;
+    font-family: "Georgia";
+    
+}
+.bestblogs:hover {
+    color: grey;
+    
 }
 

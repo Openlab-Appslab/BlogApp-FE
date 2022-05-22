@@ -2,7 +2,7 @@
   <div class="forms-container">
     <div class="signin-signup">
       <form (ngSubmit)="login()" class="sign-in-form" [formGroup]="loginGroup">
-        <h2 class="title">Sign in</h2>
+        <h2 class="title">Prihláste sa</h2>
         <p *ngIf="signInError && signInError.length > 0" style="color: darkred">
           <i class="bi bi-exclamation-circle"></i>{{ signInError }}
         </p>
@@ -19,13 +19,13 @@
           <input
             formControlName="password"
             type="password"
-            placeholder="Heslo"
+            placeholder="heslo"
           />
         </div>
 
         <input
           type="submit"
-          value="Login"
+          value="Prihlásiť sa"
           class="btn solid"
           [disabled]="!loginGroup.valid"
         />
@@ -58,7 +58,7 @@
           Môžete sa zaregistrovať na Blogplex aby ste mohli čítať a písať blogy.
         </p>
         <button class="btn transparent" id="sign-up-btn" routerLink="/register">
-          Sign up
+          Registrovať sa
         </button>
       </div>
       <img src="img/log.svg" class="image" alt="" />
