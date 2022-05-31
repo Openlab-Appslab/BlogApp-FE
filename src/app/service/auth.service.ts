@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-//import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -16,10 +16,11 @@ export class AuthService {
   constructor(
     private readonly httpClient: HttpClient,
    // private cookieService: CookieService
+   private _router: Router
   ) { }
 
   getToken(): string {
-    return this.token;
+    return localStorage.getItem('token')
   }
 
   isLoggedIn(): boolean {
@@ -41,8 +42,17 @@ export class AuthService {
     );
   }
 
+  logoutUser(){
+    localStorage.removeItem('token')
+    this._router.navigate(['/main-blog'])
+  }
+
   logout(): void {
     this.token = null;
+  }
+
+  loggedIn() {
+    return !!localStorage.getItem('token')    
   }
 
   //ngOnInit(): void {

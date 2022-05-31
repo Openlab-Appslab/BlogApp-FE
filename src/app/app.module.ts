@@ -32,6 +32,7 @@ import { UnreadblogsComponent } from './UI/unreadblogs/unreadblogs.component';
 import { NavigationComponent } from './UI/navigation/navigation.component';
 import { PublicComponent } from './UI/public/public.component';
 import { PrivateComponent } from './UI/private/private.component';
+import { AuthModule } from '@auth0/auth0-angular';
 
 
 @NgModule({
@@ -61,6 +62,10 @@ import { PrivateComponent } from './UI/private/private.component';
   ],
 
   imports: [
+    AuthModule.forRoot({
+      domain: 'localhost:4200',
+      clientId: '5'
+    }),
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,

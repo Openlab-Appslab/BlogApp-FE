@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~13.2.3",
     "@angular/platform-browser-dynamic": "~13.2.3",
     "@angular/router": "~13.2.3",
+    "@auth0/auth0-angular": "^1.9.0",
     "@bcodes/ngx-theme-service": "^2.0.0",
     "@fortawesome/fontawesome-free": "~5.6.3",
     "@okta/okta-angular": "1.2.1",
