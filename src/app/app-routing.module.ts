@@ -16,6 +16,7 @@ import { PrivateComponent } from './UI/private/private.component';
 import { CanActivate, Router } from '@angular/router';
 import { AuthService } from './service/auth.service';
 import { AuthGuard } from './auth.guard';
+import { LatestblogComponent } from './UI/latestblog/latestblog.component';
 
 const routes: Routes = [
   { path: '', component: MainblogComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'ui/profile/editprofile', canActivate: [AuthGuard], component: EditprofileComponent},
   { path: 'ui/profile/private', canActivate: [AuthGuard],component: PrivateComponent},
   { path: 'ui/profile/public', canActivate: [AuthGuard], component: PublicComponent},
+  { path: 'ui/profile/blogs', canActivate: [AuthGuard], component: LatestblogComponent}
 
 ];
 

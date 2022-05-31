@@ -37,6 +37,7 @@ import { AuthGuard } from './auth.guard';
 import { CookieService } from 'ngx-cookie-service';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { LatestblogComponent } from './UI/latestblog/latestblog.component';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
     PublicComponent,
     PrivateComponent,
     DialogComponent,
+    LatestblogComponent,
    
 
   ],
