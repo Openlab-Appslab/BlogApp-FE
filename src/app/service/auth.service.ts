@@ -29,7 +29,7 @@ export class AuthService {
   ) { }
 
   getToken(): string {
-    const authString = `${this.cookies.get('username')}:${this.cookies.get('password')}`
+    const authString = `${this.cookies.get('email')}:${this.cookies.get('password')}`
     return 'Basic ' + btoa(authString);
   }
 
@@ -49,9 +49,9 @@ export class AuthService {
         headers: this.headers,
       });
       const data_1 = await response.json();
-      this.cookies.set('username', user.email);
+      this.cookies.set('email', user.email);
       this.cookies.set('password', user.password );
-      window.location.href="/home" 
+      window.location.href="/mainblog" 
 
     }
      catch (error) {
@@ -69,7 +69,7 @@ export class AuthService {
     localStorage.removeItem('token')
     this.cookies.delete ('email');
     this.cookies.delete('password');
-    this._router.navigate(['/main-blog'])
+    this._router.navigate(['/mainblog'])
   }
 
   loggedIn() {
