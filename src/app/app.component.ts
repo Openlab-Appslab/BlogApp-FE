@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './user';
+import { user } from './user';
 import { HttpErrorResponse } from '@angular/common/http';
+import {CookieService} from 'ngx-cookie-service';
+ 
 
 
 @Component({
@@ -11,9 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class AppComponent {
   title = 'BlogApp';
 
-  public users: User[];
+  public users: user[];
 
-  constructor(
-  ) {}
 
 }

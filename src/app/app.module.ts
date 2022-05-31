@@ -32,11 +32,16 @@ import { UnreadblogsComponent } from './UI/unreadblogs/unreadblogs.component';
 import { NavigationComponent } from './UI/navigation/navigation.component';
 import { PublicComponent } from './UI/public/public.component';
 import { PrivateComponent } from './UI/private/private.component';
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthModule, AuthService } from '@auth0/auth0-angular';
+import { AuthGuard } from './auth.guard';
+import { CookieService } from 'ngx-cookie-service';
+import { DialogComponent } from './dialog/dialog.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
   declarations: [
+    DialogComponent,
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -57,15 +62,13 @@ import { AuthModule } from '@auth0/auth0-angular';
     NavigationComponent,
     PublicComponent,
     PrivateComponent,
+    DialogComponent,
    
 
   ],
 
   imports: [
-    AuthModule.forRoot({
-      domain: 'localhost:4200',
-      clientId: '5'
-    }),
+    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
@@ -87,7 +90,13 @@ import { AuthModule } from '@auth0/auth0-angular';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  providers: [AuthService, AuthGuard, CookieService,
+    {
+      provide: HTTP_INTERCEPTORS, 
+      useClass: AuthInterceptor,
+       multi: true
+    }
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

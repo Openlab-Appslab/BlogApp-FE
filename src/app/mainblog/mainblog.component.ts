@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { BlogDetailService } from '../service/blog-detail.service';
 import { Blog } from '../blog';
 import { ActivatedRoute } from '@angular/router'
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-mainblog',

@@ -10,7 +10,7 @@ export class NavbarComponent {
 
   name = 'Angular';
 
-  constructor(private _authService: AuthService) { }
+  constructor(public _authService: AuthService) { }
 
   ngOnInit() {
   }
