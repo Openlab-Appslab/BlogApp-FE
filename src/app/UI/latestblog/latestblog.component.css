@@ -165,9 +165,10 @@ display: flex;
    
 }
 .navigation a:hover{
-color: grey;
-}
-
+    color: black;
+    transition: 0.25rem;
+    }
+    
 .navigation li {
     margin-bottom: 10px;
    
