@@ -163,4 +163,4 @@ INSERT INTO BLOG VALUES('Yellowstonský národný park', '
   <!-- Main layout -->
 </div>
 
-  ');
+  ', '1');

@@ -3,9 +3,11 @@ import { Title } from '@angular/platform-browser';
 // import { Blog } from '../blog.model';
 import { ActivatedRoute } from '@angular/router'
 import { CookieService } from 'ngx-cookie-service';
-import { BlogDetailService } from '../service/blog-detail.service';
+import { ShowPostService } from '../service/show-post.service';
 import { Blog } from '../blog.model';
 import { CommonService } from '../service/common.service';
+import { AddBlogService } from '../service/add-blog.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-mainblog',
@@ -14,9 +16,11 @@ import { CommonService } from '../service/common.service';
 })
 export class MainblogComponent implements OnInit {
 
+  public blogs : any [];
+
   constructor(
     private titleService:Title, 
-    private blogService: BlogDetailService,
+    private showPostService: ShowPostService,
     private commonService: CommonService,
     private route: ActivatedRoute
     ) {
@@ -25,22 +29,22 @@ export class MainblogComponent implements OnInit {
 
     }
 
-  blog: Blog;
-
-  ngOnInit() {
-     this.getAllBlog();
-
-     this.commonService.blogAdded_Observable.subscribe(res => {
-       this.getAllBlog();
-     })
-  }
-
-  getAllBlog(){
-    this.blogService.getAllBlog().subscribe(result => {
-      console.log('result is: ', result);
-      this.blog = result['data'];
-    } )
-  }
-
+    ngOnInit(){
+      this.getAllBlog();
+  
+      this.commonService.blogAdded_Observable.subscribe(res => {
+        this.getAllBlog();
+      });
+    }
+  
+  
+  
+    getAllBlog(){
+      this.showPostService.getAllBlog().subscribe(result => {
+        console.log('result is ', result);
+        this.blogs = result['data'];
+        this.blogs = result;
+      });
+    }  
 
 }

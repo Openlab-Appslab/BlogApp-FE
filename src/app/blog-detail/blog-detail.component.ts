@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 // import { Blog } from '../blog';
 import { Blog } from '../blog.model';
-import { BlogDetailService } from '../service/blog-detail.service';
+import { ShowPostService } from '../service/show-post.service';
 import { ActivatedRoute } from '@angular/router';
+import { CommonService } from '../service/common.service';
 
 @Component({
   selector: 'app-blogs',
@@ -11,14 +12,26 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BlogDetailComponent implements OnInit {
 
+  public blog: Blog;
+
   constructor(
-    private blogService: BlogDetailService, 
-    private route: ActivatedRoute
+    private showPostService: ShowPostService, 
+    private route: ActivatedRoute,
+    private commonService: CommonService
     ) { }
 
-  blog: Blog;
-
-  ngOnInit(): void {
-  }
+    ngOnInit(){
+      this.getBlog();
+  
+      // this.commonService.blogAdded_Observable.subscribe(res => {
+      //   this.getAllBlog();
+      // });
+    }
+  
+  
+  
+    getBlog(){
+      return this.showPostService.getBlog(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blog = blog);
+    }
 
 }
