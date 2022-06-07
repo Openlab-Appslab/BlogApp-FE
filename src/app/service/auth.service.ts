@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-//import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { user } from '../user'
+import { Subject } from 'rxjs';
+import { DialogComponent } from '../dialog/dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 
 @Injectable({
@@ -10,44 +13,67 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
 
+  headers = new Headers();
+  authString: string;
+  userSubject = new Subject<void>();
+  users : user[] = [];
+
   token: string;
  // private cookieValue: string;
 
   constructor(
     private readonly httpClient: HttpClient,
-   // private cookieService: CookieService
+    private cookies: CookieService,
+    private _router: Router,
+    private dialog : MatDialog, 
   ) { }
 
   getToken(): string {
-    return this.token;
+    const authString = `${this.cookies.get('email')}:${this.cookies.get('password')}`
+    return 'Basic ' + btoa(authString);
   }
 
   isLoggedIn(): boolean {
-    return !!this.token;
+    return !!(this.cookies.get('email') && this.cookies.get('password'));  
   }
 
-  login(email: string, password: string): Observable<any> {
-    const info = btoa(`${email}:${password}`);
-    const token = `Basic ${info}`;
-    const options = {
-      headers: new HttpHeaders({
-        Authorization: token,
-        'X-Requested-With' : 'XMLHttpRequest'
-      }),
-      withCredentials: true
-    };
-    return this.httpClient.get('http://localhost:8080/user', options).pipe(
-      tap(() => this.token = token)
-    );
+  async login(user: user){
+
+    let authString = `${user.email}:${user.password}`
+
+    this.headers.set('Authorization', 'Basic ' + btoa(authString))
+
+    try {
+      const response = await fetch('http://localhost:8080/user', {
+        method: 'GET',
+        headers: this.headers,
+      });
+      const data_1 = await response.json();
+      this.cookies.set('email', user.email);
+      this.cookies.set('password', user.password );
+      window.location.href="/mainblog" 
+
+    }
+     catch (error) {
+      console.log('Error:', error);
+      //alert("Login failed, try again.")
+      this.showDialog();
+    }
   }
 
-  logout(): void {
-    this.token = null;
+  showDialog(): void {
+    this.dialog.open(DialogComponent);
   }
 
-  //ngOnInit(): void {
-   // this.cookieService.set('cookie-name', 'our cookie value');
-   // this.cookieValue = this.cookieService.get('cookie-name');
-   //}
+  logoutUser() {
+    localStorage.removeItem('token')
+    this.cookies.delete ('email');
+    this.cookies.delete('password');
+    this._router.navigate(['/mainblog'])
+  }
+
+  loggedIn() {
+    return !!localStorage.getItem('token');
+  }
 
 }

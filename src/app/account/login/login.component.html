@@ -1,34 +1,25 @@
 <div class="container">
   <div class="forms-container">
     <div class="signin-signup">
-      <form (ngSubmit)="login()" class="sign-in-form" [formGroup]="loginGroup">
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="sign-in-form" >
         <h2 class="title">Prihláste sa</h2>
-        <p *ngIf="signInError && signInError.length > 0" style="color: darkred">
-          <i class="bi bi-exclamation-circle"></i>{{ signInError }}
-        </p>
+        
         <div class="input-field">
           <i class="fas fa-user"></i>
-          <input
-            formControlName="email"
-            type="email"
-            placeholder="mailos@mailos.sk"
-          />
+           <input matInput required type="text" name="email" [(ngModel)]="model.email" placeholder="mailos@mailos.com">
         </div>
         <div class="input-field">
           <i class="fas fa-lock"></i>
-          <input
-            formControlName="password"
-            type="password"
-            placeholder="heslo"
-          />
+          <input matInput required type="password" name="password" [(ngModel)]="model.password" placeholder="password">
         </div>
 
-        <input
-          type="submit"
-          value="Prihlásiť sa"
-          class="btn solid"
-          [disabled]="!loginGroup.valid"
-        />
+         <div class="form-group">
+
+            <p>Not registred? <a routerLink="/register" class="register-link"> Create account!</a></p>
+                   
+        </div>
+
+        <button mat-button class="login-button" type="submit" [disabled]="!loginForm.form.valid"> LOGIN </button>
         <p class="social-text">
           Alebo sa prihláste pomocou sociálnych platform
         </p>
@@ -47,8 +38,41 @@
           </a>
         </div>
       </form>
+      <!-- <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
+        <div class="form-group">
+
+
+             <mat-form-field class="username-input" appearance="outline">
+                <mat-label>Email</mat-label>
+                    <input matInput required type="text" name="email" [(ngModel)]="model.email">
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+          
+ 
+        </div>
+
+        <div class="form-group">
+
+            <mat-form-field class="username-input" appearance="outline">
+                <mat-label>Password</mat-label>
+                    <input matInput required type="password" name="password" [(ngModel)]="model.password">
+                <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+                   
+        </div>
+
+        <div class="form-group">
+
+            <p>Not registred? <a routerLink="/register" class="register-link"> Create account!</a></p>
+                   
+        </div>
+
+        <button mat-button class="login-button" type="submit" [disabled]="!loginForm.form.valid"> LOGIN </button> 
+        
+     </form>-->
     </div>
-  </div>
+  </div> 
 
   <div class="panels-container">
     <div class="panel left-panel">

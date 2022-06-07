@@ -42,7 +42,8 @@
         </li>
 
         <li class="nav-item">
-          <a routerLink="/login" class="nav-link">Prihlásiť sa</a>
+          <a class="nav-link" *ngIf="!loggedInEmail" routerLink="/login" routerLinkActive="active">Login</a>
+          <a class="nav-link" style="cursor:pointer" *ngIf="loggedInEmail" (click)="onlogout()">Logout</a>
         </li>
       </ul>
 

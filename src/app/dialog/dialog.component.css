@@ -1,0 +1,14 @@
+.dialog {
+    width: 400px;
+    height: 125px;
+    border-radius: 5px;
+}
+
+.close-button {
+    color: black;
+}
+
+.close-button:hover {
+    background-color: rgba(110, 4, 110, 0.932);
+    color: white;
+}

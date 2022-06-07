@@ -1,5 +1,6 @@
-import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { user } from '../../user';
 import { AuthService } from 'src/app/service/auth.service';
 import { Router } from '@angular/router';
 
@@ -10,36 +11,21 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  title = 'Login • BlogPlex'
+  users: user[] = [];
 
-  @Input()
-  signInError : string;
-
-
-  loginGroup = new FormGroup({
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
-  });
+  model = new user( '', '', "");
 
   constructor(
-    private readonly authService: AuthService,
-    private readonly router: Router,
+    private location: Location,
+    private router: Router,
+    private readonly loginService: AuthService,
   ) { }
 
   ngOnInit(): void {
-   }
-
-
-  login() {
-    if (this.loginGroup.valid) {
-      const email = this.loginGroup.value.email;
-      const password = this.loginGroup.value.password;
-      this.authService.login(email, password)
-        .subscribe(() => this.router.navigateByUrl('/mainblog'));
-    }
-    else {
-      this.signInError = 'Wrong password or Email';
-    }
   }
 
-}
+  onSubmit() {
+      this.loginService.login(this.model)
+  } 
+ 
+} 

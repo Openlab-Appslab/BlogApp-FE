@@ -19,7 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
   ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if (this.authService.isLoggedIn()) {
+    if (this.authService.loggedIn()) {
       request = request.clone({
         headers: new HttpHeaders({
           Authorization: this.authService.getToken()
@@ -28,8 +28,8 @@ export class AuthInterceptor implements HttpInterceptor {
     }
     return next.handle(request).pipe(
       catchError((err: HttpErrorResponse) => {
-        if (this.authService.isLoggedIn() && err.status === 401) {
-          this.authService.logout();
+        if (this.authService.loggedIn() && err.status === 401) {
+          this.authService.logoutUser();
           this.router.navigateByUrl('/');
         }
         throw err;

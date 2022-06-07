@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Title} from "@angular/platform-browser";
+import { Title } from '@angular/platform-browser';
+import { BlogDetailService } from '../service/blog-detail.service';
+import { Blog } from '../blog';
+import { ActivatedRoute } from '@angular/router'
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-mainblog',
@@ -8,11 +12,15 @@ import {Title} from "@angular/platform-browser";
 })
 export class MainblogComponent implements OnInit {
 
-  constructor(private titleService:Title) {
+  constructor(private titleService:Title, private blogService: BlogDetailService, private route: ActivatedRoute) {
     this.titleService.setTitle("Domov • Stránka plná zaujívamých blogov");
   }
 
+  blog: Blog;
+
   ngOnInit(): void {
+     this.blogService.getBlogDetail(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blog = blog);
   }
+
 
 }
