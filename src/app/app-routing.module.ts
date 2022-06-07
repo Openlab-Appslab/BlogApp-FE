@@ -25,15 +25,15 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'blogs/:id', component: BlogDetailComponent },
-  { path: 'ui/profile/editor', component: EditorComponent},
-  { path: 'ui/profile/navigation', component: NavigationComponent},
-  { path: 'ui/profile',  component: ProfileComponent},
-  { path: 'ui/profile/liked',  component: LikedblogsComponent},
-  { path: 'ui/profile/unread',  component: UnreadblogsComponent},
-  { path: 'ui/profile/editprofile',  component: EditprofileComponent},
-  { path: 'ui/profile/private', component: PrivateComponent},
-  { path: 'ui/profile/public',  component: PublicComponent},
-  { path: 'ui/profile/blogs', component: LatestblogComponent}
+  { path: 'ui/profile/editor', canActivate: [AuthGuard], component: EditorComponent},
+  { path: 'ui/profile/navigation', canActivate: [AuthGuard], component: NavigationComponent},
+  { path: 'ui/profile', canActivate: [AuthGuard],  component: ProfileComponent},
+  { path: 'ui/profile/liked', canActivate: [AuthGuard],  component: LikedblogsComponent},
+  { path: 'ui/profile/unread', canActivate: [AuthGuard],  component: UnreadblogsComponent},
+  { path: 'ui/profile/editprofile', canActivate: [AuthGuard],  component: EditprofileComponent},
+  { path: 'ui/profile/private', canActivate: [AuthGuard], component: PrivateComponent},
+  { path: 'ui/profile/public', canActivate: [AuthGuard],  component: PublicComponent},
+  { path: 'ui/profile/blogs', canActivate: [AuthGuard], component: LatestblogComponent}
 
 ];
 

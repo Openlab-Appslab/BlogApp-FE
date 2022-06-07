@@ -56,7 +56,7 @@ export class AuthService {
     }
      catch (error) {
       console.log('Error:', error);
-      //alert("Login failed, try again.")
+      alert("Login failed, try again.")
       this.showDialog();
     }
   }
@@ -69,7 +69,7 @@ export class AuthService {
     localStorage.removeItem('token')
     this.cookies.delete ('email');
     this.cookies.delete('password');
-    this._router.navigate(['/mainblog'])
+    this._router.navigate(['/login'])
   }
 
   loggedIn() {

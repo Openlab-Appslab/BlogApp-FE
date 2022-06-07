@@ -19,8 +19,6 @@ export class BlogDetailService {
       return this.httpClient.get<Blog>('http://localhost:8080/blog/' + blogName);
   }
 
-
-
-
+ 
 
 }

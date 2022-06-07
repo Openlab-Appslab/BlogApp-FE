@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { user } from '../../user';
 import { AuthService } from 'src/app/service/auth.service';
 import { Router } from '@angular/router';
+import { User } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,11 @@ export class LoginComponent implements OnInit {
     private location: Location,
     private router: Router,
     private readonly loginService: AuthService,
-  ) { }
+  ) { 
+    if(this.loginService.isLoggedIn()){
+      this.router.navigate(['/mainblog']);
+    }
+  }
 
   ngOnInit(): void {
   }
