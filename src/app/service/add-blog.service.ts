@@ -12,11 +12,12 @@ export class AddBlogService {
   ) { }
 
   addBlog(blog: Blog){
-    return this.http.post('localhost:8080/blogs/create', {
-      title : blog.title,
+    return this.http.post('http://localhost:8080/noAuth/blog/blogCreate', {
+      title : blog.name,
       content : blog.content,
       author : blog.author,
-      category : blog.category
+      category : blog.category,
+      date: blog.date
     })
   }
 }
