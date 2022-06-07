@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Blog } from '../blog';
+import { Blog } from '../blog.model';
 
 
 
@@ -10,15 +9,14 @@ import { Blog } from '../blog';
 })
 export class BlogDetailService {
 
-    constructor(
-        private readonly httpClient: HttpClient,
+  constructor(
+    private http: HttpClient
+  ) {
 
-      ) { }
-
-  getBlogDetail(blogName: string): Observable<Blog> {
-      return this.httpClient.get<Blog>('http://localhost:8080/blog/' + blogName);
   }
 
- 
+  getAllBlog(){
+    return this.http.blog('localhost:8080/blogs', {})
+  }
 
 }

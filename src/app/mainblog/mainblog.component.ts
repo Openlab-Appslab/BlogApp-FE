@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { BlogDetailService } from '../service/blog-detail.service';
-import { Blog } from '../blog';
+// import { Blog } from '../blog.model';
 import { ActivatedRoute } from '@angular/router'
 import { CookieService } from 'ngx-cookie-service';
+import { BlogDetailService } from '../service/blog-detail.service';
+import { Blog } from '../blog.model';
+import { CommonService } from '../service/common.service';
 
 @Component({
   selector: 'app-mainblog',
@@ -12,14 +14,32 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class MainblogComponent implements OnInit {
 
-  constructor(private titleService:Title, private blogService: BlogDetailService, private route: ActivatedRoute) {
-    this.titleService.setTitle("Domov • Stránka plná zaujívamých blogov");
-  }
+  constructor(
+    private titleService:Title, 
+    private blogService: BlogDetailService,
+    private commonService: CommonService,
+    private route: ActivatedRoute
+    ) {
+
+      this.titleService.setTitle("Domov • Stránka plná zaujívamých blogov");
+
+    }
 
   blog: Blog;
 
-  ngOnInit(): void {
-     this.blogService.getBlogDetail(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blog = blog);
+  ngOnInit() {
+     this.getAllBlog();
+
+     this.commonService.blogAdded_Observable.subscribe(res => {
+       this.getAllBlog();
+     })
+  }
+
+  getAllBlog(){
+    this.blogService.getAllBlog().subscribe(result => {
+      console.log('result is: ', result);
+      this.blog = result['data'];
+    } )
   }
 
 

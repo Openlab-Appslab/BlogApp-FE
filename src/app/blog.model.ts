@@ -5,6 +5,7 @@ export class Blog {
         this.content = '';
         this.author = '';
         this.category = '';
+        this.date = '';
     }
 
     public id;
@@ -12,4 +13,5 @@ export class Blog {
     public content;
     public author;
     public category;
+    public date;
 }
