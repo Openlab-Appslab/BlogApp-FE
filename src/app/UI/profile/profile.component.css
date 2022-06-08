@@ -1,9 +1,41 @@
-
-.cara {
-  
-    border: 1px solid black;
-  border-radius: 5px;
+.container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+.container > div {
+    margin: 1px;
+}
+
+.content {
+    padding: 15px;
+    width: 600px;
+    border: 3px solid black;
+}
+
+.content h1 {
+    font-weight: 600;
+}
+
+.content span {
+    font-weight: 700;
+}
+.obrazky
+{
+    display: flex;
+    margin-bottom: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+  
+      
+}
+img {
+  
+    border-radius: 10px;
+  }
+  
 
 .container {
     margin-top: 50px;
@@ -97,11 +129,8 @@ h6 {
 @media only screen and (min-width: 1400px){
 p {
     font-size: 14px;
-    
 }
 }
-
-
 
 .card-block {
     padding: 1.25rem;
@@ -181,10 +210,10 @@ p {
    
 }
 .navigation a:hover{
-color: black;
-transition: 0.25rem;
-}
-
+    color: black;
+    transition: 0.25rem;
+    }
+    
 .navigation li {
     margin-bottom: 10px;
    
@@ -201,25 +230,94 @@ transition: 0.25rem;
     border-radius: 5px;
 }
 
-.btn.transparent{
-    background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
-    background: linear-gradient(to right, #ee5a6f, #f29263);
+.blogy {
+    margin-top: 10px;
+    margin-left: 5px;
     font-weight: 600;
-    font-size: 12px;
-    border-radius: 10px;
-    border: 1px solid black;
+    margin-bottom: 0px;
 }
-.meno{
-    margin-top: 0px;
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 12px;
+}          
+.column {
+    flex: 10%;
+    padding: 0 10px;
+}
+.bestblogs {
+    font-size: 30px;
+    font-weight: 500;
+    color: #3333ff;
+    text-align: center;
+    font-family: "Georgia";
+        
+}
+.bestblogs:hover {
+    color: grey;    
+}
+.cara {
+  
+  border: 1x solid black;
+  border-radius: 10px;
+  background-color: black;
+  width: 100%;
+
 }
 
-.btn {
-  background: linear-gradient(90deg,#0162c8,#55e7fc);
-  color: black;
-  position: relative;
-  font-size: 16px;
-  font-weight: 600;
- 
+.site-container{
+    margin: 2rem auto;
+    max-width: calc(100%- 80 px);
 }
 
+.article-image img{
+   border-radius: 20px 20px 0 0;
+   width: 600px;
+   height: 300px;
+}
+.article-card{
+    background: white;
+    border-radius: 20px;
+    transition: 0.3s;
 
+}
+.article-card:hover{
+  box-shadow: 0 4px 20px 0 rgba(34,68,123,0.2);
+  cursor: pointer;
+
+}
+.article-content{
+    padding: 2rem;
+}
+.article-content  {
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: #6b82a7;
+    display: block;
+    text-decoration: none;
+
+}
+.card-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #f29263;
+    font-size: 20px;
+
+}
+.font-weight-bold{
+    color: #ee5a6f;
+}
+.article-content .card-excerpt {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color:#6b82a7;
+    letter-spacing: 3px;
+    text-indent: 50px;
+    margin: 0;
+}
+.kategoria1{color: #3399ff; font-weight: bold;}
+.kategoria2{color: black;font-weight: bold;}
+.kategoria3{color: red;font-weight: bold;}
+.kategoria4{color: green;font-weight: bold;}
+/*font-weight-bold mb-3*/
