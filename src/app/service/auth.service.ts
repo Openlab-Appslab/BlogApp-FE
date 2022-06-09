@@ -23,7 +23,7 @@ export class AuthService {
 
   constructor(
     private readonly httpClient: HttpClient,
-    private cookies: CookieService,
+    public cookies: CookieService,
     private _router: Router,
     private dialog : MatDialog, 
   ) { }
@@ -67,8 +67,7 @@ export class AuthService {
 
   logoutUser() {
     localStorage.removeItem('token')
-    this.cookies.delete ('email');
-    this.cookies.delete('password');
+    this.cookies.deleteAll();
     this._router.navigate(['/login'])
   }
 

@@ -4,6 +4,7 @@ import { AddBlogService } from 'src/app/service/add-blog.service';
 import { Blog } from 'src/app/blog.model';
 import { CommonService } from 'src/app/service/common.service';
 import { Router } from '@angular/router';
+import { Inject } from '@angular/core';
 
 @Component({
   selector: 'app-editor',
@@ -12,12 +13,12 @@ import { Router } from '@angular/router';
 })
 export class EditorComponent implements OnInit {
 
-  // editorForm: FormGroup;
-  // editorContent: string;
+  editorForm: FormGroup;
+  editorContent: string;
 
-  // editorStyle ={
-  //   height: '300px',
-  // }
+  editorStyle ={
+    height: '300px',
+  }
 
   // config = {
   //   toolbar: [
@@ -26,11 +27,10 @@ export class EditorComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    // this.editorForm = new FormGroup({
-    //   'title': new FormControl(null),
-    //   'editor': new FormControl(null)
-
-    // })
+    this.editorForm = new FormGroup({
+      // 'title': new FormControl(null),
+      'editor': new FormControl(null)
+      })
   }
 
   // onSubmit() {
@@ -40,13 +40,14 @@ export class EditorComponent implements OnInit {
   //   console.log(this.editorForm.get('editor').value);    
   // }
 
-  // maxLength(e){
-  //   if(e.editor.getLength() > 10000){
-  //     e.editor.deleteText(10, e.editor.getLength());
-  //   }
-  // }
+  maxLength(e){
+    if(e.editor.getLength() > 10000){
+      e.editor.deleteText(10, e.editor.getLength());
+    }
+  }
 
-  @ViewChild('closeBtn') closeBtn: ElementRef;
+  // @ViewChild('closeBtn') closeBtn: ElementRef;
+
   public blog : Blog;
 
   constructor(
@@ -60,8 +61,7 @@ export class EditorComponent implements OnInit {
 
   addBlog() {
   	if(this.blog.name && this.blog.content && this.blog.author && this.blog.category && this.blog.date){
-  		this.addBlogService.addBlog(this.blog).subscribe(res =>{
-  			this.closeBtn.nativeElement.click();
+  		this.addBlogService.addBlog(this.blog).then(res =>{
         this.commonService.notifyBlogAddition();
   		});
   	} else {

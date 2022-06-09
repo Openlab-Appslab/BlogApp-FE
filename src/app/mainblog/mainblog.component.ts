@@ -16,7 +16,7 @@ import { Observable } from 'rxjs';
 })
 export class MainblogComponent implements OnInit {
 
-  public blogs : any [];
+  public blogs : Blog [];
 
   constructor(
     private titleService:Title, 
@@ -31,19 +31,25 @@ export class MainblogComponent implements OnInit {
 
     ngOnInit(){
       this.getAllBlog();
+      // this.getUserBlog();
   
       this.commonService.blogAdded_Observable.subscribe(res => {
         this.getAllBlog();
       });
     }
-  
-  
-  
+
+    // getUserBlog(){
+    //   this.showPostService.getUserBlog().subscribe(result => {
+    //     // console.log('user blogs ', result);
+    //     // this.blogs = result;
+    //   })
+    // }
+
     getAllBlog(){
       this.showPostService.getAllBlog().subscribe(result => {
-        console.log('result is ', result);
-        this.blogs = result['data'];
+        console.log('result is', result);
         this.blogs = result;
+        
       });
     }  
 

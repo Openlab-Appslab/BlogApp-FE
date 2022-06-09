@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Blog } from '../blog.model';
 import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +10,33 @@ import { Observable } from 'rxjs';
 export class ShowPostService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private authS: AuthService
   ) { }
 
   getAllBlog(){
-		return this.http.get<Blog[]>('http://localhost:8080/noAuth/blog/getAllBlogs',{})
+    let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
+
+    let headerHttp = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Basic ' + btoa(authString)
+    });
+
+    console.log(this.http.get<Blog[]>('http://localhost:8080/getAllBlogs',{ headers: headerHttp }));
+
+		return this.http.get<Blog[]>('http://localhost:8080/getAllBlogs',{ headers: headerHttp })
 	}
+
+  getUserBlog(){
+    let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
+
+    let headerHttp = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Basic ' + btoa(authString)
+    });
+
+    return this.http.get<Blog[]>('http://localhost:8080/Auth/userBlogs',{ headers: headerHttp })
+  }
 
   getBlog(blogName: string): Observable<Blog> {
     return this.http.get<Blog>('http://localhost:8080/noAuth/blog/' + blogName);
