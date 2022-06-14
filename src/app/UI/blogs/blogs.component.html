@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col-lg-4 col-md-12 mb-4" *ngFor="let blog of blogs">
+    <section class="dark-grey-text text-center">
+      <div class="row">
+        <figure class="snip1527" [routerLink]="['/blogs', blog .name]">
+          <div class="image">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample23.jpg" alt="pr-sample23" />
+          </div>
+          <figcaption>
+            <div class="date"><span class="day">{{blog.date}}</span></div>
+            <h3>{{blog.name}}</h3>
+            <p class="text" [innerHTML]="blog.content">
+        
+              {{blog.content}}
+            </p>
+          </figcaption>
+          <a [routerLink]="['/blogs', blog .name]"></a>
+        </figure>
+      </div>
+
+  </section>
+  </div>
+</div>

@@ -38,6 +38,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { LatestblogComponent } from './UI/latestblog/latestblog.component';
+import { BlogsComponent } from './UI/blogs/blogs.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { LatestblogComponent } from './UI/latestblog/latestblog.component';
     PrivateComponent,
     DialogComponent,
     LatestblogComponent,
+    BlogsComponent,
    
 
   ],

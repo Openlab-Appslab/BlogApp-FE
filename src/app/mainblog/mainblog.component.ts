@@ -31,26 +31,20 @@ export class MainblogComponent implements OnInit {
 
     ngOnInit(){
       this.getAllBlog();
-      // this.getUserBlog();
+
   
       this.commonService.blogAdded_Observable.subscribe(res => {
         this.getAllBlog();
       });
     }
 
-    // getUserBlog(){
-    //   this.showPostService.getUserBlog().subscribe(result => {
-    //     // console.log('user blogs ', result);
-    //     // this.blogs = result;
-    //   })
-    // }
-
     getAllBlog(){
-      this.showPostService.getAllBlog().subscribe(result => {
+      this.showPostService.getAllBlog(this.route.snapshot.paramMap.get('id')).subscribe(result => {
         console.log('result is', result);
         this.blogs = result;
         
       });
+      // return this.showPostService.getAllBlog(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blogs = blog);
     }  
 
 }

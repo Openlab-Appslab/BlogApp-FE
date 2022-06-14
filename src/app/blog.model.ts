@@ -6,6 +6,7 @@ export class Blog {
         this.author = '';
         this.category = '';
         this.date = '';
+        // this.titlephoto = ''; 
     }
 
     public id;
@@ -14,4 +15,5 @@ export class Blog {
     public author;
     public category;
     public date;
+    // public titlephoto;
 }

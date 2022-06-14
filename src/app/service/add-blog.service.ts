@@ -31,6 +31,7 @@ export class AddBlogService {
         author : blog.author,
         category : blog.category,
         date: blog.date
+        // titlephoto: blog.titlephoto
         }), 
  
     }) 

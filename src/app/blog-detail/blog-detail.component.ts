@@ -21,17 +21,23 @@ export class BlogDetailComponent implements OnInit {
     ) { }
 
     ngOnInit(){
-      this.getBlog();
+      this.getBlogDetail();
   
       // this.commonService.blogAdded_Observable.subscribe(res => {
-      //   this.getAllBlog();
+      //   this.getBlog();
       // });
+
+      // this.showPostService.getBlogDetail(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blog = blog);
     }
   
-  
-  
-    getBlog(){
-      return this.showPostService.getBlog(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blog = blog);
+    getBlogDetail(){
+      // this.showPostService.getBlogDetail(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blog = blog);      
+
+      this.showPostService.getBlogDetail(this.route.snapshot.paramMap.get('id')).subscribe(result => {
+        console.log('result is', result);
+        this.blog = result;
+        // this.blog.content =  `` 
+      });
     }
 
 }
