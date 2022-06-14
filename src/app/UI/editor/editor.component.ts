@@ -21,16 +21,22 @@ export class EditorComponent implements OnInit {
 
   editorForm: FormGroup;
   editorContent: string;
+  editorTitle: string;
 
   public htmlBody: string;
+  public htmlTitle: string;
 
   modules = {}
+  modTitle = {}
 
   blured = false
   focused = false
   
   created(event){
     console.log('editor-created', event)
+  }
+  createdTitle(event){
+    console.log('title-editor-created', event)
   }
 
   changedEditor(event: EditorChangeContent | EditorChangeSelection) {
@@ -52,8 +58,10 @@ export class EditorComponent implements OnInit {
   ngOnInit(): void {
     this.editorForm = new FormGroup({
       // 'title': new FormControl(null),
-      'editor': new FormControl(null)
+      'editor': new FormControl(null),
+      'editorTitle': new FormControl(null)
       })
+
   }
 
   // onSubmit() {
@@ -111,6 +119,31 @@ export class EditorComponent implements OnInit {
           ['clean'],                                         // remove formatting button
 
           ['link', 'image', 'video'],                         // link and image, video
+          ['emoji'],
+        ],
+        handlers: { 'emoji': function () { } },
+
+      }
+    }
+
+    this.modTitle = {
+      'emoji-shortname': true,
+      'emoji-textarea': false,
+      'emoji-toolbar': true,
+      'toolbar': {
+        container: [
+          ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+          ['blockquote'],
+
+          [{ 'header': 1 }, { 'header': 2 }],               // custom button values                      
+
+          [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+          [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+          [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+          [{ 'font': [] }],
+
+          ['clean'],                                         // remove formatting button                   
           ['emoji'],
         ],
         handlers: { 'emoji': function () { } },
