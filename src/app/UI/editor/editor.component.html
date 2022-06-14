@@ -34,9 +34,22 @@
                         <label for="exampleInputEmail1">Title</label>
                         <input name="title" type="text" [(ngModel)]="blog.name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter title">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group editor">
                         <label for="exampleInputPassword1">Content</label>
-                            <quill-editor name="description" [(ngModel)]="blog.content"></quill-editor>
+                        <quill-editor 
+                            
+                            name="description" 
+                            [(ngModel)]="blog.content"
+                            [(ngModel)]="htmlBody"
+                            (onFocus)="focus($event)"
+                            (onBlur)="blur($event)"
+                            (onEditorChanged)="changedEditor($event)"
+                            (onEditorCreated)="created($event)"
+                            [modules]="modules"
+                        >
+                        </quill-editor>
+                        
+                            
                     <!-- <span *ngIf="editorForm.get('editor').value != null">{{10000 -
                         editorForm.get('editor').value.length}}</span> -->
                     </div>
@@ -64,3 +77,5 @@
 
                     <button (click)="addBlog()" type="button" class="btn btn-primary">Add</button>
                 </form>
+
+                <p>{{htmlBody}}</p>

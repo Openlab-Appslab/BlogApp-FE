@@ -39,7 +39,9 @@ import { DialogComponent } from './dialog/dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { LatestblogComponent } from './UI/latestblog/latestblog.component';
 import { BlogsComponent } from './UI/blogs/blogs.component';
-
+import BlotFormatter from 'quill-blot-formatter/dist/BlotFormatter';
+import { Editor1Component } from './UI/editor1/editor1.component';
+import { SafeHtmlPipe } from './safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -67,8 +69,8 @@ import { BlogsComponent } from './UI/blogs/blogs.component';
     DialogComponent,
     LatestblogComponent,
     BlogsComponent,
-   
-
+    Editor1Component,
+    SafeHtmlPipe,
   ],
 
   imports: [
@@ -90,7 +92,9 @@ import { BlogsComponent } from './UI/blogs/blogs.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+   
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
