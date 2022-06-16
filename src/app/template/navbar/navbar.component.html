@@ -23,13 +23,13 @@
           <a class="nav-link waves-effect" routerLink="/mainblog" href="#">Domov</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link waves-effect" href="#" target="_blank">Blogy</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link waves-effect" routerLink="/contact" href="#">Kontakt</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link waves-effect" routerLink="/ui/profile" href="#">Profil</a>
+          <a  *ngIf="loggedInEmail"class="nav-link waves-effect" routerLink="/ui/profile" href="#">Profil</a>
+        </li>
+        <li class="nav-item">
+          <a  *ngIf="loggedInEmail"class="nav-link waves-effect" routerLink="/ui/profile/editor" href="#">Add Blog</a>
         </li>
       </ul>
 
