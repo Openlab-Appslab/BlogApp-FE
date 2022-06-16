@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AddBlogService } from 'src/app/service/add-blog.service';
 import { Blog } from 'src/app/blog.model';
 import { CommonService } from 'src/app/service/common.service';
@@ -11,6 +11,11 @@ import Quill from 'quill';
 import BlotFormatter from 'quill-blot-formatter/dist/BlotFormatter';
 
 Quill.register('modules/blotFormatter', BlotFormatter);
+
+interface Category {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-editor',
@@ -31,7 +36,18 @@ export class EditorComponent implements OnInit {
 
   blured = false
   focused = false
-  
+
+  selectedValue: string;
+
+  categors: Category[] = [
+    {value: '🙏 kultúra', viewValue: 'Kultúra'},
+    {value: '💻 Tech', viewValue: 'Tech'},
+    {value: '🍃 Priroda', viewValue: 'Príroda'},
+    {value: '👨‍💼 Politika', viewValue: 'Politika'},
+    {value: '❤️ Zdravie', viewValue: 'Zdravie'},
+    {value: '🌍 Svetadiel', viewValue: 'Svetadiel'},
+  ];
+
   created(event){
     console.log('editor-created', event)
   }

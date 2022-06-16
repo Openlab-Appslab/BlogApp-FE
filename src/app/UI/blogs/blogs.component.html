@@ -9,10 +9,7 @@
           <figcaption>
             <div class="date"><span class="day">{{blog.date}}</span></div>
             <h3>{{blog.name}}</h3>
-            <p class="text" [innerHTML]="blog.content">
-        
-              {{blog.content}}
-            </p>
+            <p class="text" [innerHTML]="blog.content | safeHtml"></p>
           </figcaption>
           <a [routerLink]="['/blogs', blog .name]"></a>
         </figure>

@@ -34,14 +34,14 @@
 
           <!-- Category -->
           <a href="#!" class="pink-text">
-            <h6 class="font-weight-bold mb-3"><i class="fas fa-map pr-2"></i>{{blog.category}}</h6>
+            <h6 class="font-weight-bold mb-3" [innerHTML]="blog.category | safeHtml"></h6>
           </a>
           <!-- Post title -->
           <h4 class="font-weight-bold mb-3"><strong>{{blog.name}}</strong></h4>
           <!-- Post data -->
           <p>by <a class="font-weight-bold">{{blog.author}}</a>, {{blog.date}}</p>
           <!-- Excerpt -->
-          <p class="dark-grey-text text" [innerHTML]="blog.content" ng-maxlength="20">{{blog.content}}</p>
+          <p class="dark-grey-text text" [innerHTML]="blog.content | safeHtml" ng-maxlength="20"></p>
           <!-- Read more button -->
           <a class="btn btn-info btn-rounded btn-md">Prečítaj si viac</a>
           

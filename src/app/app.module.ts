@@ -40,8 +40,12 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { LatestblogComponent } from './UI/latestblog/latestblog.component';
 import { BlogsComponent } from './UI/blogs/blogs.component';
 import BlotFormatter from 'quill-blot-formatter/dist/BlotFormatter';
-import { Editor1Component } from './UI/editor1/editor1.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -69,11 +73,15 @@ import { SafeHtmlPipe } from './safe-html.pipe';
     DialogComponent,
     LatestblogComponent,
     BlogsComponent,
-    Editor1Component,
     SafeHtmlPipe,
   ],
 
   imports: [
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatSelectModule,
     MatDialogModule,
     BrowserModule,
     AppRoutingModule,

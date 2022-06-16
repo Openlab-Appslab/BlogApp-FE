@@ -1,4 +1,4 @@
-<div class="container mx-5 justifiy-content text-center">
+<div class="container">
     <section *ngIf="blog" id="content" class="border-bottom mb-4">
         <span>{{blog.name}}</span><br>
         <span [innerHTML]="blog.content | safeHtml"></span>

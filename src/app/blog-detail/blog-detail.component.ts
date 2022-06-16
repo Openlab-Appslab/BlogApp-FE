@@ -15,10 +15,6 @@ export class BlogDetailComponent implements OnInit {
 
   public blog: Blog;
 
-  
-
-  @Input() styleContent: string;
-
   constructor(
     private showPostService: ShowPostService, 
     private route: ActivatedRoute,
