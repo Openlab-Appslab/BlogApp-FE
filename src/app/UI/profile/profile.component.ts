@@ -16,10 +16,13 @@ export class ProfileComponent implements OnInit {
     private readonly loginService: AuthService,
     private cookies: CookieService,
     private userDetailService: UserDetailService,
-    private user : User,
+    
   ) { }
 
+  private user: User;
+
   users: user[] = [];
+
   loggedInEmail: string;
 
   ngOnInit(): void {
