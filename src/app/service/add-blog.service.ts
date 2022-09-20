@@ -5,6 +5,8 @@ import { AuthService } from './auth.service';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { ModalComponent } from '../modal/modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +15,13 @@ export class AddBlogService {
 
   constructor(
     private http: HttpClient,
-    private authS: AuthService
+    private authS: AuthService,
+    private modal: MatDialog
   ) { }
 
   addBlog(blog: Blog){
     let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
+    this.showModal();
 
     return fetch('http://localhost:8080/Auth/addPost', { 
       method: 'POST', 
@@ -27,44 +31,21 @@ export class AddBlogService {
       }), 
       body: JSON.stringify({
         name : blog.name,
+        title: blog.title,
         content : blog.content,
         author : blog.author,
         category : blog.category,
         date: blog.date
         // titlephoto: blog.titlephoto
-        }), 
- 
+        }),  
     }) 
       .catch((error) => { 
         console.error('Error:', error); 
       }); 
-
-    // let headerHttp = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   Authorization: 'Basic ' + btoa(authString)
-    // });
-
-    // return this.http.post('http://localhost:8080/Auth/addPost', {
-    //   name : blog.name,
-    //   content : blog.content,
-    //   author : blog.author,
-    //   category : blog.category,
-    //   date: blog.date
-    // })
   }
 
-  
+  showModal(): void {
+    this.modal.open(ModalComponent);
+  }
 
-  // getAllBlog(){
-  //   let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
-
-  //   let headerHttp = new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     Authorization: 'Basic ' + btoa(authString)
-  //   });
-
-  //   console.log(this.http.get<Blog[]>('http://localhost:8080/getAllBlogs',{ headers: headerHttp }));
-
-	// 	return this.http.get<Blog[]>('http://localhost:8080/getAllBlogs',{ headers: headerHttp })
-	// }
 }

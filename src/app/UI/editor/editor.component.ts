@@ -4,7 +4,6 @@ import { AddBlogService } from 'src/app/service/add-blog.service';
 import { Blog } from 'src/app/blog.model';
 import { CommonService } from 'src/app/service/common.service';
 import { Router } from '@angular/router';
-import { Inject } from '@angular/core';
 import { EditorChangeContent, EditorChangeSelection } from 'ngx-quill';
 import 'quill-emoji/dist/quill-emoji.js';
 import Quill from 'quill';
@@ -40,12 +39,12 @@ export class EditorComponent implements OnInit {
   selectedValue: string;
 
   categors: Category[] = [
-    {value: '🙏 kultúra', viewValue: 'Kultúra'},
-    {value: '💻 Tech', viewValue: 'Tech'},
-    {value: '🍃 Priroda', viewValue: 'Príroda'},
-    {value: '👨‍💼 Politika', viewValue: 'Politika'},
-    {value: '❤️ Zdravie', viewValue: 'Zdravie'},
-    {value: '🌍 Svetadiel', viewValue: 'Svetadiel'},
+    {value: '🙏 kultúra', viewValue: '🙏 Kultúra'},
+    {value: '💻 Tech', viewValue: '💻 Tech'},
+    {value: '🍃 Priroda', viewValue: '🍃 Príroda'},
+    {value: '👨‍💼Politika', viewValue: '👨‍💼Politika'},
+    {value: '❤️ Zdravie', viewValue: '❤️ Zdravie'},
+    {value: '🌍 Svetadiel', viewValue: '🌍 Svetadiel'},
   ];
 
   created(event){
@@ -79,13 +78,6 @@ export class EditorComponent implements OnInit {
       })
 
   }
-
-  // onSubmit() {
-  //   this.editorContent = this.editorForm.get('title').value;
-  //   this.editorContent = this.editorForm.get('editor').value;
-  //   console.log(this.editorForm.get('title').value);
-  //   console.log(this.editorForm.get('editor').value);    
-  // }
 
   maxLength(e){
     if(e.editor.getLength() > 10000){
@@ -169,7 +161,7 @@ export class EditorComponent implements OnInit {
   }
 
   addBlog() {
-  	if(this.blog.name && this.blog.content && this.blog.author && this.blog.category && this.blog.date){
+  	if(this.blog.name && this.blog.title && this.blog.content && this.blog.author && this.blog.category && this.blog.date){
   		this.addBlogService.addBlog(this.blog).then(res =>{
         this.commonService.notifyBlogAddition();
   		});

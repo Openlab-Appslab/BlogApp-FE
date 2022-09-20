@@ -1,109 +1,73 @@
-<!-- <div class="container">
-    <div class="left">
-        <app-navigation></app-navigation>
-    </div> -->
+<div class="container justify-content-center text-center">
+    <form class="mt-5">
 
-<form class="mt-5">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Title</label>
-    <input
-      name="title"
-      type="text"
-      [(ngModel)]="blog.name"
-      class="form-control"
-      id="exampleInputEmail1"
-      aria-describedby="emailHelp"
-    />
-    <!-- <quill-editor   
-                        name="title"
-                        placeholder="Enter title"
-                            [(ngModel)]="blog.name"
-                            [(ngModel)]="htmlTitle"
-                            (onFocus)="focus($event)"
-                            (onBlur)="blur($event)"
-                            
-                            (onEditorCreated)="createdTitle($event)"
-                            [modules]="modTitle"
-                        >
-                        </quill-editor> -->
-  </div>
-  <div class="form-group editor">
-    <label for="exampleInputPassword1">Content</label>
-    <quill-editor
-      name="description"
-      [(ngModel)]="blog.content"
-      [(ngModel)]="htmlBody"
-      (onFocus)="focus($event)"
-      (onBlur)="blur($event)"
-      (onEditorCreated)="created($event)"
-      [modules]="modules"
-    >
-    </quill-editor>
+        <div class="row gx-5 ">
+            <div class="col-12">
+                <div class="form-group">
+                    <label class="font-weight-bold" for="exampleInputEmail1">Name</label>
+                    <input name="createdTitle" type="text" [(ngModel)]="blog.title" class="form-control"
+                        id="exampleInputEmail1" aria-describedby="emailHelp" required/>
+                </div>
+            </div>
 
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Author</label>
-    <textarea
-      name="description"
-      [(ngModel)]="blog.author"
-      class="form-control"
-      id="exampleInputPassword1"
-      placeholder="Password"
-    >
-    </textarea>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Kategória</label>
-    <h4>mat-select</h4>
-    <mat-form-field appearance="fill">
-      <mat-label>Kategória</mat-label>
-      <mat-select [(ngModel)]="blog.category" name="category">
-        <mat-option *ngFor="let category of categors" [value]="category.value">
-          {{category.viewValue}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+            <div class="col-12">
+                <div class="form-group">
+                    <label class="font-weight-bold" for="exampleInputEmail1">Title</label>
+                    <quill-editor name="name" placeholder="Enter title" [(ngModel)]="blog.name" [(ngModel)]="htmlTitle"
+                        (onFocus)="focus($event)" (onBlur)="blur($event)" (onEditorCreated)="createdTitle($event)"
+                        [modules]="modTitle" >
+                    </quill-editor>
+                </div>
+            </div>
 
-    <datalist id="browsers">
-      <option value="Internet Explorer"></option>
-      <option value="Firefox"></option>
-      <option value="Google Chrome"></option>
-      <option value="Opera"></option>
-      <option value="Safari"></option>
-    </datalist>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Date</label>
-    <!-- <textarea
-      name="description"
-      [(ngModel)]="blog.date"
-      class="form-control"
-      id="exampleInputPassword1"
-      placeholder="Password"
-    >
-    </textarea> -->
-
-    <div class="col-lg-6">
-        <div style="display:flex"> <!-- wrapping in a flex container -->
-          <!-- <input name="description" matInput [(ngModel)]="blog.date" [matDatepicker]="picker" placeholder="Choose a date" class="form-control">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker> -->
-          <mat-form-field appearance="fill">
-            <mat-label>Zadajte dátum</mat-label>
-            <input name="description" matInput [(ngModel)]="blog.date" [matDatepicker]="picker">
-            <mat-hint>mesiac.deň.rok</mat-hint>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+            <div class="col-12">
+                <label class="font-weight-bold" for="exampleInputPassword1">Content</label>
+                <div class="form-group editor">
+                    <quill-editor name="description" [(ngModel)]="blog.content" [(ngModel)]="htmlBody"
+                        (onFocus)="focus($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)"
+                        [modules]="modules">
+                    </quill-editor>
+                </div>
+            </div>
+        
+            <div class="col-lg-4 col-md-12">
+                <div class="form-group">
+                    <label class="font-weight-bold" for="exampleInputPassword1">Author</label>
+                    <input type="text" name="author" required minlength="4" [(ngModel)]="blog.author" class="form-control"
+                        id="exampleInputPassword1" placeholder="Meno Priezvisko" required>
+                </div>
+            </div>
+        
+            <div class="col-lg-4 col-md-6">
+                <label for="exampleInputPassword1">Kategória</label>
+                <div class="form-group">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="font-weight-bold">Kategória</mat-label>
+                        <mat-select [(ngModel)]="blog.category" name="category" required>
+                            <mat-option *ngFor="let category of categors" [value]="category.value">
+                                {{category.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        
+            <div class="col-lg-4 col-md-6">
+                <label for="exampleInputPassword1">Date</label>
+                <div class="form-group">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="font-weight-bold">Zadajte dátum</mat-label>
+                        <input name="description" matInput [(ngModel)]="blog.date" [matDatepicker]="picker" required>
+                        <mat-hint>mesiac.deň.rok</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+             
         </div>
-      </div>
-  </div>
-  <!-- <div class="form-group">
-                        <label for="">Title photo</label>
-                        <input type="file" name="image" accept="image/png, image/jpeg" />
-                    </div> -->
 
-  <button (click)="addBlog()" type="button" class="btn btn-primary">Add</button>
-</form>
+        <button (click)="addBlog()" type="button" class="btn btn-primary">Pridať</button>
 
-<p>{{ htmlBody }}</p>
+    </form>
+</div>

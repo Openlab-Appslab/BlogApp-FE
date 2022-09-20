@@ -61,7 +61,7 @@ export class ShowPostService {
           Authorization: 'Basic ' + btoa(authString)
         });
 
-    return this.httpClient.get<Blog>('http://localhost:8080/blog/'+ blogName , {headers: headerHttp});
+    return this.httpClient.get<Blog>('http://localhost:8080/blog/'+ blogName, {headers: headerHttp});
 }
 
 }
