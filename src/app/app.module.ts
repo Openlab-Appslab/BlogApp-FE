@@ -47,6 +47,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatNativeDateModule } from '@angular/material/core';
 import { ModalComponent } from './modal/modal.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { ModalComponent } from './modal/modal.component';
     BlogsComponent,
     SafeHtmlPipe,
     ModalComponent,
+    PagenotfoundComponent,
   ],
 
   imports: [
