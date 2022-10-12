@@ -64,5 +64,18 @@ export class ShowPostService {
     return this.httpClient.get<Blog>('http://localhost:8080/blog/'+ blogName, {headers: headerHttp});
 }
 
+/*getProfileDetail(){
+  
+  let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
+
+  let headerHttp = new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Basic ' + btoa(authString)
+      });
+
+  return this.httpClient.get<Blog>('http://localhost:8080/profile/'+ {headers: headerHttp});
+}*/
+
 }
+
 
