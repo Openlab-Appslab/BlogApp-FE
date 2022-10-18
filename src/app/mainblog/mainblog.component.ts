@@ -17,6 +17,7 @@ import { Observable } from 'rxjs';
 export class MainblogComponent implements OnInit {
 
   public blogs : Blog [];
+  date: number = Date.now();
 
   constructor(
     private titleService:Title, 

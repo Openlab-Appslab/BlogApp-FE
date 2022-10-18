@@ -23,3 +23,10 @@
     display: flex;
     margin-bottom: 80px;
 }
+.moveup{
+    margin-top:-70px;
+}
+
+.btn {
+    margin-bottom: 12px;
+}

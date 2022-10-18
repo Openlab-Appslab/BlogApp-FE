@@ -56,7 +56,7 @@ export class ProfileComponent implements OnInit {
     })
   }
   /*
-  getProfileDetail(){
+  getUserProfileDetail(){
     // this.showPostService.getBlogDetail(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blog = blog);      
 
     this.showPostService.getProfileDetail().subscribe(result => {
