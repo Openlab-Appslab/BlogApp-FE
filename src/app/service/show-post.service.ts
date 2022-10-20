@@ -24,7 +24,7 @@ export class ShowPostService {
       Authorization: 'Basic ' + btoa(authString)
     });
 
-    // console.log(this.http.get<Blog[]>('http://localhost:8080/getAllBlogs',{ headers: headerHttp }));
+    //console.log(this.http.get<Blog[]>('http://localhost:8080/getAllBlogs',{ headers: headerHttp }));
 
 		return this.http.get<Blog[]>('http://localhost:8080/getAllBlogs', {headers: headerHttp});
 	}
@@ -36,6 +36,8 @@ export class ShowPostService {
       'Content-Type': 'application/json',
       Authorization: 'Basic ' + btoa(authString)
     });
+
+    console.log(this.http.get<Blog[]>('http://localhost:8080/Auth/userBlogs',{ headers: headerHttp }));
 
     return this.http.get<Blog[]>('http://localhost:8080/Auth/userBlogs', {headers: headerHttp})
   }
@@ -52,7 +54,8 @@ export class ShowPostService {
   //   return this.http.get<Blog>('http://localhost:8080/blog/', {headers: headerHttp});
   // }
 
-  getBlogDetail(blogName: string): Observable<Blog> {
+  getBlogDetail(blogTitle: string): Observable<Blog> {
+
 
     let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
 
@@ -61,20 +64,24 @@ export class ShowPostService {
           Authorization: 'Basic ' + btoa(authString)
         });
 
-    return this.httpClient.get<Blog>('http://localhost:8080/blog/'+ blogName, {headers: headerHttp});
+        console.log(this.http.get<Blog[]>('http://localhost:8080/blog/',{ headers: headerHttp }));
+
+    return this.httpClient.get<Blog>('http://localhost:8080/blog/'+ blogTitle, {headers: headerHttp});
 }
 
-/*getProfileDetail(){
-  
-  let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
+getProfileDetail(){
+    
+    let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
 
-  let headerHttp = new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Basic ' + btoa(authString)
-      });
+    let headerHttp = new HttpHeaders({
+          'Content-Type': 'application/json',
+          Authorization: 'Basic ' + btoa(authString)
+        });
 
-  return this.httpClient.get<Blog>('http://localhost:8080/profile/'+ {headers: headerHttp});
-}*/
+        console.log(this.http.get<Blog[]>('http://localhost:8080/profile/',{ headers: headerHttp }));
+
+    return this.httpClient.get<Blog>('http://localhost:8080/profile/'+ {headers: headerHttp});
+  }
 
 }
 

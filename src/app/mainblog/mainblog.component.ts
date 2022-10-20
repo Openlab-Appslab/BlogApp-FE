@@ -45,7 +45,7 @@ export class MainblogComponent implements OnInit {
         this.blogs = result;
         
       });
-      // return this.showPostService.getAllBlog(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blogs = blog);
+      return this.showPostService.getAllBlog(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blogs = blog);
     }  
 
 }

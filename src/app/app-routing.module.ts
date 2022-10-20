@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'blogs/:id', component: BlogDetailComponent },
+  { path: 'blog/:id', component: BlogDetailComponent },
   { path: 'ui/profile/editor', canActivate: [AuthGuard], component: EditorComponent},
   { path: 'ui/profile/navigation', canActivate: [AuthGuard], component: NavigationComponent},
   { path: 'ui/profile',  canActivate: [AuthGuard], component: ProfileComponent},

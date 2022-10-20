@@ -23,7 +23,7 @@
         <!-- Grid column -->
         <div *ngFor="let blog of blogs" class="col-lg-4 col-md-12 mb-4">
 
-          <a href="#" [routerLink]="['/blogs', blog .name]" >
+          <a href="#" [routerLink]="['/blogs', blog .title]" >
           <!-- Featured image -->
           <div class="view overlay rounded z-depth-2 mb-4">
             <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/81.jpg" alt="Sample image">
@@ -37,7 +37,7 @@
             <h5 class="font-weight-bold mb-3" [innerHTML]="blog.category | safeHtml"></h5>
           </a>
           <!-- Post title -->
-          <h4 class="font-weight-bold mb-3"><strong [innerHTML]="blog.title | safeHtml"></strong></h4>
+          <h4 class="font-weight-bold mb-3"><strong [innerHTML]="blog.name | safeHtml"></strong></h4>
           <!-- Post data -->
           <p>by <a class="font-weight-bold">{{blog.author}}</a>, {{blog.date}}</p>
           <!-- Excerpt -->

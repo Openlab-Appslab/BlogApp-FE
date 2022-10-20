@@ -20,15 +20,15 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" *ngIf="user">
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center">
             <img src="../../../assets/img/me.jpg" alt="avatar"
               class="rounded-circle img-fluid" style="width: 150px;">
-            <h5 class="my-3">Michal Sládeček</h5>
+            <h5 class="my-3">{{user.email}}</h5>
             <p class="text-muted mb-1">Web designer</p>
-            <p class="text-muted mb-4">Nesluša, Kysucké Nové Mesto, KM</p>
+            <p class="text-muted mb-4">{{user.address}}</p>
             <div class="d-flex justify-content-center mb-2">
               <a href="ui/profile/editprofile"><button type="button" class="btn btn-primary">Upraviť profil</button></a> 
       
@@ -46,7 +46,17 @@
               </div>
               <div class="col-sm-9">
                 <!--   <p class = text-muted mb-0"> [innerHTML]="user.username | safeHtml"></p>  -->
-                <p class="text-muted mb-0">Michal Sládeček</p>
+                <p class="text-muted mb-0">{{user.fullname}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Nickname</p>
+              </div>
+              <div class="col-sm-9">
+                <!--   <p class = text-muted mb-0"> [innerHTML]="user.username | safeHtml"></p>  -->
+                <p class="text-muted mb-0">{{user.username}}</p>
               </div>
             </div>
             <hr>
@@ -57,7 +67,7 @@
               <div class="col-sm-9">
       <!--   <p class = text-muted mb-0"> [innerHTML]="user.email | safeHtml"></p>  -->
 
-                <p class="text-muted mb-0">michalsladecek@gmail.com</p>
+                <p class="text-muted mb-0">{{user.email}}</p>
               </div>
             </div>
             <hr>
@@ -67,7 +77,7 @@
               </div>
               <div class="col-sm-9">
    <!--   <p class = text-muted mb-0"> [innerHTML]="user.phone | safeHtml"></p>  -->
-                <p class="text-muted mb-0">0944 586 412</p>
+                <p class="text-muted mb-0">{{user.telephone}}</p>
               </div>
             </div>
             <hr>
@@ -77,7 +87,7 @@
               </div>
               <div class="col-sm-9">
      <!--   <p class = text-muted mb-0"> [innerHTML]="user.adress | safeHtml"></p>  -->
-                <p class="text-muted mb-0">Nesluša 9, Kysucké Nové Mesto, KM</p>
+                <p class="text-muted mb-0">{{user.address}}</p>
               </div>
             </div>
           </div>

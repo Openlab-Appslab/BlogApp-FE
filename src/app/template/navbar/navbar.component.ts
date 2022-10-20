@@ -27,7 +27,7 @@ export class NavbarComponent {
     })
   }
 
-  model = new user( "", "", "");
+  model = new user( "", "", "", "", "", "");
     
 
   navbarOpen = false;

@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   users: user[] = [];
 
-  model = new user( '', '', "");
+  model = new user( '', '', "", "", "", "");
 
   constructor(
     private location: Location,
