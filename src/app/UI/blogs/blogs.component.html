@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="col-lg-4 col-md-12 mb-4" *ngFor="let blog of blogs">
     <section class="dark-grey-text text-center">
       <div class="row">
@@ -16,5 +16,27 @@
       </div>
 
   </section>
+  </div>
+</div> -->
+
+<div class="container" *ngFor="let blog of blogs">
+  <div class="card">
+    <div class="card__header">
+      <img src="https://source.unsplash.com/600x400/?computer" [routerLink]="['/blogs', blog .name]" alt="card__image" class="card__image" width="600">
+    </div>
+    <div class="card__body">
+      <span class="tag tag-blue">{{blog.category}}</span>
+      <h4>{{blog.name}}</h4>
+      <p [innerHTML]="blog.content | safeHtml"></p>
+    </div>
+    <div class="card__footer">
+      <div class="user">
+        <img src="https://i.pravatar.cc/40?img=1" alt="user__image" class="user__image">
+        <div class="user__info">
+          <h5>{{blog.username}}</h5>
+          <small>{{blog.date}}</small>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

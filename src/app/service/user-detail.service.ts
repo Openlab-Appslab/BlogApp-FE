@@ -4,6 +4,12 @@ import { User } from '@auth0/auth0-angular';
 import { AuthService } from './auth.service';
 import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { ModalComponent } from '../modal/modal.component';
+import { MatDialog } from '@angular/material/dialog';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 
 @Injectable({
@@ -15,6 +21,7 @@ export class UserDetailService {
     private http: HttpClient,
     private authS: AuthService,
     private readonly httpClient: HttpClient,
+    private modal: MatDialog
   ) { }
 
   token: string;
@@ -37,8 +44,15 @@ getUserDetail(){
   return this.http.get<User[]>('http://localhost:8080/user', {headers: headerHttp})
 }
 
-editUser(user: User){
+editUser(fullname: string, username: string, address: string, telephone: string){
   let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
+   
+  // console.log(JSON.stringify({
+  //   fullname,
+  //   username,
+  //   address,
+  //   telephone
+  // }))
 
   return fetch('http://localhost:8080/Auth/EditUser', { 
     method: 'POST', 
@@ -47,19 +61,18 @@ editUser(user: User){
       'Content-Type': 'application/json' 
     }), 
     body: JSON.stringify({
-      username : user.username,
-      fullname: user.fullname,
-      telephone : user.teephone,
-      address: user.address,
-      email: user.email
+      fullname,
+      username,
+      address,
+      telephone
+
       }),  
   }) 
     .catch((error) => { 
       console.error('Error:', error); 
     }); 
-}
 
-  // editUser(username: string, )
+  }
 }
 
 

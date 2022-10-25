@@ -1,33 +1,6 @@
 <section style="background-color: #eee">
   <div class="container py-5">
-    <div class="row">
-      <div class="col">
-        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
-          <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="#">Domovská stránka</a></li>
-            <li class="breadcrumb-item"><a href="ui/profile">Profil</a></li>
-            <li class="breadcrumb-item">
-              <a href="ui/profile/editprofile">Edit profilu</a>
-            </li>
-            <li class="breadcrumb-item">
-              <a href="ui/profile/liked">Obľubené blogy </a>
-            </li>
-            <li class="breadcrumb-item">
-              <a href="ui/profile/unread">Nedočítané blogy</a>
-            </li>
-            <li class="breadcrumb-item">
-              <a href="ui/profile/editor">Nový Blog</a>
-            </li>
-            <li class="breadcrumb-item">
-              <a href="ui/profile/public">Verejné Blogy</a>
-            </li>
-            <li class="breadcrumb-item">
-              <a href="ui/profile/private">Súkromné blogy</a>
-            </li>
-          </ol>
-        </nav>
-      </div>
-    </div>
+    <app-navigation></app-navigation>
 <form [formGroup]="userForm">
     <div class="row" *ngIf="user">
       <div class="col-lg-4">
@@ -39,9 +12,9 @@
               class="rounded-circle img-fluid"
               style="width: 150px"
             />
-            <h5 class="my-3">{{user.fullname }}</h5>
+            <h5 class="my-3">{{user.fullname}}</h5>
             <p class="text-muted mb-1">Web designer</p>
-            <p class="text-muted mb-4">{{user.address }}</p>
+            <p class="text-muted mb-4">{{user.address}}</p>
           </div>
         </div>
       </div>
@@ -57,6 +30,7 @@
                   type="text"
                   class="form-control"
                   formControlName="fullname"
+                
                 />
                
               </div>
@@ -77,21 +51,19 @@
               </div>
             </div>
             <hr />
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-sm-3">
                 <p class="mb-0">Email</p>
               </div>
               <div class="col-sm-9">
                 <input
-                  type="text"
+                  type="email"
                   class="form-control"
                   formControlName="email"
-
-                 
                 />
                 
               </div>
-            </div>
+            </div> -->
             <hr />
             <div class="row">
               <div class="col-sm-3">
@@ -125,7 +97,7 @@
             </div>
           </div>
           <div class="d-flex justify-content-center mb-2">
-            <button type="button" class="btn btn-primary" >
+            <button type="button" class="btn btn-primary" (click)="editUser()">
               Uložiť zmeny
             </button>
           </div>

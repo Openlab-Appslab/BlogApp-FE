@@ -1,136 +1,108 @@
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-.text {
-    overflow: hidden;
-     text-overflow: ellipsis;
-     display: -webkit-box;
-     -webkit-line-clamp: 2; /* number of lines to show */
-     -webkit-box-orient: vertical;
-  }
+body {
+  font-family: "Quicksand", sans-serif;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: #7f7fd5;
+  background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
+}
 
-  @media only screen and (max-width: 600px){
-    .container{
-      flex-direction: column;
-    }
-  }
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin-block: 2rem;
+  gap: 2rem;
+}
 
-.snip1527 {
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-    color: #ffffff;
-    float: left;
-    font-family: 'Lato', Arial, sans-serif;
-    font-size: 16px;
-    margin: 10px 1%;
-    max-width: 310px;
-    min-width: 250px;
-    overflow: hidden;
-    position: relative;
-    text-align: left;
-    width: 100%;
-  }
-  
-  .snip1527 * {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: all 0.25s ease;
-    transition: all 0.25s ease;
-  }
-  
-  .snip1527 img {
-    max-width: 100%;
-    vertical-align: top;
-    position: relative;
-  }
-  
-  .snip1527 figcaption {
-    padding: 25px 20px 25px;
-    position: absolute;
-    bottom: 0;
-    z-index: 1;
-  }
-  
-  .snip1527 figcaption:before {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #700877;
-    content: '';
-    background: -moz-linear-gradient(90deg, #700877 0%, #ff2759 100%, #ff2759 100%);
-    background: -webkit-linear-gradient(90deg, #700877 0%, #ff2759 100%, #ff2759 100%);
-    background: linear-gradient(90deg, #700877 0%, #ff2759 100%, #ff2759 100%);
-    opacity: 0.8;
-    z-index: -1;
-  }
-  
-  .snip1527 .date {
-    background-color: #fff;
-    border-radius: 50%;
-    color: #700877;
-    font-size: 18px;
-    font-weight: 700;
-    min-height: 48px;
-    min-width: 48px;
-    padding: 10px 0;
-    position: absolute;
-    right: 15px;
-    text-align: center;
-    text-transform: uppercase;
-    top: -25px;
-  }
-  
-  .snip1527 .date span {
-    display: block;
-    line-height: 14px;
-  }
-  
-  .snip1527 .date .month {
-    font-size: 11px;
-  }
-  
-  .snip1527 h3, .snip1527 p {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .snip1527 h3 {
-    display: inline-block;
-    font-weight: 700;
-    letter-spacing: -0.4px;
-    margin-bottom: 5px;
-  }
-  
-  .snip1527 p {
-    font-size: 0.8em;
-    line-height: 1.6em;
-    margin-bottom: 0px;
-  }
-  
-  .snip1527 a {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    position: absolute;
-    z-index: 1;
-  }
-  
-  .snip1527:hover img, .snip1527.hover img {
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
-  }
-  
-  img {
-    border-radius: 5px;
-  }
-  
-  img {
-    border-radius: 5px;
-  }
-  
-  
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: clamp(20rem, calc(20rem + 2vw), 22rem);
+  overflow: hidden;
+  box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 1em;
+  background: #ECE9E6;
+background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+
+}
+
+
+
+.card__body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+
+.tag {
+  align-self: flex-start;
+  padding: .25em .75em;
+  border-radius: 1em;
+  font-size: .75rem;
+}
+
+.tag + .tag {
+  margin-left: .5em;
+}
+
+.tag-blue {
+  background: #56CCF2;
+background: linear-gradient(to bottom, #2F80ED, #56CCF2);
+  color: #fafafa;
+}
+
+.tag-brown {
+  background: #D1913C;
+background: linear-gradient(to bottom, #FFD194, #D1913C);
+  color: #fafafa;
+}
+
+.tag-red {
+  background: #cb2d3e;
+background: linear-gradient(to bottom, #ef473a, #cb2d3e);
+  color: #fafafa;
+}
+
+.card__body h4 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+}
+
+.card__footer {
+  display: flex;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.user {
+  display: flex;
+  gap: .5rem;
+}
+
+.user__image {
+  border-radius: 50%;
+}
+
+.user__info > small {
+  color: #666;
+}

@@ -12,9 +12,10 @@ import { AccountService, AlertService } from '../../_services';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/service/common.service';
-import { user } from '../../user'
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { CommonUserService } from 'src/app/service/common-user.service';
+import { user } from '../../user';
 
 @Component({
   selector: 'app-editprofile',
@@ -26,17 +27,17 @@ export class EditprofileComponent implements OnInit {
   public user: User;
 
   constructor(
-    private formBuilder: FormBuilder,
+   private formBuilder: FormBuilder,
     private readonly loginService: AuthService,
     private cookies: CookieService,
     private userDetailService: UserDetailService,
-    private showPostService: ShowPostService, 
-    private route: ActivatedRoute, 
-    private alertService: AlertService,
-    private router: Router,
-    private accountService: AccountService,
-    private commonService: CommonService,
-    private readonly http: HttpClient,
+   private showPostService: ShowPostService, 
+   private route: ActivatedRoute, 
+   private alertService: AlertService,
+   private router: Router,
+   private accountService: AccountService,
+    private commonUserService: CommonUserService,
+   private readonly http: HttpClient,
     private authS: AuthService,
   ) {
     this.user = new User();
@@ -51,16 +52,16 @@ export class EditprofileComponent implements OnInit {
     username: new FormControl('', Validators.required),
     address: new FormControl('', Validators.required),
     telephone: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
+    // email: new FormControl('', Validators.required),
 
   })
 
-
-
-  
+  test(){
+    console.log(this.userForm.value);
+  }
 
   ngOnInit(): void {
-    this.getUserDetail();
+    // this.getUserDetail();
     
     this.loggedInEmail = this.cookies.get('username');
 
@@ -69,38 +70,32 @@ export class EditprofileComponent implements OnInit {
     })
   }
 
-
-
   onlogout() { 
     this.loginService.logoutUser();
     location.reload();
   }
 
-  getUserDetail(){
-    this.userDetailService.getUserDetail().subscribe(result => {
-      console.log('user detail is ', result);
-      this.user = result;
-    })
-  }
-
-  // editUser() {
-  // 	if(this.user.fullname && this.user.surname && this.user.address && this.user.telephone && this.user.email){
-  // 		this.userDetailService.editUser(this.user).then(res =>{
-  //       this.commonService.notifyBlogAddition();
-  // 		});
-  // 	} else {
-  // 		alert('rfsfw');
-  // 	}
-  // }
-
-  // editUser(fullname: string, username: string, address: string, telephone: string, email: string): Observable<any>{
-  //   return this.http.post('http://localhost:8080/Auth/EditUser', {
-  //     fullname,
-  //     username,
-  //     address,
-  //     telephone,
-  //     email
+  // getUserDetail(){
+  //   this.userDetailService.getUserDetail().subscribe(result => {
+  //     console.log('user detail is ', result);
+  //     this.user = result;
   //   })
   // }
 
+
+  editUser(): void {
+     if(this.userForm.valid) {
+      const fullname = this.userForm.value.fullname;
+      const username = this.userForm.value.username;
+      const address = this.userForm.value.address;
+      const telephone = this.userForm.value.telephone;
+      
+      this.userDetailService.editUser(fullname, username, address, telephone).then(res =>{
+              this.commonUserService.notifyUserEddition();
+        		});
+        	} else {
+        		alert('Error');
+        	}
+
+    } 
 }
