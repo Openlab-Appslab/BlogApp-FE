@@ -21,7 +21,7 @@ import { BlogsComponent } from './UI/blogs/blogs.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
-  { path: '', component: MainblogComponent},
+  { path: '', redirectTo: 'mainblog', pathMatch: 'full'},
   { path: 'mainblog', component: MainblogComponent},
   { path: 'contact', component: ContactComponent },
   { path: 'register', component: RegisterComponent },

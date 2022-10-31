@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { user } from '../user'
 import { DialogComponent } from '../dialog/dialog.component';
 import {MatDialog} from '@angular/material/dialog';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -13,7 +14,8 @@ import {MatDialog} from '@angular/material/dialog';
 export class AuthService {
 
   headers = new Headers();
-  authString: string;
+  private userLoggedIn = new BehaviorSubject<{isLoggedIn: boolean}>({isLoggedIn: this.isLoggedIn()});
+  userLoggedIn$ = this.userLoggedIn.asObservable();
   users : user[] = [];
 
   token: string;
@@ -25,6 +27,10 @@ export class AuthService {
     private router: Router,
     private dialog : MatDialog
   ) { }
+
+  emitUserLoggedIn() {
+    this.userLoggedIn.next({isLoggedIn: this.isLoggedIn()});
+  }
 
   getToken(): string {
     const authString = `${this.cookies.get('email')}:${this.cookies.get('password')}`
@@ -47,7 +53,8 @@ export class AuthService {
           this.showLoginFailedAlert();
         }
         this.cookies.set('email', user.email);
-        this.cookies.set('password', user.password );
+        this.cookies.set('password', user.password);
+        this.emitUserLoggedIn();
         this.router.navigate(['/mainblog']);
       }).catch(error => {
         console.log('Error:', error);
@@ -65,7 +72,9 @@ export class AuthService {
 
   logoutUser() {
     localStorage.removeItem('token');
-    this.cookies.deleteAll();
+    this.cookies.deleteAll('/');
+    this.cookies.deleteAll('/ui/profile');
+    this.emitUserLoggedIn();
     this.router.navigate(['/login']);
   }
 

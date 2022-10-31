@@ -3,7 +3,7 @@
   <div class="container">
 
     <!-- Brand -->
-    <a class="navbar-brand waves-effect" href="">
+    <a class="navbar-brand waves-effect" [routerLink]="['/mainblog']">
       <img src="../assets/img/unknown.webp" alt="Logo">
       <span class="brand">Blogplex</span>
     </a>
@@ -15,7 +15,7 @@
     </button>
 
     <!-- Links -->
-    <div [ngClass]="{ 'show': navbarOpen }" class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div [ngClass]="{ 'show': navbarOpen }" class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="userLoggedIn$ | async as userLoggedIn">
 
       <!-- Left -->
       <ul class="navbar-nav mr-auto">
@@ -25,12 +25,14 @@
         <li class="nav-item">
           <a class="nav-link waves-effect" routerLink="/contact" href="#">Kontakt</a>
         </li>
-        <li class="nav-item">
-          <a  *ngIf="isLoggedIn" class="nav-link waves-effect" routerLink="/ui/profile" href="#">Profil</a>
-        </li>
-        <li class="nav-item">
-          <a  *ngIf="isLoggedIn" class="nav-link waves-effect" routerLink="/ui/profile/editor" href="#">Add Blog</a>
-        </li>
+        <ng-container *ngIf="userLoggedIn.isLoggedIn">
+          <li class="nav-item">
+            <a class="nav-link waves-effect" routerLink="/ui/profile" href="#">Profil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" routerLink="/ui/profile/editor" href="#">Add Blog</a>
+          </li>
+        </ng-container>
       </ul>
 
       <!-- Right -->
@@ -42,8 +44,8 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" *ngIf="!isLoggedIn" routerLink="/login" routerLinkActive="active">Login</a>
-          <a class="nav-link" style="cursor:pointer" *ngIf="isLoggedIn" (click)="onlogout()">Logout</a>
+          <a class="nav-link" *ngIf="!userLoggedIn.isLoggedIn" routerLink="/login" routerLinkActive="active">Login</a>
+          <a class="nav-link" style="cursor:pointer" *ngIf="userLoggedIn.isLoggedIn" (click)="onlogout()">Logout</a>
         </li>
       </ul>
 

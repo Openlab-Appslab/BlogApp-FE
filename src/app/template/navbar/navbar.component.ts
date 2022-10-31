@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -11,14 +12,14 @@ export class NavbarComponent {
   name = 'Angular';
 
   navbarOpen = false;
-  isLoggedIn: boolean;
+  userLoggedIn$: Observable<{isLoggedIn: boolean}>;
 
   constructor(
     public authService: AuthService
     ) { }
 
   ngOnInit(): void {
-    this.isLoggedIn = this.authService.isLoggedIn();
+    this.userLoggedIn$ = this.authService.userLoggedIn$;
   }
 
   toggleNavbar() {
