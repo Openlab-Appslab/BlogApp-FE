@@ -1,7 +1,7 @@
 <div class="container">
   <div class="forms-container">
     <div class="signin-signup">
-      <form (ngSubmit)="onSubmit()" class="sign-in-form" [formGroup]="form" #regForm="ngForm">
+      <form (ngSubmit)="onSubmit()" class="sign-in-form" [formGroup]="form">
         <h2 class="title">Zaregistrujte sa</h2>
 
         <div class="input-field">
@@ -54,8 +54,8 @@
 
         <!-- <input type="submit" value="Register" class="btn solid" /> -->
         <div class="form-group">
-          <button class="btn btn-primary"  [disabled]="!regForm.form.valid">
-            <span class="spinner-border spinner-border-sm mr-1"></span>
+          <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
            Registrovať sa
           </button>
         </div>
@@ -92,6 +92,6 @@
       </div>
       <img src="../../../assets/img/log.svg" class="image" alt="" />
     </div>
-   
+
   </div>
 </div>
