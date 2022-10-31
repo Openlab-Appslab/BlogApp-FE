@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { user } from '../user'
@@ -24,8 +24,8 @@ export class AuthService {
   constructor(
     private readonly httpClient: HttpClient,
     public cookies: CookieService,
-    private _router: Router,
-    private dialog : MatDialog, 
+    private router: Router,
+    private dialog : MatDialog
   ) { }
 
   getToken(): string {
@@ -34,31 +34,31 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return !!(this.cookies.get('email') && this.cookies.get('password'));  
+    return !!(this.cookies.get('email') && this.cookies.get('password'));
   }
 
-  async login(user: user){
+  login(user: user){
+    const authString = `${user.email}:${user.password}`;
+    this.headers.set('Authorization', 'Basic ' + btoa(authString));
 
-    let authString = `${user.email}:${user.password}`
-
-    this.headers.set('Authorization', 'Basic ' + btoa(authString))
-
-    try {
-      const response = await fetch('http://localhost:8080/user', {
+    fetch('http://localhost:8080/user', {
         method: 'GET',
         headers: this.headers,
+      }).then((response) => {
+        if (!response.ok) {
+          this.showLoginFailedAlert();
+        }
+        this.cookies.set('email', user.email);
+        this.cookies.set('password', user.password );
+        this.router.navigate(['/mainblog']);
+      }).catch(error => {
+        console.log('Error:', error);
+        this.showLoginFailedAlert();
       });
-      const data_1 = await response.json();
-      this.cookies.set('email', user.email);
-      this.cookies.set('password', user.password );
-      window.location.href="/mainblog" 
+  }
 
-    }
-     catch (error) {
-      console.log('Error:', error);
-      alert("Login failed, try again.")
-      this.showDialog();
-    }
+  private showLoginFailedAlert() {
+    alert("Login failed, try again.")
   }
 
   showDialog(): void {
@@ -66,9 +66,9 @@ export class AuthService {
   }
 
   logoutUser() {
-    localStorage.removeItem('token')
+    localStorage.removeItem('token');
     this.cookies.deleteAll();
-    this._router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
 
   loggedIn() {
