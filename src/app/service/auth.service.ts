@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { user } from '../user'
-import { Subject } from 'rxjs';
 import { DialogComponent } from '../dialog/dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 
@@ -15,7 +14,6 @@ export class AuthService {
 
   headers = new Headers();
   authString: string;
-  userSubject = new Subject<void>();
   users : user[] = [];
 
   token: string;

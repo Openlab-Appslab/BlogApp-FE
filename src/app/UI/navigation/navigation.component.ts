@@ -21,25 +21,12 @@ export class NavigationComponent implements OnInit {
     private readonly loginService: AuthService,
     private cookies: CookieService,
     private userDetailService: UserDetailService,
-    private showPostService: ShowPostService, 
-    private route: ActivatedRoute, 
+    private showPostService: ShowPostService,
+    private route: ActivatedRoute,
   ) { }
-
-  loggedInEmail: string;
 
   ngOnInit(): void {
     // this.getUserDetail();
-    
-    this.loggedInEmail = this.cookies.get('username');
-
-    this.loginService.userSubject.asObservable().subscribe(() => {
-      this.loggedInEmail = this.cookies.get('username');
-    })
-  }
-
-  onlogout() { 
-    this.loginService.logoutUser();
-    location.reload();
   }
 
   // getUserDetail(){

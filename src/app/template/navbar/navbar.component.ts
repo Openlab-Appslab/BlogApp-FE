@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
-import { CookieService } from 'ngx-cookie-service';
-import { user } from '../../user';
 
 @Component({
   selector: 'app-navbar',
@@ -12,34 +10,22 @@ export class NavbarComponent {
 
   name = 'Angular';
 
-  loggedInEmail: string;
+  navbarOpen = false;
+  isLoggedIn: boolean;
 
   constructor(
-    public _authService: AuthService,
-    private cookies: CookieService,
+    public authService: AuthService
     ) { }
 
   ngOnInit(): void {
-    this.loggedInEmail = this.cookies.get('email');
-
-    this._authService.userSubject.asObservable().subscribe(() => {
-      this.loggedInEmail = this.cookies.get('email');
-    })
+    this.isLoggedIn = this.authService.isLoggedIn();
   }
-
-  model = new user( "", "", "", "", "", "");
-    
-
-  navbarOpen = false;
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  onlogout() { 
-    this._authService.logoutUser();
-    location.reload();
+  onlogout() {
+    this.authService.logoutUser();
   }
-
 }
-  
