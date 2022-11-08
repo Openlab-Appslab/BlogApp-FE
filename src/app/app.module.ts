@@ -48,6 +48,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatNativeDateModule } from '@angular/material/core';
 import { ModalComponent } from './modal/modal.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { AdminComponent } from './admin/admin.component';
+import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +80,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     SafeHtmlPipe,
     ModalComponent,
     PagenotfoundComponent,
+    AdminComponent,
+    HomeAdminComponent,
+    NavigationComponent
   ],
 
   imports: [

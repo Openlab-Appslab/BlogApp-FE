@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { ContactComponent } from './contact/contact.component';
@@ -19,6 +19,11 @@ import { AuthGuard } from './auth.guard';
 import { LatestblogComponent } from './UI/latestblog/latestblog.component';
 import { BlogsComponent } from './UI/blogs/blogs.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { AdminComponent } from './admin/admin.component';
+import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
+import { AppComponent } from './app.component';
+import { AdminModule } from './admin/admin.module';
+import { ModuleWithProviders } from '@angular/core';
 
 const routes: Routes = [
   { path: '', component: MainblogComponent},
@@ -37,13 +42,15 @@ const routes: Routes = [
   { path: 'ui/profile/public',  canActivate: [AuthGuard], component: PublicComponent},
   { path: 'ui/profile/blogs', canActivate: [AuthGuard], component: LatestblogComponent},
   { path: 'ui/profile/blogstmp', canActivate: [AuthGuard], component: BlogsComponent},
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: '**', pathMatch: 'full', component: PagenotfoundComponent },
+  
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule,]
 })
 export class AppRoutingModule {}
