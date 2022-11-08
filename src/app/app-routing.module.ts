@@ -26,7 +26,7 @@ import { AdminModule } from './admin/admin.module';
 import { ModuleWithProviders } from '@angular/core';
 
 const routes: Routes = [
-  { path: '', component: MainblogComponent},
+  { path: '', redirectTo: 'mainblog', pathMatch: 'full'},
   { path: 'mainblog', component: MainblogComponent},
   { path: 'contact', component: ContactComponent },
   { path: 'register', component: RegisterComponent },

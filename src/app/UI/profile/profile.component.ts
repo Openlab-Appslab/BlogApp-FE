@@ -22,8 +22,8 @@ export class ProfileComponent implements OnInit {
     private readonly loginService: AuthService,
     private cookies: CookieService,
     private userDetailService: UserDetailService,
-    private showPostService: ShowPostService, 
-    private route: ActivatedRoute,   
+    private showPostService: ShowPostService,
+    private route: ActivatedRoute,
   ) { }
 
   // private user: User;
@@ -32,16 +32,8 @@ export class ProfileComponent implements OnInit {
   // users: user[] = [];
   // userProfiles: profileUser[] = [];
 
-  loggedInEmail: string;
-
   ngOnInit(): void {
     this.getUserDetail();
-    
-    this.loggedInEmail = this.cookies.get('username');
-
-    this.loginService.userSubject.asObservable().subscribe(() => {
-      this.loggedInEmail = this.cookies.get('username');
-    })
 
    /* this.getProfileDetail();*/
 
@@ -49,11 +41,6 @@ export class ProfileComponent implements OnInit {
 
   // model = new user( "", "", "");
   // modelUserDetail = new profileUser("", "", "", "",)
-
-  onlogout() { 
-    this.loginService.logoutUser();
-    location.reload();
-  }
 
   getUserDetail(){
     this.userDetailService.getUserDetail().subscribe(result => {
@@ -63,9 +50,9 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  
+
   // getUserProfileDetail(){
-  //   // this.showPostService.getBlogDetail(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blog = blog);      
+  //   // this.showPostService.getBlogDetail(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blog = blog);
 
   //   this.showPostService.getProfileDetail().subscribe(result => {
   //     console.log('result is', result);

@@ -31,8 +31,8 @@ export class EditprofileComponent implements OnInit {
     private readonly loginService: AuthService,
     private cookies: CookieService,
     private userDetailService: UserDetailService,
-   private showPostService: ShowPostService, 
-   private route: ActivatedRoute, 
+   private showPostService: ShowPostService,
+   private route: ActivatedRoute,
    private alertService: AlertService,
    private router: Router,
    private accountService: AccountService,
@@ -43,8 +43,6 @@ export class EditprofileComponent implements OnInit {
     this.user = new User();
    }
 
-
-  loggedInEmail: string;
 
   userForm = new FormGroup({
 
@@ -62,17 +60,6 @@ export class EditprofileComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getUserDetail();
-    
-    this.loggedInEmail = this.cookies.get('username');
-
-    this.loginService.userSubject.asObservable().subscribe(() => {
-      this.loggedInEmail = this.cookies.get('username');
-    })
-  }
-
-  onlogout() { 
-    this.loginService.logoutUser();
-    location.reload();
   }
 
   // getUserDetail(){
@@ -89,7 +76,7 @@ export class EditprofileComponent implements OnInit {
       const username = this.userForm.value.username;
       const address = this.userForm.value.address;
       const telephone = this.userForm.value.telephone;
-      
+
       this.userDetailService.editUser(fullname, username, address, telephone).then(res =>{
               this.commonUserService.notifyUserEddition();
         		});
@@ -97,5 +84,5 @@ export class EditprofileComponent implements OnInit {
         		alert('Error');
         	}
 
-    } 
+    }
 }
