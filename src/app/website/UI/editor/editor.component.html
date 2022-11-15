@@ -3,6 +3,8 @@
     <div class="container py-6">
         <app-navigation></app-navigation>
     
+        
+
 
 <div class="moveup">
     <div class="container justify-content-center text-center ">
@@ -30,7 +32,7 @@
                 <div class="col-12">
                     <label class="font-weight-bold" for="exampleInputPassword1">Content</label>
                     <div class="form-group editor">
-                        <quill-editor name="description" [(ngModel)]="blog.content" [(ngModel)]="htmlBody"
+                        <quill-editor class= "contenteditor" name="description" [(ngModel)]="blog.content" [(ngModel)]="htmlBody"
                             (onFocus)="focus($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)"
                             [modules]="modules">
                         </quill-editor>

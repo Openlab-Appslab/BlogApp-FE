@@ -20,8 +20,8 @@
 }
 
 .editor {
-    display: flex;
-    margin-bottom: 80px;
+    height: 150px;
+    margin-bottom: 100px;
 }
 .moveup{
     margin-top:-70px;
@@ -30,3 +30,4 @@
 .btn {
     margin-bottom: 12px;
 }
+
