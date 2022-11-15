@@ -24,7 +24,7 @@ import { user } from '../../user';
 })
 export class EditprofileComponent implements OnInit {
 
-  public user: User;
+ user: User;
 
   constructor(
    private formBuilder: FormBuilder,
@@ -40,7 +40,7 @@ export class EditprofileComponent implements OnInit {
    private readonly http: HttpClient,
     private authS: AuthService,
   ) {
-    this.user = new User();
+    
    }
 
 
@@ -81,19 +81,23 @@ export class EditprofileComponent implements OnInit {
               this.commonUserService.notifyUserEddition();
         		});
         	}
+      
 
     }
-    getUserDetail(){
-      this.userDetailService.getUserDetail().subscribe(user => {
-        console.log('user detail is ', user);
-        this.user = user;
-        // naplnit userForm datami v user
-        const afullname = this.userForm.value.fullname
-        const ausername = this.userForm.value.username
-        const aadress = this.userForm.value.address
-        const atelephone = this.userForm.value.telephone
-       
-       
+    getUserDetail()
+    {
+    this.userDetailService.getUserDetail().subscribe(user => 
+      {
+      this.user = user;
+      this.userForm.patchValue(
+        {
+        fullname: user.fullname,
+        username: user.username,
+        address: user.address,
+        telephone: user.telephone,
       })
-}
+    });
+    
+      
+    }
 }

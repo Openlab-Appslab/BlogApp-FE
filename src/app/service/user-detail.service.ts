@@ -30,7 +30,7 @@ export class UserDetailService {
     return this.token;
   }
 
-getUserDetail(){
+getUserDetail(): Observable<User> {
   let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
 
   let headerHttp = new HttpHeaders({
@@ -38,10 +38,10 @@ getUserDetail(){
     Authorization: 'Basic ' + btoa(authString)
   });
 
-  console.log(this.http.get<User[]>('http://localhost:8080/user',{ headers: headerHttp }));
+  console.log(this.http.get<User>('http://localhost:8080/user',{ headers: headerHttp }));
 
 
-  return this.http.get<User[]>('http://localhost:8080/user', {headers: headerHttp})
+  return this.http.get<User>('http://localhost:8080/user', {headers: headerHttp})
 }
 
 editUser(fullname: string, username: string, address: string, telephone: string){

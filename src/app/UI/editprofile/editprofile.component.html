@@ -30,7 +30,7 @@
                   type="name"
                   class="form-control"
                   formControlName="fullname"
-                  value="{{user.fullname}}"
+                 
                   
                 />
                
@@ -47,7 +47,7 @@
                   type="name"
                   class="form-control"
                   formControlName="username"     
-                  value="{{user.username}}"
+              
                 />
               </div>
             </div>
@@ -61,7 +61,7 @@
                   type="tel"
                   class="form-control"
                   formControlName="telephone"
-                  value="{{user.telephone}}"
+                  
                  
                 />
                 
@@ -77,15 +77,16 @@
                   type="address"
                   formControlName="address"
                   class="form-control"
-                  value="{{user.address}}"
+                
                 />
               </div>
               </div>
             </div>
             <div class="d-flex justify-content-center mb-2">
-              <button type="button" class="btn btn-primary" (click)="editUser()">
-                Uložiť zmeny
-              </button>
+             <a href ="ui/profile"><button action="./ui/profile" type="button" class="btn btn-primary" (click)="editUser() "> Uložiť zmeny
+            </button> </a>
+               
+              
             </div>
           <!-- <a href="ui/profile"><button type ="button" class="btn2" click="">Vrátiť sa na profil</button></a> -->
         </div>
