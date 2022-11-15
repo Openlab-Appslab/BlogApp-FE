@@ -213,13 +213,23 @@ transition: 0.25rem;
     margin-top: 0px;
 }
 
-.btn {
+.btn1 {
   background: linear-gradient(90deg,#0162c8,#55e7fc);
   color: black;
-  position: relative;
   font-size: 16px;
   font-weight: 600;
+  position: absolute ;
+  top: 19;
+  
+  
  
 }
-
+.btn2 {
+    background: linear-gradient(90deg,#0162c8,#55e7fc);
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+   
+  }
+  
 

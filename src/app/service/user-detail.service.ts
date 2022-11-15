@@ -69,7 +69,7 @@ editUser(fullname: string, username: string, address: string, telephone: string)
       }),  
   }) 
     .catch((error) => { 
-      console.error('Error:', error); 
+      console.log('Error:', error); 
     }); 
 
   }

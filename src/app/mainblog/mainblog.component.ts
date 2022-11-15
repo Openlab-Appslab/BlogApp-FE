@@ -12,12 +12,13 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-mainblog',
   templateUrl: './mainblog.component.html',
-  styleUrls: ['./mainblog.component.css']
+  styleUrls: ['./mainblog.component.css'],
 })
 export class MainblogComponent implements OnInit {
 
   public blogs : Blog [];
-  date: number = Date.now();
+  //date: number = Date.now();
+  date: Date
 
   constructor(
     private titleService:Title, 
@@ -47,5 +48,11 @@ export class MainblogComponent implements OnInit {
       });
       return this.showPostService.getAllBlog(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blogs = blog);
     }  
+
+    getDate(){
+      this.date = new Date();
+      this.date.getHours();
+      
+    }
 
 }

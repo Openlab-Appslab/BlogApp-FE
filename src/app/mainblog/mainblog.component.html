@@ -1,7 +1,4 @@
 <app-navbar></app-navbar>
-<p>s</p>
-<p>s</p>
-
 <app-header></app-header>
 
 
@@ -24,7 +21,7 @@
         <!-- Grid column -->
         <div *ngFor="let blog of blogs" class="col-lg-4 col-md-12 mb-4">
 
-          <a href="#" [routerLink]="['/blogs', blog .title]" >
+          <a href="#" [routerLink]="['/blog', blog .title]" >
           <!-- Featured image -->
           <div class="view overlay rounded z-depth-2 mb-4">
             <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/81.jpg" alt="Sample image">
@@ -40,8 +37,8 @@
           <!-- Post title -->
           <h4 class="font-weight-bold mb-3"><strong [innerHTML]="blog.name | safeHtml"></strong></h4>
           <!-- Post data -->
-          <p>by <a class="font-weight-bold">{{blog.author}}</a>, {{blog.date}}</p>
-          <!-- Excerpt -->
+          <p>by <a class="font-weight-bold">{{blog.author}}</a>, {{blog.date | date:'dd-MM-YYYY'}}</p> 
+      
           <p class="dark-grey-text text" [innerHTML]="blog.content | safeHtml" ng-maxlength="20"></p>
           <!-- Read more button -->
           <a class="btn btn-info btn-rounded btn-md">Prečítaj si viac</a>

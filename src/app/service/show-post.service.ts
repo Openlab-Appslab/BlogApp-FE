@@ -26,7 +26,7 @@ export class ShowPostService {
 
     //console.log(this.http.get<Blog[]>('http://localhost:8080/getAllBlogs',{ headers: headerHttp }));
 
-		return this.http.get<Blog[]>('http://localhost:8080/getAllBlogs', {headers: headerHttp});
+		return this.http.get<Blog[]>('http://localhost:8080/noAuth/getAllBlogs', {headers: headerHttp});
 	}
 
   getUserBlog(){

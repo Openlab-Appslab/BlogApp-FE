@@ -59,7 +59,7 @@ export class EditprofileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.getUserDetail();
+    this.getUserDetail();
   }
 
   // getUserDetail(){
@@ -80,9 +80,20 @@ export class EditprofileComponent implements OnInit {
       this.userDetailService.editUser(fullname, username, address, telephone).then(res =>{
               this.commonUserService.notifyUserEddition();
         		});
-        	} else {
-        		alert('Error');
         	}
 
     }
+    getUserDetail(){
+      this.userDetailService.getUserDetail().subscribe(user => {
+        console.log('user detail is ', user);
+        this.user = user;
+        // naplnit userForm datami v user
+        const afullname = this.userForm.value.fullname
+        const ausername = this.userForm.value.username
+        const aadress = this.userForm.value.address
+        const atelephone = this.userForm.value.telephone
+       
+       
+      })
+}
 }
