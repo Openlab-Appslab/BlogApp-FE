@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router'
 import { CookieService } from 'ngx-cookie-service';
 import { ShowPostService } from '../service/show-post.service';
-import { Blog } from '../blog.model';
+import { Blog } from '../../blog.model';
 import { CommonService } from '../service/common.service';
 import { AddBlogService } from '../service/add-blog.service';
 import { Observable } from 'rxjs';

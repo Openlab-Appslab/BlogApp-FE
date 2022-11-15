@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { RegService } from 'src/app/service/reg.service';
+import { RegService } from 'src/app/website/service/reg.service';
 import { Router } from '@angular/router';
 import {FooterRowOutlet} from "@angular/cdk/table";
 import { ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { AccountService, AlertService } from '../../_services';
+import { AccountService, AlertService } from '../../website/_services';
 
 @Component({
   selector: 'app-register',

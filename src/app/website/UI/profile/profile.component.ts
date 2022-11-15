@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../service/auth.service';
-import { user } from '../../user';
+import { AuthService } from '../../../website/service/auth.service';
+import { user } from '../../../user';
 import { CookieService } from 'ngx-cookie-service';
-import { UserDetailService } from 'src/app/service/user-detail.service';
+import { UserDetailService } from 'src/app/website/service/user-detail.service';
 import { User } from '@auth0/auth0-angular';
-import { ShowPostService } from 'src/app/service/show-post.service';
+import { ShowPostService } from 'src/app/website/service/show-post.service';
 import { ActivatedRoute } from '@angular/router';
 import { profileUser } from 'src/app/userdetail.model';
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/service/auth.service';
+import { AuthService } from 'src/app/website/service/auth.service';
 import { Observable } from 'rxjs';
 
 @Component({

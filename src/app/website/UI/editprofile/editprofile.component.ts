@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../service/auth.service';
+import { AuthService } from '../../../website/service/auth.service';
 import { CookieService } from 'ngx-cookie-service';
-import { UserDetailService } from 'src/app/service/user-detail.service';
+import { UserDetailService } from 'src/app/website/service/user-detail.service';
 import { User } from '@auth0/auth0-angular';
-import { ShowPostService } from 'src/app/service/show-post.service';
+import { ShowPostService } from 'src/app/website/service/show-post.service';
 import { ActivatedRoute } from '@angular/router';
 import { profileUser } from 'src/app/userdetail.model';
 import { FormGroup } from '@angular/forms';
 import { FormControl, Validators, FormBuilder } from '@angular/forms';
-import { AccountService, AlertService } from '../../_services';
+import { AccountService, AlertService } from '../../../website/_services';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { CommonService } from 'src/app/service/common.service';
+import { CommonService } from 'src/app/website/service/common.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { CommonUserService } from 'src/app/service/common-user.service';
-import { user } from '../../user';
+import { CommonUserService } from 'src/app/website/service/common-user.service';
+import { user } from '../../../user';
 
 @Component({
   selector: 'app-editprofile',

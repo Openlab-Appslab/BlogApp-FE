@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Blog } from '../blog.model';
+import { Blog } from '../../blog.model';
 import { AuthService } from './auth.service';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
