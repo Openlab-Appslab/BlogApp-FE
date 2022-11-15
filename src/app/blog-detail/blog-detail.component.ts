@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, ViewEncapsulation  } from '@angular/core';
 // import { Blog } from '../blog';
 import { Blog } from '../blog.model';
-import { ShowPostService } from '../service/show-post.service';
+import { ShowPostService } from '../website/service/show-post.service';
 import { ActivatedRoute } from '@angular/router';
-import { CommonService } from '../service/common.service';
+import { CommonService } from '../website/service/common.service';
 import { SafeHtmlPipe } from '../safe-html.pipe';
 
 @Component({

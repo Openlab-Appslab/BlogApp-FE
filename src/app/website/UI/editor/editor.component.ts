@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AddBlogService } from 'src/app/service/add-blog.service';
+import { AddBlogService } from 'src/app/website/service/add-blog.service';
 import { Blog } from 'src/app/blog.model';
-import { CommonService } from 'src/app/service/common.service';
+import { CommonService } from 'src/app/website/service/common.service';
 import { Router } from '@angular/router';
 import { EditorChangeContent, EditorChangeSelection } from 'ngx-quill';
 import 'quill-emoji/dist/quill-emoji.js';

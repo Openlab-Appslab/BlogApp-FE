@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ShowPostService } from 'src/app/service/show-post.service';
+import { ShowPostService } from 'src/app/website/service/show-post.service';
 import { Blog } from 'src/app/blog.model';
 import { ActivatedRoute } from '@angular/router'
-import { CommonService } from 'src/app/service/common.service';
+import { CommonService } from 'src/app/website/service/common.service';
 
 @Component({
   selector: 'app-blogstmp',
