@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   model = new user( '', '', "", "", "", "");
 
+
   constructor(
     private location: Location,
     private router: Router,

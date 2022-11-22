@@ -50,6 +50,10 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
 import { WebsiteComponent } from './website/website.component';
+import { FooterAdminComponent } from './admin/template/footer-admin/footer-admin.component';
+import { AdminNavigationComponent } from './admin/template/navigation/adminnavigation.component';
+import { UsersPageComponent } from './admin/users-page/users-page.component';
+import { AdminsComponent } from './admin/admins/admins.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +86,11 @@ import { WebsiteComponent } from './website/website.component';
     AdminComponent,
     HomeAdminComponent,
     NavigationComponent,
-    WebsiteComponent
+    WebsiteComponent,
+    FooterAdminComponent,
+    AdminNavigationComponent,
+    UsersPageComponent,
+    AdminsComponent,
   ],
 
   imports: [

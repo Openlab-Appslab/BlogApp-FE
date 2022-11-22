@@ -44,6 +44,7 @@
     "ng-modal": "^1.0.2",
     "ngx-bootstrap": "^5.1.0",
     "ngx-cookie-service": "^13.2.1",
+    "ngx-pagination": "^6.0.2",
     "ngx-quill": "^15.0.0",
     "ngx-quill-lite": "^12.0.0",
     "ngx-timeline": "5.0.0",

@@ -58,7 +58,6 @@ export class ShowPostService {
 
   getBlogDetail(blogTitle: string): Observable<Blog> {
 
-
     let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
 
     let headerHttp = new HttpHeaders({
