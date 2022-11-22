@@ -22,20 +22,21 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
 import { AppComponent } from './app.component';
-import { AdminModule } from './admin/admin.module';
 import { ModuleWithProviders } from '@angular/core';
 import { WebsiteComponent } from './website/website.component';
+import { UsersPageComponent } from './admin/users-page/users-page.component';
+import { RoleGuardGuard } from './role-guard.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'mainblog', pathMatch: 'full'},
-  
-  // { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 
   {
     path: 'admin',
     component: AdminComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [RoleGuardGuard],
     children: [
+      { path: 'home', component: HomeAdminComponent},
+      { path: 'users', component: UsersPageComponent}
 
     ]
   },

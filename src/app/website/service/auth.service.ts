@@ -5,7 +5,9 @@ import { CookieService } from 'ngx-cookie-service';
 import { user } from '../../user'
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
+import { User } from '../_models';
+import { Buffer } from 'buffer';
 
 
 @Injectable({
@@ -19,13 +21,18 @@ export class AuthService {
   users : user[] = [];
 
   token: string;
+  user: User;
  // private cookieValue: string;
+
+ ngOnInit(): void {
+  localStorage.clear();
+}
 
   constructor(
     private readonly httpClient: HttpClient,
     public cookies: CookieService,
     private router: Router,
-    private dialog : MatDialog
+    private dialog : MatDialog,
   ) { }
 
   emitUserLoggedIn() {
@@ -38,7 +45,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return !!(this.cookies.get('email') && this.cookies.get('password'));
+    return localStorage.getItem('token') != null, !!(this.cookies.get('email') && this.cookies.get('password'));
   }
 
   login(user: user){

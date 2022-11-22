@@ -6,6 +6,7 @@ export class user {
     telephone: string;
     address: string;
     fullname: string;
+    admin: string;
     
     constructor(
         email: string,
