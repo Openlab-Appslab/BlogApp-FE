@@ -1,0 +1,41 @@
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Fullname</th>
+                <th scope="col">Address</th>
+                <th scope="col">Telephone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of admins">
+            <th scope="row">{{ user.id }}</th>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.fullname }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.telephone }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- <div class="d-flex justify-content-between p-2">
+	<ngb-pagination
+		[collectionSize]="collectionSize"
+		[(page)]="page"
+		[pageSize]="pageSize"
+		(pageChange)="refreshCountries()"
+	>
+	</ngb-pagination>
+
+	<select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+		<option [ngValue]="2">2 items per page</option>
+		<option [ngValue]="4">4 items per page</option>
+		<option [ngValue]="6">6 items per page</option>
+	</select>
+</div> -->

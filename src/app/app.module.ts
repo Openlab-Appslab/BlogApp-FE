@@ -53,6 +53,7 @@ import { WebsiteComponent } from './website/website.component';
 import { FooterAdminComponent } from './admin/template/footer-admin/footer-admin.component';
 import { AdminNavigationComponent } from './admin/template/navigation/adminnavigation.component';
 import { UsersPageComponent } from './admin/users-page/users-page.component';
+import { AdminsComponent } from './admin/admins/admins.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { UsersPageComponent } from './admin/users-page/users-page.component';
     FooterAdminComponent,
     AdminNavigationComponent,
     UsersPageComponent,
+    AdminsComponent,
   ],
 
   imports: [

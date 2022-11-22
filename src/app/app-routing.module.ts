@@ -26,6 +26,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { WebsiteComponent } from './website/website.component';
 import { UsersPageComponent } from './admin/users-page/users-page.component';
 import { RoleGuardGuard } from './role-guard.guard';
+import { AdminsComponent } from './admin/admins/admins.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'mainblog', pathMatch: 'full'},
@@ -36,7 +37,8 @@ const routes: Routes = [
     canActivate: [RoleGuardGuard],
     children: [
       { path: 'home', component: HomeAdminComponent},
-      { path: 'users', component: UsersPageComponent}
+      { path: 'users', component: UsersPageComponent},
+      { path: 'admins', component: AdminsComponent}
 
     ]
   },

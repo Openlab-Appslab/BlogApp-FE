@@ -27,6 +27,7 @@ export class ShowUsersService {
 
     return this.http.get<user[]>('http://localhost:8080/Auth/GetAllUser', {headers: headerHttp});
   }
+  
   getAllAdmins(): Observable<user[]> {
     let authString = `${this.authS.cookies.get(
       'email'
