@@ -65,9 +65,9 @@ export class ShowPostService {
           Authorization: 'Basic ' + btoa(authString)
         });
 
-        console.log(this.http.get<Blog[]>('http://localhost:8080/blog/',{ headers: headerHttp }));
+        console.log(this.http.get<Blog[]>('http://localhost:8080/noAuth/blog/',{ headers: headerHttp }));
 
-    return this.httpClient.get<Blog>('http://localhost:8080/blog/'+ blogTitle, {headers: headerHttp});
+    return this.httpClient.get<Blog>('http://localhost:8080/noAuth/blog/'+ blogTitle, {headers: headerHttp});
 }
 
 getProfileDetail(){
