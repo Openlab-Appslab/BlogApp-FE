@@ -101,5 +101,18 @@
     background-size: 100%;
 }
 
+.btnHearth {
+  position: absolute;
+  display: flex;
+  transform: scale(1);
+  border: none;
+  background: none;
+
+
+}
+.aaa{
+  font-size: 32px;
+}
+
 
   
