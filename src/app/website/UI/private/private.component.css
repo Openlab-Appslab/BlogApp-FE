@@ -23,3 +23,23 @@
 .content span {
     font-weight: 700;
 }
+
+
+.navigation {
+    margin-top: 70px;
+    margin-right: 140px;
+    margin-left: 150px;
+
+    
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5rem !important;
+    
+}          
+.column {
+    flex: 10%;
+    padding: 0 10px;
+}
+
