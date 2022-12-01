@@ -101,18 +101,32 @@
     background-size: 100%;
 }
 
-.btnHearth {
-  position: absolute;
-  display: flex;
-  transform: scale(1);
-  border: none;
+
+.likedBtn {
   background: none;
-
-
-}
-.aaa{
-  font-size: 32px;
-}
-
+  overflow: hidden;
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 40px;
+  border: none;
+  color: blue;
+  background-image: url("../../../assets/img/likedIcon.png");
 
   
+}
+
+
+.white {
+  color: black;
+}
+.blue {
+  background-color: none;
+  color: blue;
+}
+.thumbsup {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  
+}
+

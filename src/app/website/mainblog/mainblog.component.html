@@ -1,8 +1,8 @@
 <app-navbar></app-navbar>
 <app-header></app-header>
 
-<button class="btnHearth"><mat-icon svgIcon="hearth"></mat-icon>
-</button>
+<!-- <button class="btnHearth" id="btn" [style.color]="toggle ? 'white' : ''" (click)="btnHearthClicked()"><img id="hearth" src="https://img.icons8.com/material-rounded/24/null/like--v1.png"/> </button>-->
+
 
 
 <div class="container">
@@ -46,12 +46,14 @@
           <!-- Read more button -->
           <a class="btn btn-info btn-rounded btn-md">Prečítaj si viac</a>
           
+         
         </a>
-        </div>
-        <!-- Grid column -->
-
-        
+        <button (click)="btnClicked()" [ngClass]="{'white' : toggle, 'blue2': !toggle}" class="likedBtn" id="btn">
+          <span id="likeIcon"><i class="fas fa-thumbs-up"></i></span>
+          
+        </button>
       </div>
+    </div>
       <!-- Grid row -->
 
     </section>
