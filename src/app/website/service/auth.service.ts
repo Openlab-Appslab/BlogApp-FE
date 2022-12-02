@@ -5,9 +5,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { user } from '../../user'
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { User } from '../_models';
-import { Buffer } from 'buffer';
 
 
 @Injectable({
@@ -45,7 +44,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return localStorage.getItem('token') != null, !!(this.cookies.get('email') && this.cookies.get('password'));
+    return /*localStorage.getItem('token') != null*/ !!(this.cookies.get('email') && this.cookies.get('password'));
   }
 
   login(user: user){
@@ -54,23 +53,20 @@ export class AuthService {
 
     fetch('http://localhost:8080/user', {
         method: 'GET',
-        headers: this.headers,
-      }).then((response) => {
-        if (!response.ok) {
-          this.showLoginFailedAlert();
-        }
-        this.cookies.set('email', user.email);
-        this.cookies.set('password', user.password);
+        headers: this.headers
+      })
+      .then(response => response.json())
+      .then(userData => {
+        this.cookies.set('email', userData.email);
+        this.cookies.set('password', userData.password);
+        this.cookies.set('admin', userData.admin);
         this.emitUserLoggedIn();
         this.router.navigate(['/mainblog']);
-      }).catch(error => {
+      })
+      .catch(error => {
         console.log('Error:', error);
-        this.showLoginFailedAlert();
+        alert("Login failed, try again.")
       });
-  }
-
-  private showLoginFailedAlert() {
-    alert("Login failed, try again.")
   }
 
   showDialog(): void {
