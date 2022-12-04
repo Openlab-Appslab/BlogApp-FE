@@ -44,7 +44,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return /*localStorage.getItem('token') != null*/ !!(this.cookies.get('email') && this.cookies.get('password'));
+    return !!(this.cookies.get('email') && this.cookies.get('password'));
   }
 
   login(user: user){
@@ -58,7 +58,7 @@ export class AuthService {
       .then(response => response.json())
       .then(userData => {
         this.cookies.set('email', userData.email);
-        this.cookies.set('password', userData.password);
+        this.cookies.set('password', user.password);
         this.cookies.set('admin', userData.admin);
         this.emitUserLoggedIn();
         this.router.navigate(['/mainblog']);

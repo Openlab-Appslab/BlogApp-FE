@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/website/service/auth.service';
 import { Observable } from 'rxjs';
+import { user } from '../../../user';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,7 @@ import { Observable } from 'rxjs';
 export class NavbarComponent {
 
   name = 'Angular';
+  public user: user;
 
   navbarOpen = false;
   userLoggedIn$: Observable<{isLoggedIn: boolean}>;
