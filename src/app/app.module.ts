@@ -54,6 +54,7 @@ import { FooterAdminComponent } from './admin/template/footer-admin/footer-admin
 import { AdminNavigationComponent } from './admin/template/navigation/adminnavigation.component';
 import { UsersPageComponent } from './admin/users-page/users-page.component';
 import { AdminsComponent } from './admin/admins/admins.component';
+import { BlogsAdminComponent } from './admin/blogs-admin/blogs-admin.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import { AdminsComponent } from './admin/admins/admins.component';
     AdminNavigationComponent,
     UsersPageComponent,
     AdminsComponent,
+    BlogsAdminComponent,
   ],
 
   imports: [

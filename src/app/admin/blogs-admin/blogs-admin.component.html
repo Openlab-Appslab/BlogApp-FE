@@ -3,22 +3,14 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Username</th>
-                <th scope="col">Email</th>
-                <th scope="col">Fullname</th>
-                <th scope="col">Address</th>
-                <th scope="col">Telephone</th>
+                <th scope="col">Názov</th>
                 <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of users">
-            <th scope="row">{{ user.id }}</th>
-            <td>{{ user.username }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.fullname }}</td>
-            <td>{{ user.address }}</td>
-            <td>{{ user.telephone }}</td>
+            <tr *ngFor="let blog of blogs">
+            <th scope="row">{{ blog.id }}</th>
+            <td [innerHTML]="blog.name | safeHtml"></td>
             <td><button class="btn btn-delete">VYMAZAŤ</button></td>
             </tr>
         </tbody>
