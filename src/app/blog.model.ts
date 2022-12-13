@@ -7,6 +7,7 @@ export class Blog {
         this.author = '';
         this.category = '';
         this.date = '';
+        this.liked = false; 
         // this.titlephoto = ''; 
     }
 
@@ -17,5 +18,6 @@ export class Blog {
     public author;
     public category;
     public date;
+    public liked;
     // public titlephoto;
 }

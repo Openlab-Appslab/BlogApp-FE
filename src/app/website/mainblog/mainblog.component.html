@@ -48,7 +48,7 @@
           
          
         </a>
-        <button (click)="btnClicked()" [ngClass]="{'white' : toggle, 'blue2': !toggle}" class="likedBtn" id="btn">
+        <button (click)="btnClicked(blog)" [ngClass]="{'white' : blog.liked, 'blue2': !blog.liked}" class="likedBtn" id="btn">
           <span id="likeIcon"><i class="fas fa-thumbs-up"></i></span>
           
         </button>
