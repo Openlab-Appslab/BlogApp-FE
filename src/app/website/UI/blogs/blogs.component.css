@@ -106,3 +106,11 @@ background: linear-gradient(to bottom, #ef473a, #cb2d3e);
 .user__info > small {
   color: #666;
 }
+
+.text {
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}

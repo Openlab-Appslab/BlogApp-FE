@@ -29,7 +29,7 @@
     <div class="card__body">
       <span class="tag tag-blue">{{blog.category}}</span>
       <h4 [innerHTML]="blog.name | safeHtml"></h4>
-      <p [innerHTML]="blog.content | safeHtml"></p>
+      <p class="text" [innerHTML]="blog.content | safeHtml"></p>
     </div>
     <div class="card__footer">
       <div class="user">
