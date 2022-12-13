@@ -7,6 +7,7 @@ export class user {
     address: string;
     fullname: string;
     admin: string;
+  static admin: number;
     
     constructor(
         email: string,

@@ -18,21 +18,24 @@
     <div [ngClass]="{ 'show': navbarOpen }" class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="userLoggedIn$ | async as userLoggedIn">
 
       <!-- Left -->
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto" *ngIf="adminLoggedIn$ | async as adminLoggedIn">
         <li class="nav-item">
-          <a class="nav-link waves-effect" routerLink="/mainblog" href="#">Domov</a>
+          <a class="nav-link waves-effect" routerLink="/mainblog">Domov</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link waves-effect" routerLink="/contact" href="#">Kontakt</a>
+          <a class="nav-link waves-effect" routerLink="/contact">Kontakt</a>
         </li>
         <ng-container *ngIf="userLoggedIn.isLoggedIn">
           <li class="nav-item">
-            <a class="nav-link waves-effect" routerLink="/ui/profile" href="#">Profil</a>
+            <a class="nav-link waves-effect" routerLink="/ui/profile">Profil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link waves-effect" routerLink="/ui/profile/editor" href="#">Add Blog</a>
+            <a class="nav-link waves-effect" routerLink="/ui/profile/editor">Add Blog</a>
           </li>
         </ng-container>
+          <li class="nav-item" *ngIf="adminLoggedIn.isAdmin">
+            <a class="nav-link waves-effect" routerLink="/admin">Admin Panel</a>
+          </li>
       </ul>
 
       <!-- Right -->

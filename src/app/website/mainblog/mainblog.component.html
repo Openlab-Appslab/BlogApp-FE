@@ -1,62 +1,43 @@
 <app-navbar></app-navbar>
-<app-header></app-header>
+<!-- <app-header></app-header> -->
 
 <!-- <button class="btnHearth" id="btn" [style.color]="toggle ? 'white' : ''" (click)="btnHearthClicked()"><img id="hearth" src="https://img.icons8.com/material-rounded/24/null/like--v1.png"/> </button>-->
 
 
-
-<div class="container">
-  <div class="container mt-5">
-
-
-    <!--Section: Content-->
-    <section class="dark-grey-text text-center">
-
-
-      <!-- Section heading -->
-      <h2 class="font-weight-bold mb-4 pb-2">Posledné príspevky</h2>
-      <!-- Section description -->
-      <p class="text-center mx-auto w-responsive mb-5">Na našej stránke nájdeš mnoho blogov, ktoré si môžeš prečítať. Pozri si napríklad posledné príspevky</p>
-
-      <!-- Grid row -->
-      <div class="row">
-
-        <!-- Grid column -->
-        <div *ngFor="let blog of blogs" class="col-lg-4 col-md-12 mb-4">
-
-          <a href="#" [routerLink]="['/blog', blog .title]" >
-          <!-- Featured image -->
-          <div class="view overlay rounded z-depth-2 mb-4">
-            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/81.jpg" alt="Sample image">
-            <a>
-              <div class="mask rgba-white-slight"></div>
-            </a>
+<div class="container" style="margin-top: 150px;margin-bottom: 30px;">
+  <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-md-4 col-lg-4 col-xxl-4" style="border-style: solid;border-radius: 11px;width: 311.987px;padding: 24px;">
+          <h1 style="width: 294.188px;font-weight: bold;font-size: 27px;">Najnovsie blogy</h1>
+          <div class="row d-flex d-lg-flex flex-column">
+              <div class="col-sm-6 col-md-4" style="width: 307.062px;">
+                  <div class="box"><img src="assets/img/img-1.jpg" alt="Desmond">
+                      <div class="box-heading">
+                          <h4 class="title" style="color:#333333;">Desmond</h4><span class="post" style="color:#333333;">web designer</span>
+                      </div>
+                      <div class="boxContent">
+                          <p class="description" style="color:#333333;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae libero orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed vestibulum.</p><a class="read" href="#">Read more<i class="fa fa-angle-right"></i></a>
+                      </div>
+                  </div>
+              </div>
           </div>
-
-          <!-- Category -->
-          <a href="#!" class="pink-text">
-            <h5 class="font-weight-bold mb-3" [innerHTML]="blog.category | safeHtml"></h5>
-          </a>
-          <!-- Post title -->
-          <h4 class="font-weight-bold mb-3"><strong [innerHTML]="blog.name | safeHtml"></strong></h4>
-          <!-- Post data -->
-          <p>by <a class="font-weight-bold">{{blog.author}}</a>, {{blog.date | date:'dd-MM-YYYY'}}</p> 
-      
-          <p class="dark-grey-text text" [innerHTML]="blog.content | safeHtml" ng-maxlength="20"></p>
-          <!-- Read more button -->
-          <a class="btn btn-info btn-rounded btn-md">Prečítaj si viac</a>
-          
-         
-        </a>
-        <button (click)="btnClicked()" [ngClass]="{'white' : toggle, 'blue2': !toggle}" class="likedBtn" id="btn">
-          <span id="likeIcon"><i class="fas fa-thumbs-up"></i></span>
-          
-        </button>
       </div>
-    </div>
-      <!-- Grid row -->
-
-    </section>
-    <!--Section: Content-->
   </div>
 </div>
+<section>
+  <div class="container" >
+      <div class="row">
+          <div class="col-lg-4 col-md-12 mb-4" *ngFor="let blog of blogs.slice(0, 3)">
+              <div class="card mb-4 box-shadow rounded-0"><img class="card-img-top w-100 d-block rounded-0" src="https://mdbootstrap.com/img/Photos/Others/images/81.jpg">
+                  <div class="card-body">
+                      <h4 class="card-title" [innerHTML]="blog.name | safeHtml"></h4>
+                      <h6 class="text-muted card-subtitle mb-2">{{blog.author}}</h6>
+                      <p class="dark-grey-text text" [innerHTML]="blog.content | safeHtml" ng-maxlength="20"></p>
+                      <p class="card-text" ></p><a class="card-link" href="#">Link</a><a class="card-link" href="#">Link</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<div class="container"></div>

@@ -27,6 +27,7 @@ import { WebsiteComponent } from './website/website.component';
 import { UsersPageComponent } from './admin/users-page/users-page.component';
 import { RoleGuardGuard } from './role-guard.guard';
 import { AdminsComponent } from './admin/admins/admins.component';
+import { BlogsAdminComponent } from './admin/blogs-admin/blogs-admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'mainblog', pathMatch: 'full'},
@@ -38,7 +39,8 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeAdminComponent},
       { path: 'users', component: UsersPageComponent},
-      { path: 'admins', component: AdminsComponent}
+      { path: 'admins', component: AdminsComponent},
+      { path: 'blogs', component: BlogsAdminComponent}
 
     ]
   },
