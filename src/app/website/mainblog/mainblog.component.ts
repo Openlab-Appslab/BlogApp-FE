@@ -52,6 +52,9 @@ export class MainblogComponent implements OnInit {
       this.showPostService.getAllBlog(this.route.snapshot.paramMap.get('id')).subscribe(result => {
         console.log('result is', result);
         this.blogs = result;
+        this.blogs[0].liked = true;
+        this.blogs[1].liked = false;
+        console.log(this.blogs);
         
       });
       return this.showPostService.getAllBlog(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blogs = blog);
@@ -62,8 +65,8 @@ export class MainblogComponent implements OnInit {
       this.date.getHours();
       
     }
-   btnClicked(){
-    this.toggle = !this.toggle;
-    this.status = this.toggle ? '' : '';
-   }
+    btnClicked(blog){
+      blog.liked = !blog.liked
+      
+     }
 }
