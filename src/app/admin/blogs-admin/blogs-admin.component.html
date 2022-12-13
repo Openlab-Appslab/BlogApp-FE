@@ -11,7 +11,7 @@
             <tr *ngFor="let blog of blogs">
             <th scope="row">{{ blog.id }}</th>
             <td [innerHTML]="blog.name | safeHtml"></td>
-            <td><button class="btn btn-delete">VYMAZAŤ</button></td>
+            <td><button class="btn btn-delete" (click)="deleteBlogs(blog.id)">VYMAZAŤ</button></td>
             </tr>
         </tbody>
     </table>

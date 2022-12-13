@@ -5,6 +5,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '@auth0/auth0-angular';
 import { user } from 'src/app/user';
+import { DeleteusersService } from 'src/app/website/service/deleteusers.service';
+
 
 @Component({
   selector: 'app-users-page',
@@ -20,6 +22,7 @@ export class UsersPageComponent implements OnInit {
     private readonly loginService: AuthService,
     private cookies: CookieService,
     private route: ActivatedRoute,
+    private deleteUsersService: DeleteusersService,
   ) { }
 
   ngOnInit(): void {
@@ -49,5 +52,15 @@ export class UsersPageComponent implements OnInit {
   //       (this.page - 1) * this.pageSize + this.pageSize,
   //     );
   //   }
+
+
+  deleteUser(userId: number){ //function for deleting the listing by using the listingId
+    this.deleteUsersService.deleteUsers(userId).subscribe(
+      (response: void) => {
+        console.log('user deleted');
+        this.getAllUsers();
+      }
+    );
+  }
 
 }

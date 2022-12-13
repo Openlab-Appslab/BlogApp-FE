@@ -19,7 +19,7 @@
             <td>{{ user.fullname }}</td>
             <td>{{ user.address }}</td>
             <td>{{ user.telephone }}</td>
-            <td><button class="btn btn-delete">ODSTRÁNIŤ</button></td>
+            <td><button class="btn btn-delete" (click)="deleteAdmin(user.id)">ODSTRÁNIŤ</button></td>
             </tr>
         </tbody>
     </table>
