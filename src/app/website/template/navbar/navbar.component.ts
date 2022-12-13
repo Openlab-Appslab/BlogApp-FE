@@ -11,10 +11,14 @@ import { user } from '../../../user';
 export class NavbarComponent {
 
   name = 'Angular';
+  
   public user: user;
 
   navbarOpen = false;
+
   userLoggedIn$: Observable<{isLoggedIn: boolean}>;
+
+  adminLoggedIn$: Observable<{isAdmin: boolean}>;
 
   constructor(
     public authService: AuthService
@@ -22,6 +26,8 @@ export class NavbarComponent {
 
   ngOnInit(): void {
     this.userLoggedIn$ = this.authService.userLoggedIn$;
+
+    this.adminLoggedIn$= this.authService.adminLoggedIn$;
   }
 
   toggleNavbar() {

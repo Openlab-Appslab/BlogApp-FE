@@ -15,13 +15,17 @@ import { User } from '../_models';
 export class AuthService {
 
   headers = new Headers();
+
   private userLoggedIn = new BehaviorSubject<{isLoggedIn: boolean}>({isLoggedIn: this.isLoggedIn()});
   userLoggedIn$ = this.userLoggedIn.asObservable();
+
+  private adminLoggedIn = new BehaviorSubject<{isAdmin: boolean}>({isAdmin: this.isAdmin()});
+  adminLoggedIn$ = this.adminLoggedIn.asObservable();
+  
   users : user[] = [];
 
   token: string;
   user: User;
- // private cookieValue: string;
 
  ngOnInit(): void {
   localStorage.clear();
@@ -38,9 +42,17 @@ export class AuthService {
     this.userLoggedIn.next({isLoggedIn: this.isLoggedIn()});
   }
 
+  emitAdminLoggedIn() {
+    this.adminLoggedIn.next({isAdmin: this.isAdmin()});
+  }
+
   getToken(): string {
     const authString = `${this.cookies.get('email')}:${this.cookies.get('password')}`
     return 'Basic ' + btoa(authString);
+  }
+
+  isAdmin():boolean {
+    return this.cookies.get('admin') === '1';
   }
 
   isLoggedIn(): boolean {
