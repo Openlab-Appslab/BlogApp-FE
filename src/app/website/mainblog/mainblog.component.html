@@ -33,11 +33,20 @@
                       <h4 class="card-title" [innerHTML]="blog.name | safeHtml"></h4>
                       <h6 class="text-muted card-subtitle mb-2">{{blog.author}}</h6>
                       <p class="dark-grey-text text" [innerHTML]="blog.content | safeHtml" ng-maxlength="20"></p>
+<<<<<<< HEAD
                       <p class="card-text" ></p><a class="card-link" [routerLink]="['/blog', blog .id]">Link</a><a class="card-link" href="#">Link</a>
+=======
+                      <p class="card-text" ></p><a class="card-link" href="#">Link</a><a class="card-link" href="#">Link</a>
+                      <button (click)="btnClicked(blog)" [ngClass]="{'white' : blog.liked, 'blue2': !blog.liked}" class="likedBtn" id="btn">
+                        <span id="likeIcon"><i class="fas fa-thumbs-up"></i></span>
+                        
+                      </button>
+>>>>>>> c8ced3efea6e6558820b47bc07bc647c11ed501b
                   </div>
               </div>
           </div>
       </div>
+      
   </div>
 </section>
 <div class="container"></div>
