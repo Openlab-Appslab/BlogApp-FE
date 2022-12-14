@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AddBlogService } from 'src/app/website/service/add-blog.service';
 import { Blog } from 'src/app/blog.model';
 import { CommonService } from 'src/app/website/service/common.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EditorChangeContent, EditorChangeSelection } from 'ngx-quill';
 import 'quill-emoji/dist/quill-emoji.js';
 import Quill from 'quill';
@@ -94,7 +94,8 @@ export class EditorComponent implements OnInit {
   constructor(
     private addBlogService: AddBlogService,
     private router: Router, 
-    private commonService: CommonService
+    private commonService: CommonService,
+    private route: ActivatedRoute,
     ) 
     {
   	this.blog = new Blog();
@@ -164,6 +165,7 @@ export class EditorComponent implements OnInit {
   	if(this.blog.name && this.blog.title && this.blog.content && this.blog.author && this.blog.category && this.blog.date){
   		this.addBlogService.addBlog(this.blog).then(res =>{
         this.commonService.notifyBlogAddition();
+        this.router.navigate(['../../../mainblog'], { relativeTo: this.route });
   		});
   	} else {
   		alert('Title and Description required');

@@ -41,4 +41,11 @@ export class BlogDetailComponent implements OnInit {
       });
     }
 
+    selectedDate: any;
+
+     onSelect(event){
+      console.log(event);
+      this.selectedDate = event;
+     }
+
 }
