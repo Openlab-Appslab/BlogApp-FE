@@ -31,6 +31,7 @@
     "@types/gapi.auth2": "^0.0.56",
     "angular-authentication-service": "^1.1.8",
     "angular-bootstrap-md": "^12.2.0",
+    "angular-tiny-calendar": "^1.0.1",
     "angularjs-auth-interceptor": "^1.0.1",
     "animate.css": "~3.7.2",
     "bootstrap": "^5.1.3",

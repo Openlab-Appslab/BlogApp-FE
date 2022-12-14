@@ -39,12 +39,12 @@ export class EditorComponent implements OnInit {
   selectedValue: string;
 
   categors: Category[] = [
-    {value: '🙏 kultúra', viewValue: '🙏 Kultúra'},
-    {value: '💻 Tech', viewValue: '💻 Tech'},
-    {value: '🍃 Priroda', viewValue: '🍃 Príroda'},
-    {value: '👨‍💼Politika', viewValue: '👨‍💼Politika'},
-    {value: '❤️ Zdravie', viewValue: '❤️ Zdravie'},
-    {value: '🌍 Svetadiel', viewValue: '🌍 Svetadiel'},
+    {value: 'Kultúra', viewValue: 'Kultúra'},
+    {value: 'Tech', viewValue: 'Tech'},
+    {value: 'Priroda', viewValue: 'Príroda'},
+    {value: 'Politika', viewValue: 'Politika'},
+    {value: 'Zdravie', viewValue: 'Zdravie'},
+    {value: 'Svetadiel', viewValue: 'Svetadiel'},
   ];
 
   created(event){

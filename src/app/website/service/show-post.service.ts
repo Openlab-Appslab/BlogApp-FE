@@ -17,19 +17,20 @@ export class ShowPostService {
   ) { }
 
   getAllBlog(blogsName: string): Observable<Blog[]>{
-    // let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
-
-    // let headerHttp = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   Authorization: 'Basic ' + btoa(authString)
-    // });
-
-    // console.log(this.http.get<Blog[]>('http://localhost:8080/getAllBlogs',{ headers: headerHttp }));
-
-		// return this.httpClient.get<Blog[]>('http://localhost:8080/noAuth/getAllBlogs', {headers: headerHttp});
 		return this.httpClient.get<Blog[]>('http://localhost:8080/noAuth/getAllBlogs');
 	}
 
+  getTechBlogs(blogsName: string): Observable<Blog[]>{
+		return this.httpClient.get<Blog[]>('http://localhost:8080/noAuth/getTechBlogs');
+	}
+  
+  getZdravieBlogs(blogsName: string): Observable<Blog[]>{
+		return this.httpClient.get<Blog[]>('http://localhost:8080/noAuth/getZdravieBlogs');
+	}
+
+  getKulturaBlogs(blogsName: string): Observable<Blog[]>{
+		return this.httpClient.get<Blog[]>('http://localhost:8080/noAuth/getKulturaBlogs');
+	}
 
   getUserBlog(){
     let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
@@ -43,18 +44,6 @@ export class ShowPostService {
 
     return this.http.get<Blog[]>('http://localhost:8080/Auth/userBlogs', {headers: headerHttp})
   }
-
-  // getBlog() {
-
-  //   let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
-
-  //   let headerHttp = new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     Authorization: 'Basic ' + btoa(authString)
-  //   });
-    
-  //   return this.http.get<Blog>('http://localhost:8080/blog/', {headers: headerHttp});
-  // }
 
   getBlogDetail(blogTitle: string): Observable<Blog> {
 

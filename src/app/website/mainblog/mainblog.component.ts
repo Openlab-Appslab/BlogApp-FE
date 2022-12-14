@@ -1,16 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-// import { Blog } from '../blog.model';
 import { ActivatedRoute } from '@angular/router'
-import { CookieService } from 'ngx-cookie-service';
 import { ShowPostService } from '../service/show-post.service';
 import { Blog } from '../../blog.model';
 import { CommonService } from '../service/common.service';
-import { AddBlogService } from '../service/add-blog.service';
-import { Observable } from 'rxjs';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material/icon';
-import { style } from '@angular/animations';
 
 @Component({
   selector: 'app-mainblog',
@@ -23,6 +18,9 @@ export class MainblogComponent implements OnInit {
   status = ''; 
 
   public blogs : Blog [];
+  public techBlogs: Blog [];
+  public zdravieBlogs: Blog [];
+  public kulturaBlogs: Blog [];
   //date: number = Date.now();
   date: Date
 
@@ -41,11 +39,25 @@ export class MainblogComponent implements OnInit {
 
     ngOnInit(){
       this.getAllBlog();
-
+      this.getTechBlogs();
+      this.getZdravieBlogs();
+      this.getKulturaBlogs();
   
       this.commonService.blogAdded_Observable.subscribe(res => {
         this.getAllBlog();
       });
+
+      this.commonService.blogAdded_Observable.subscribe(res => {
+        this.getTechBlogs();
+      })
+
+      this.commonService.blogAdded_Observable.subscribe(res => {
+        this.getZdravieBlogs();
+      })
+
+      this.commonService.blogAdded_Observable.subscribe(res => {
+        this.getKulturaBlogs();
+      })
     }
 
     getAllBlog(){
@@ -60,6 +72,30 @@ export class MainblogComponent implements OnInit {
       return this.showPostService.getAllBlog(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blogs = blog);
     }  
 
+    getTechBlogs(){
+      this.showPostService.getTechBlogs(this.route.snapshot.paramMap.get('id')).subscribe(result => {
+        console.log('Tech blogs:', result)
+      })
+
+      return this.showPostService.getTechBlogs(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.techBlogs = blog);
+    }
+
+    getZdravieBlogs(){
+      this.showPostService.getZdravieBlogs(this.route.snapshot.paramMap.get('id')).subscribe(result => {
+        console.log('Zdravie blogs:', result)
+      })
+
+      return this.showPostService.getZdravieBlogs(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.zdravieBlogs = blog);
+    }
+
+    getKulturaBlogs(){
+      this.showPostService.getKulturaBlogs(this.route.snapshot.paramMap.get('id')).subscribe(result => {
+        console.log('Kultura blogs:', result)
+      })
+
+      return this.showPostService.getKulturaBlogs(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.kulturaBlogs = blog);
+    }
+
     getDate(){
       this.date = new Date();
       this.date.getHours();
@@ -68,5 +104,12 @@ export class MainblogComponent implements OnInit {
     btnClicked(blog){
       blog.liked = !blog.liked
       
+     }
+
+     selectedDate: any;
+
+     onSelect(event){
+      console.log(event);
+      this.selectedDate = event;
      }
 }
