@@ -186,7 +186,7 @@
                 class="card-text text"
                 [innerHTML]="blog.content | safeHtml"
               ></p>
-              <button class="btn btn-primary" type="button">
+              <button class="btn btn-primary" type="button" [routerLink]="['/blog', blog.id]">
                 Čítať viac...
               </button>
             </div>
