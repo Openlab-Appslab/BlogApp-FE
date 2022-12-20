@@ -112,4 +112,15 @@ export class MainblogComponent implements OnInit {
       console.log(event);
       this.selectedDate = event;
      }
+
+
+    //  viewImage() {
+    //   this.httpClient.get('http://localhost:8080/get/image/info/' + this.image)
+    //     .subscribe(
+    //       res => {
+    //         this.postResponse = res;
+    //         this.dbImage = 'data:image/jpeg;base64,' + this.postResponse.image;
+    //       }
+    //     );
+    // }
 }
