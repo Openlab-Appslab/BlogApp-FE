@@ -189,6 +189,15 @@
               <button class="btn btn-primary" type="button" [routerLink]="['/blog', blog.id]">
                 Čítať viac...
               </button>
+              
+              <button
+              (click)="btnClicked(blog)"
+              [ngClass]="{ white: blog.liked, white2: !blog.liked }"
+              class="likedBtn"
+              id="btn">
+              <span id="likeIcon"><i class="fas fa-thumbs-up"></i></span>
+            </button>
+
             </div>
             <div class="card-footer text-muted">
               Zverejnené {{ blog.date | date : "dd. MM. YYYY" }}

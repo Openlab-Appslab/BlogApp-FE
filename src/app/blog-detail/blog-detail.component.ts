@@ -5,6 +5,9 @@ import { ShowPostService } from '../website/service/show-post.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonService } from '../website/service/common.service';
 import { SafeHtmlPipe } from '../safe-html.pipe';
+// importovať observable import { Observable } from 'rxjs';
+import { observable, Observable } from 'rxjs';
+import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants';
 
 @Component({
   selector: 'app-blogs',
@@ -13,7 +16,8 @@ import { SafeHtmlPipe } from '../safe-html.pipe';
 })
 export class BlogDetailComponent implements OnInit {
 
-  public blog: Blog;
+  // pridať public blog$: Observable<Blog>;
+  public blog$: Observable<Blog>;
 
   constructor(
     private showPostService: ShowPostService, 
@@ -33,13 +37,11 @@ export class BlogDetailComponent implements OnInit {
     }
   
     getBlogDetail(){
-      // this.showPostService.getBlogDetail(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.blog = blog);      
 
-      this.showPostService.getBlogDetail(this.route.snapshot.paramMap.get('id')).subscribe(result => {
-        console.log('result is', result);
-        this.blog = result;
-      });
+      // subscribe netreba, ngif rozhodne, či treba subsribovat
+      this.blog$ = this.showPostService.getBlogDetail(this.route.snapshot.paramMap.get('id'));
     }
+
 
     selectedDate: any;
 
@@ -49,3 +51,4 @@ export class BlogDetailComponent implements OnInit {
      }
 
 }
+  

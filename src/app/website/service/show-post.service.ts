@@ -9,7 +9,7 @@ import { helpers } from 'chart.js';
   providedIn: 'root'
 })
 export class ShowPostService {
-
+ 
   constructor(
     private http: HttpClient,
     private authS: AuthService,
