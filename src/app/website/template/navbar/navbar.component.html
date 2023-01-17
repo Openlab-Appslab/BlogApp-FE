@@ -40,9 +40,10 @@
 
       <!-- Right -->
       <ul class="navbar-nav nav-flex-icons">
+
         <li class="nav-item margin">
           <mat-form-field floatLabel="never">
-            <input matInput placeholder="Vyhľadávanie">
+            <input matInput [(ngModel)]= "searchTerm" placeholder="Vyhľadávanie podľa názvu">
           </mat-form-field>
         </li>
 
