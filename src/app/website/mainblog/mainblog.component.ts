@@ -21,6 +21,8 @@ export class MainblogComponent implements OnInit {
   public techBlogs: Blog [];
   public zdravieBlogs: Blog [];
   public kulturaBlogs: Blog [];
+  public svetadielBlogs: Blog [];
+  public prirodaBlogs: Blog [];
   //date: number = Date.now();
   date: Date
 
@@ -42,6 +44,8 @@ export class MainblogComponent implements OnInit {
       this.getTechBlogs();
       this.getZdravieBlogs();
       this.getKulturaBlogs();
+      this.getPrirodaBlogs();
+      this.getSvetadielBlogs();
   
       this.commonService.blogAdded_Observable.subscribe(res => {
         this.getAllBlog();
@@ -57,6 +61,12 @@ export class MainblogComponent implements OnInit {
 
       this.commonService.blogAdded_Observable.subscribe(res => {
         this.getKulturaBlogs();
+      })
+      this.commonService.blogAdded_Observable.subscribe(res => {
+        this.getPrirodaBlogs();
+      })
+      this.commonService.blogAdded_Observable.subscribe(res => {
+        this.getSvetadielBlogs();
       })
     }
 
@@ -94,6 +104,22 @@ export class MainblogComponent implements OnInit {
       })
 
       return this.showPostService.getKulturaBlogs(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.kulturaBlogs = blog);
+    }
+
+    getPrirodaBlogs(){
+      this.showPostService.getPrirodaBlogs(this.route.snapshot.paramMap.get('id')).subscribe(result => {
+        console.log('Priroda blogs:', result)
+      })
+
+      return this.showPostService.getPrirodaBlogs(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.prirodaBlogs = blog);
+    }
+
+    getSvetadielBlogs(){
+      this.showPostService.getSvetadielBlogs(this.route.snapshot.paramMap.get('id')).subscribe(result => {
+        console.log('Svertadiel blogs:', result)
+      })
+
+      return this.showPostService.getSvetadielBlogs(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.svetadielBlogs = blog);
     }
 
     getDate(){

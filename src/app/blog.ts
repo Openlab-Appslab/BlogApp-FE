@@ -6,4 +6,5 @@ export interface Blog {
     author: string;
     category: string;
     date: string;
+    image: byte;
 }
