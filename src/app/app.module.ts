@@ -97,11 +97,12 @@ import { MatTableModule } from '@angular/material/table';
     UsersPageComponent,
     AdminsComponent,
     BlogsAdminComponent,
+    SearchFilterPipe,
+    
   ],
 
   imports: [
     MatTableModule,
-    SearchFilterPipe,
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,

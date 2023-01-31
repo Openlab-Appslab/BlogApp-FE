@@ -214,14 +214,16 @@
         </div>
         <div class="card-body">
           <div class="input-group">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="bu yad eller dünyasında ne arıyorsun"
-            />
-            <span class="input-group-btn">
-              <button type="button" class="btn btn-secondary">Go</button>
-            </span>
+              <div class="nav-item margin">
+
+                <input matInput [(ngModel)]= "searchTerm" placeholder="Vyhľadávani podľa názvu">
+            <div *ngFor="let blog of blogs | searchFilter:searchTerm">
+            </div> 
+      </div>  
+
+
+         
+            
           </div>
         </div>
       </div>
