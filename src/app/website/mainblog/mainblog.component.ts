@@ -14,9 +14,7 @@ import {MatIconRegistry} from '@angular/material/icon';
 })
 export class MainblogComponent implements OnInit {
 
-  toggle = true;
-  status = ''; 
-
+ 
   public blogs : Blog [];
   public techBlogs: Blog [];
   public zdravieBlogs: Blog [];
@@ -44,8 +42,12 @@ export class MainblogComponent implements OnInit {
       this.getTechBlogs();
       this.getZdravieBlogs();
       this.getKulturaBlogs();
+<<<<<<< HEAD
       this.getPrirodaBlogs();
       this.getSvetadielBlogs();
+=======
+      // this.getLikedBlogs();
+>>>>>>> 0ecd85286068dcf272800a0b918d4700c10c6269
   
       this.commonService.blogAdded_Observable.subscribe(res => {
         this.getAllBlog();
@@ -62,12 +64,18 @@ export class MainblogComponent implements OnInit {
       this.commonService.blogAdded_Observable.subscribe(res => {
         this.getKulturaBlogs();
       })
+<<<<<<< HEAD
       this.commonService.blogAdded_Observable.subscribe(res => {
         this.getPrirodaBlogs();
       })
       this.commonService.blogAdded_Observable.subscribe(res => {
         this.getSvetadielBlogs();
       })
+=======
+      // this.commonService.blogAdded_Observable.subscribe(res => {
+      //   this.getLikedBlogs();
+      // })
+>>>>>>> 0ecd85286068dcf272800a0b918d4700c10c6269
     }
 
     getAllBlog(){
@@ -131,6 +139,9 @@ export class MainblogComponent implements OnInit {
       blog.liked = !blog.liked
       
      }
+    //  getLikedBlogs(){
+    //   this.showPostService.getLikedBlogs(this.route.snapshot.paramMap.get('id')).subscribe(blog => this.likedBlogs = blog);
+    //  }
 
      selectedDate: any;
 
