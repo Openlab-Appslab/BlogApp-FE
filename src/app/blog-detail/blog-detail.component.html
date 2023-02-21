@@ -4,7 +4,7 @@
     <div class="col col-lg-8">
       <img
         style="width: 80%"
-        src="https://images.pexels.com/photos/325153/pexels-photo-325153.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        src="{{ blog.image }}"
         class="img-responsive"
       />
       <hr />
@@ -20,7 +20,8 @@
         >
       </p>
       <hr />
-      <p class="lead" [innerHTML]="blog.name | safeHtml"></p>
+      <!-- <p class="lead" [innerHTML]="blog.name | safeHtml"></p> -->
+      <p class="lead">{{blog.name | safeHtml}}</p>
       <div [innerHTML]="blog.content | safeHtml"></div>
     </div>
     <div class="col">

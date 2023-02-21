@@ -8,13 +8,13 @@
 
 <div class="moveup">
     <div class="container justify-content-center text-center ">
-        <form class="mt-4">
+        <form class="mt-4" [formGroup]="addBlogGroup">
     
             <div class="row gx-5 ">
                 <div class="col-12">
                     <div class="form-group">
                         <label class="font-weight-bold" for="exampleInputEmail1">Name</label>
-                        <input name="createdTitle" type="text" [(ngModel)]="blog.title" class="form-control"
+                        <input formControlName="title" name="createdTitle" type="text" [(ngModel)]="blog.title" class="form-control"
                             id="exampleInputEmail1" aria-describedby="emailHelp" required/>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label class="font-weight-bold" for="exampleInputEmail1">Title</label>
-                        <quill-editor name="name" placeholder="Enter title" [(ngModel)]="blog.name" [(ngModel)]="htmlTitle"
+                        <quill-editor formControlName="name" name="name" placeholder="Enter title" [(ngModel)]="blog.name" [(ngModel)]="htmlTitle"
                             (onFocus)="focus($event)" (onBlur)="blur($event)" (onEditorCreated)="createdTitle($event)"
                             [modules]="modTitle" >
                         </quill-editor>
@@ -32,7 +32,7 @@
                 <div class="col-12">
                     <label class="font-weight-bold" for="exampleInputPassword1">Content</label>
                     <div class="form-group editor">
-                        <quill-editor class= "contenteditor" name="description" [(ngModel)]="blog.content" [(ngModel)]="htmlBody"
+                        <quill-editor formControlName="content" class= "contenteditor" name="description" [(ngModel)]="blog.content" [(ngModel)]="htmlBody"
                             (onFocus)="focus($event)" (onBlur)="blur($event)" (onEditorCreated)="created($event)"
                             [modules]="modules">
                         </quill-editor>
@@ -42,18 +42,27 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="form-group">
                         <label class="font-weight-bold" for="exampleInputPassword1">Author</label>
-                        <input type="text" name="author" required minlength="4" [(ngModel)]="blog.author" class="form-control"
+                        <input formControlName="author" type="text" name="author" required minlength="4" [(ngModel)]="blog.author" class="form-control"
                             id="exampleInputPassword1" placeholder="Meno Priezvisko" required>
                     </div>
                 </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="exampleInputPassword1">Titúlny obrzok</label>
+                        <input formControlName="image" type="file" name="author" required minlength="4" [(ngModel)]="imageTesting" class="form-control"
+                            id="exampleInputPassword1" placeholder="obrazok" required multiple accept="image/*" (change)="onFileChange($event)">
+                    </div>
+                </div>
+
+                <button (click)="submit()">asdfghjk</button>
             
                 <div class="col-lg-4 col-md-6">
                     <label for="exampleInputPassword1">Kategória</label>
                     <div class="form-group">
                         <mat-form-field appearance="fill">
                             <mat-label class="font-weight-bold">Kategória</mat-label>
-                            <mat-select [(ngModel)]="blog.category" name="category" required>
-                                <mat-option *ngFor="let category of categors" [value]="category.value">
+                            <mat-select [(ngModel)]="blog.category" name="category" required formControlName="category">
+                                <mat-option *ngFor="let category of categories" [value]="category.value">
                                     {{category.viewValue}}
                                 </mat-option>
                             </mat-select>
@@ -66,7 +75,7 @@
                     <div class="form-group">
                         <mat-form-field appearance="fill">
                             <mat-label class="font-weight-bold">Zadajte dátum</mat-label>
-                            <input name="description" matInput [(ngModel)]="blog.date" [matDatepicker]="picker" required>
+                            <input name="description" matInput [(ngModel)]="blog.date" [matDatepicker]="picker" required formControlName="date">
                             <mat-hint>mesiac.deň.rok</mat-hint>
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>

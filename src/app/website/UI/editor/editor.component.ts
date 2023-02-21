@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AddBlogService } from 'src/app/website/service/add-blog.service';
 import { Blog } from 'src/app/blog.model';
@@ -38,7 +38,7 @@ export class EditorComponent implements OnInit {
 
   selectedValue: string;
 
-  categors: Category[] = [
+  categories: Category[] = [
     {value: 'Kultúra', viewValue: 'Kultúra'},
     {value: 'Tech', viewValue: 'Tech'},
     {value: 'Priroda', viewValue: 'Príroda'},
@@ -161,15 +161,66 @@ export class EditorComponent implements OnInit {
     }
   }
 
-  addBlog() {
-  	if(this.blog.name && this.blog.title && this.blog.content && this.blog.author && this.blog.category && this.blog.date){
-  		this.addBlogService.addBlog(this.blog).then(res =>{
-        this.commonService.notifyBlogAddition();
-        this.router.navigate(['../../../mainblog'], { relativeTo: this.route });
-  		});
-  	} else {
-  		alert('Title and Description required');
-  	}
+  addBlogGroup = new FormGroup({
+    name: new FormControl('', Validators.required),
+    title: new FormControl('', Validators.required),
+    content: new FormControl('', Validators.required),
+    category: new FormControl('', Validators.required),
+    blog: new FormControl('', Validators.required),
+    date: new FormControl('', Validators.required),
+    author: new FormControl('', Validators.required),
+    image: new FormControl('', Validators.required),
+  })
+
+  addBlog(){
+    console.log(this.addBlogGroup.value);
+
+    const name = this.addBlogGroup.value.name;
+    const title = this.addBlogGroup.value.title;
+    const content = this.addBlogGroup.value.content;
+    const category = this.addBlogGroup.value.category;
+    const blog = this.addBlogGroup.value.blog;
+    const date = this.addBlogGroup.value.date;
+
+    const image = this.imageTesting;
+
+    this.addBlogService.addBlog(name, title, content, category, blog, date, image).subscribe(res =>{
+            this.commonService.notifyBlogAddition();
+            this.router.navigate(['../../../mainblog'], { relativeTo: this.route });
+      		});
+
   }
 
-}
+  imageTesting: string;
+  selectedFile: File;
+
+  readFile() {
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imageTesting = reader.result as string;
+      console.log(this.imageTesting);
+    };
+    reader.readAsText(this.selectedFile);
+  }
+
+  onFileChange(event) {
+    this.selectedFile = event.target.files[0];
+    this.readFile();
+  }
+
+  submit() {
+    // console.log(this.testGroup.value.image);
+    console.log(this.imageTesting);
+  }
+
+  // addBlog() {
+  // 	if(this.blog.name && this.blog.title && this.blog.content && this.blog && this.blog.category && this.blog.date && 'image'){
+  // 		this.addBlogService.addBlog(this.blog).then(res =>{
+  //       this.commonService.notifyBlogAddition();
+  //       this.router.navigate(['../../../mainblog'], { relativeTo: this.route });
+  // 		});
+  // 	} else {
+  // 		alert('something missing');
+  // 	}
+  //   }
+  }

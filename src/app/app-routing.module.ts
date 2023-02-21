@@ -28,6 +28,7 @@ import { UsersPageComponent } from './admin/users-page/users-page.component';
 import { RoleGuardGuard } from './role-guard.guard';
 import { AdminsComponent } from './admin/admins/admins.component';
 import { BlogsAdminComponent } from './admin/blogs-admin/blogs-admin.component';
+import { NewsletterComponent } from './admin/newsletter/newsletter.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'mainblog', pathMatch: 'full'},
@@ -40,7 +41,8 @@ const routes: Routes = [
       { path: 'home', component: HomeAdminComponent},
       { path: 'users', component: UsersPageComponent},
       { path: 'admins', component: AdminsComponent},
-      { path: 'blogs', component: BlogsAdminComponent}
+      { path: 'blogs', component: BlogsAdminComponent},
+      { path: 'newsletter', component: NewsletterComponent}
 
     ]
   },

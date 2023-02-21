@@ -32,6 +32,14 @@ export class ShowPostService {
 		return this.httpClient.get<Blog[]>('http://localhost:8080/noAuth/getKulturaBlogs');
 	}
 
+  getPrirodaBlogs(blogsName: string): Observable<Blog[]>{
+		return this.httpClient.get<Blog[]>('http://localhost:8080/noAuth/getPrirodaBlogs');
+	}
+
+  getSvetadielBlogs(blogsName: string): Observable<Blog[]>{
+		return this.httpClient.get<Blog[]>('http://localhost:8080/noAuth/getSvetadielBlogs');
+	}
+
   getUserBlog(){
     let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
 
