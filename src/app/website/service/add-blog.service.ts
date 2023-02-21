@@ -28,7 +28,7 @@ export class AddBlogService {
     });
     
     const formData = { 
-      name, title, content, author, category, date, image}
+      name, title, content, author, category, date, image};
     // formData.append('name', name);
     // formData.append('title', title);
     // formData.append('content', content);

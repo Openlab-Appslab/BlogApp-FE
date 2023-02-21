@@ -7,7 +7,7 @@ import { CommonService } from '../website/service/common.service';
 import { SafeHtmlPipe } from '../safe-html.pipe';
 // importovať observable import { Observable } from 'rxjs';
 import { observable, Observable } from 'rxjs';
-import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants';
+// import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants';
 
 @Component({
   selector: 'app-blogs',

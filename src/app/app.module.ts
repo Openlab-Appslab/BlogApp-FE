@@ -56,6 +56,7 @@ import { UsersPageComponent } from './admin/users-page/users-page.component';
 import { AdminsComponent } from './admin/admins/admins.component';
 import { BlogsAdminComponent } from './admin/blogs-admin/blogs-admin.component';
 import { MatCalendar } from '@angular/material/datepicker';
+import { NewsletterComponent } from './admin/newsletter/newsletter.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { MatCalendar } from '@angular/material/datepicker';
     UsersPageComponent,
     AdminsComponent,
     BlogsAdminComponent,
+    NewsletterComponent,
   ],
 
   imports: [
