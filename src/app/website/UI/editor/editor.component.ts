@@ -182,7 +182,8 @@ export class EditorComponent implements OnInit {
     const blog = this.addBlogGroup.value.blog;
     const date = this.addBlogGroup.value.date;
 
-    const image = this.imageTesting;
+    const image = this.imageTesting.replace(/^data:image\/[a-z]+;base64,/, '');
+    console.log(image);
 
     this.addBlogService.addBlog(name, title, content, category, blog, date, image).subscribe(res =>{
             this.commonService.notifyBlogAddition();
@@ -206,11 +207,6 @@ export class EditorComponent implements OnInit {
   onFileChange(event) {
     this.selectedFile = event.target.files[0];
     this.readFile();
-  }
-
-  submit() {
-    // console.log(this.testGroup.value.image);
-    console.log(this.imageTesting);
   }
 
   // addBlog() {
