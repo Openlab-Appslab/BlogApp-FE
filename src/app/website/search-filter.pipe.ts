@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-// import { Blog } from '../blog.model';
-import { Blog } from '../blog';
+import { Blog } from '../blog.model' 
+// import { Blog } from '../blog';
 
 
 
@@ -11,6 +11,7 @@ export class SearchFilterPipe implements PipeTransform {
   transform(blogs: Blog[], searchTerm: string): Blog[] {
     if (!blogs || !searchTerm) {
         return blogs;
+        
     }
     const filteredListings = blogs.filter(blog => {
         return (blog.category && blog.category.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) ||
