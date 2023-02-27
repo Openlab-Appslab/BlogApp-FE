@@ -37,6 +37,7 @@ export class EditorComponent implements OnInit {
   focused = false
 
   selectedValue: string;
+  selectedFile: File;
 
   categories: Category[] = [
     {value: 'Kultúra', viewValue: 'Kultúra'},
@@ -174,39 +175,17 @@ export class EditorComponent implements OnInit {
 
   addBlog(){
     console.log(this.addBlogGroup.value);
+    const { name, title, content, category, author, date } = this.addBlogGroup.value;
 
-    const name = this.addBlogGroup.value.name;
-    const title = this.addBlogGroup.value.title;
-    const content = this.addBlogGroup.value.content;
-    const category = this.addBlogGroup.value.category;
-    const blog = this.addBlogGroup.value.blog;
-    const date = this.addBlogGroup.value.date;
-
-    const image = this.imageTesting.replace(/^data:image\/[a-z]+;base64,/, '');
-    console.log(image);
-
-    this.addBlogService.addBlog(name, title, content, category, blog, date, image).subscribe(res =>{
-            this.commonService.notifyBlogAddition();
-            this.router.navigate(['../../../mainblog'], { relativeTo: this.route });
-      		});
-
-  }
-
-  imageTesting: string;
-  selectedFile: File;
-
-  readFile() {
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imageTesting = reader.result as string;
-      console.log(this.imageTesting);
-    };
-    reader.readAsText(this.selectedFile);
+    this.addBlogService.addBlog({name, title, content, category, author, date}, this.selectedFile)
+      .subscribe(() => {
+        this.commonService.notifyBlogAddition();
+        this.router.navigate(['../../../mainblog'], { relativeTo: this.route });
+      });
   }
 
   onFileChange(event) {
     this.selectedFile = event.target.files[0];
-    this.readFile();
   }
 
   // addBlog() {
