@@ -189,8 +189,12 @@
       <div class="row">
         <div
           class="col-xs-12 col-sm-12 col-md-6 col-lg-6"
-          *ngFor="let blog of blogs.slice(0, 4)"
+          
+
+          *ngFor="let blog of blogs.slice(0, 4) | searchFilter:searchTerm"
+
         >
+       
           <div class="card mb-2">
             <img [src]="'data:image/jpg;base64,' + blog.image" [alt]="'Blog image'" class="card-img-top img-thumbnail"/>
             <div class="card-body">
@@ -227,14 +231,15 @@
         </div>
         <div class="card-body">
           <div class="input-group">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="bu yad eller dünyasında ne arıyorsun"
-            />
-            <span class="input-group-btn">
-              <button type="button" class="btn btn-secondary">Go</button>
-            </span>
+              <div class="nav-item margin">
+
+                <input matInput [(ngModel)]= "searchTerm" placeholder="Vyhľadávanie podľa názvu">
+            </div> 
+      </div>  
+
+
+         
+            
           </div>
         </div>
       </div>
@@ -312,7 +317,7 @@
       </div>
     </div>
   </div>
-</div>
+
 
 <div class="container" style="margin-top: 150px; margin-bottom: 30px">
     <div class="row">

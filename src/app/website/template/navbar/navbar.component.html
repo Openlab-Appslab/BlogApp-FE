@@ -40,11 +40,21 @@
 
       <!-- Right -->
       <ul class="navbar-nav nav-flex-icons">
+
         <li class="nav-item margin">
           <mat-form-field floatLabel="never">
-            <input matInput placeholder="Vyhľadávanie">
+            <input matInput placeholder="Vyhľadávanie ">
           </mat-form-field>
         </li>
+        <!-- <li class="nav-item margin">
+          <mat-form-field floatLabel="never">
+            <input matInput [(ngModel)]="searchText" placeholder="Vyhľadávanie podľa názvu">
+          </mat-form-field>
+        </li> -->
+        <!-- <div *ngFor="let blog of blogs | filter:searchText">
+          {{  }}
+        </div> -->
+
 
         <li class="nav-item">
           <a class="nav-link" *ngIf="!userLoggedIn.isLoggedIn" routerLink="/login" routerLinkActive="active">Login</a>

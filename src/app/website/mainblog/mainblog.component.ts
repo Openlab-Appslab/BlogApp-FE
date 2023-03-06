@@ -14,7 +14,9 @@ import {MatIconRegistry} from '@angular/material/icon';
 })
 export class MainblogComponent implements OnInit {
 
- 
+  searchTerm = '';
+
+
   public blogs : Blog [];
   public techBlogs: Blog [];
   public zdravieBlogs: Blog [];

@@ -10,6 +10,7 @@ import { user } from '../../../user';
 })
 export class NavbarComponent {
 
+  // searchText = '';
   name = 'Angular';
   
   public user: user;

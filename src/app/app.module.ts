@@ -56,6 +56,9 @@ import { UsersPageComponent } from './admin/users-page/users-page.component';
 import { AdminsComponent } from './admin/admins/admins.component';
 import { BlogsAdminComponent } from './admin/blogs-admin/blogs-admin.component';
 import { MatCalendar } from '@angular/material/datepicker';
+//searchfilterpipe
+import { SearchFilterPipe } from './website/search-filter.pipe';
+import { MatTableModule } from '@angular/material/table';
 import { NewsletterComponent } from './admin/newsletter/newsletter.component';
 
 @NgModule({
@@ -95,10 +98,13 @@ import { NewsletterComponent } from './admin/newsletter/newsletter.component';
     UsersPageComponent,
     AdminsComponent,
     BlogsAdminComponent,
+    SearchFilterPipe,
+    
     NewsletterComponent,
   ],
 
   imports: [
+    MatTableModule,
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
