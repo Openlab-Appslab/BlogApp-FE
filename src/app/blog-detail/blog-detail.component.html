@@ -1,11 +1,10 @@
-<!-- pridať *ngIf="názov$ | async as (názov))" -->
 <div class="container" *ngIf="blog$ | async as blog">
   <div class="row">
     <div class="col col-lg-8">
       <img
         style="width: 80%"
         [src]="'data:image/jpg;base64,' + blog.image "
-        class="img-responsive"
+        class="img-fluid"
       />
       <hr />
       <p class="lead">
@@ -20,8 +19,7 @@
         >
       </p>
       <hr />
-      <!-- <p class="lead" [innerHTML]="blog.name | safeHtml"></p> -->
-      <p class="lead">{{blog.name | safeHtml}}</p>
+      <p class="lead" [innerHTML]="blog.name | safeHtml"></p>
       <div [innerHTML]="blog.content | safeHtml"></div>
     </div>
     <div class="col">
@@ -34,7 +32,7 @@
             <input
               type="text"
               class="form-control"
-              placeholder="bu yad eller dünyasında ne arıyorsun"
+              placeholder="..."
             />
             <span class="input-group-btn">
               <button type="button" class="btn btn-secondary">Go</button>
