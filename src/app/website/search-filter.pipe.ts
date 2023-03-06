@@ -14,7 +14,7 @@ export class SearchFilterPipe implements PipeTransform {
         
     }
     const filteredListings = blogs.filter(blog => {
-        return (blog.category && blog.category.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) ||
+        return (blog.name && blog.name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) ||
             (blog.title && blog.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) ||
             (blog.content && blog.content.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) 
   });

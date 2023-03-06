@@ -191,10 +191,10 @@
           class="col-xs-12 col-sm-12 col-md-6 col-lg-6"
           
 
-          *ngFor="let blog of blogs.slice(0, 4)"
+          *ngFor="let blog of blogs.slice(0, 4) | searchFilter:searchTerm"
 
         >
-        <div *ngFor="let blog of blogs | searchFilter:searchTerm">
+       
           <div class="card mb-2">
             <img
               src="https://images.unsplash.com/photo-1585399000684-d2f72660f092?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80"
@@ -321,7 +321,7 @@
       </div>
     </div>
   </div>
-</div>
+
 
 <div class="container" style="margin-top: 150px; margin-bottom: 30px">
     <div class="row">
