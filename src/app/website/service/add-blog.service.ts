@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Blog } from '../../blog.model';
+import { HttpClient} from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
 import { ModalComponent } from '../modal/modal.component';
 import { MatDialog } from '@angular/material/dialog';
+
+interface BlogData {
+  name: string;
+  title: string;
+  content: string;
+  author: string;
+  category: string;
+  date: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -19,28 +26,17 @@ export class AddBlogService {
     private modal: MatDialog
   ) { }
 
-  addBlog(name: string, title: string, content: string, author: string, category: string, date: string, image: string): Observable<any>{
-    let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
-
-    let headerHttp = new HttpHeaders({
-      'Content-Type': 'application/json',
+  addBlog(blog: BlogData, image: File): Observable<any>{
+    const authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
+    const headerHttp = new HttpHeaders({
       Authorization: 'Basic ' + btoa(authString)
     });
-    
-    const formData = { 
-      name, title, content, author, category, date, image};
-    // formData.append('name', name);
-    // formData.append('title', title);
-    // formData.append('content', content);
-    // formData.append('author', author);
-    // formData.append('category', category);
-    // formData.append('date', date);
-    // formData.append('image', image);
 
-    console.log(formData);
+    const formData: FormData = new FormData();
+    formData.append('data', JSON.stringify(blog));
+    formData.append('image', image, image.name);
 
-    return this.http.post('http://localhost:8080/Auth/addPost', formData, { headers: headerHttp })
-    
+    return this.http.post('http://localhost:8080/Auth/addPost', formData, { headers: headerHttp });
   }
 
   // addBlog(blog: Blog){
