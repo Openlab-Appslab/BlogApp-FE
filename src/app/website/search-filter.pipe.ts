@@ -18,10 +18,7 @@ export class SearchFilterPipe implements PipeTransform {
             (blog.title && blog.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) ||
             (blog.content && blog.content.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) 
   });
-    if (filteredListings.length === 0) {
-        return blogs;
-    } else {
         return filteredListings;
-    }
+
   }
 }
