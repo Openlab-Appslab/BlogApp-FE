@@ -9,6 +9,7 @@ import 'quill-emoji/dist/quill-emoji.js';
 import Quill from 'quill';
 import BlotFormatter from 'quill-blot-formatter/dist/BlotFormatter';
 
+
 Quill.register('modules/blotFormatter', BlotFormatter);
 
 interface Category {
@@ -26,6 +27,7 @@ export class EditorComponent implements OnInit {
   editorForm: FormGroup;
   editorContent: string;
   editorTitle: string;
+  myDate = Date.now();
 
   public htmlBody: string;
   public htmlTitle: string;

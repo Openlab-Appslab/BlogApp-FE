@@ -471,7 +471,9 @@ hr.under_nav{
   -webkit-box-shadow: 4px 4px 16px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 4px 4px 16px 0px rgba(0,0,0,0.75);
 }
-
+.noBlogs{
+  margin-left: 20px;
+}
 
 
 

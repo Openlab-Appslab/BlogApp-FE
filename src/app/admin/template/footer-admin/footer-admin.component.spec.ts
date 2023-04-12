@@ -8,7 +8,8 @@ describe('FooterAdminComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FooterAdminComponent ]
+      declarations: [ FooterAdminComponent ],
+      
     })
     .compileComponents();
   });
