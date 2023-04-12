@@ -22,13 +22,14 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AdminComponent } from './admin/admin.component';
 import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
 import { AppComponent } from './app.component';
-import { ModuleWithProviders } from '@angular/core';
+// import { ModuleWithProviders } from '@angular/core';
 import { WebsiteComponent } from './website/website.component';
 import { UsersPageComponent } from './admin/users-page/users-page.component';
 import { RoleGuardGuard } from './role-guard.guard';
 import { AdminsComponent } from './admin/admins/admins.component';
 import { BlogsAdminComponent } from './admin/blogs-admin/blogs-admin.component';
 import { NewsletterComponent } from './admin/newsletter/newsletter.component';
+import { CategoryDetailComponent } from './website/category-detail/category-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'mainblog', pathMatch: 'full'},
@@ -66,6 +67,7 @@ const routes: Routes = [
       { path: 'ui/profile/public',  canActivate: [AuthGuard], component: PublicComponent},
       { path: 'ui/profile/blogs', canActivate: [AuthGuard], component: LatestblogComponent},
       { path: 'ui/profile/blogstmp', canActivate: [AuthGuard], component: BlogsComponent},
+      { path: 'categoryDetail', canActivate: [AuthGuard], component:CategoryDetailComponent }
     ]
 
   },

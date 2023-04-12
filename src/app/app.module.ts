@@ -60,6 +60,7 @@ import { MatCalendar } from '@angular/material/datepicker';
 import { SearchFilterPipe } from './website/search-filter.pipe';
 import { MatTableModule } from '@angular/material/table';
 import { NewsletterComponent } from './admin/newsletter/newsletter.component';
+import { CategoryDetailComponent } from './website/category-detail/category-detail.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { NewsletterComponent } from './admin/newsletter/newsletter.component';
     SearchFilterPipe,
     
     NewsletterComponent,
+          CategoryDetailComponent,
   ],
 
   imports: [
