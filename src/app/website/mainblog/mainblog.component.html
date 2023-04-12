@@ -213,10 +213,19 @@
   <div class="row">
     <div class="col-sm-6 col-md-8 col-lg-8">
       <div class="row">
+
+        <div *ngIf="searchTerm?.length !== 0  ">
+          <h1 class="noBlogs">Nenašli sa žiadne blogy.</h1>
+        </div>
+       
         <div
           class="col-xs-12 col-sm-12 col-md-6 col-lg-6"
-          *ngFor="let blog of blogs | searchFilter : searchTerm"
+          
+
+          *ngFor="let blog of blogs | searchFilter:searchTerm"
+
         >
+       
           <div class="card mb-2">
             <img
               [src]="'data:image/jpg;base64,' + blog.image"
@@ -229,11 +238,7 @@
                 class="card-text text"
                 [innerHTML]="blog.content | safeHtml"
               ></p>
-              <button
-                class="btn btn-primary"
-                type="button"
-                [routerLink]="['/blog', blog.id]"
-              >
+              <button class="btn btn-primary" type="button" [routerLink]="['/blog', blog.id]">
                 Čítať viac...
               </button>
 
@@ -270,7 +275,7 @@
             </div>
           </div>
         </div>
-      </div>
+  
       <div class="card md-4">
         <div class="card-header">
           <h5>Categories</h5>
@@ -349,160 +354,163 @@
     </div>
   </div>
 
-  <div class="container" style="margin-top: 150px; margin-bottom: 30px">
-    <div class="row"></div>
-    <!--  <section>-->
-    <!--    <div class="container">-->
-    <!--      <h2>TechBlogy</h2>-->
-    <!--      <div class="row">-->
-    <!--        <div-->
-    <!--          class="col-lg-4 col-md-12 mb-4"-->
-    <!--          *ngFor="let blog of techBlogs.slice(0, 3)"-->
-    <!--        >-->
-    <!--          <div class="card mb-4 box-shadow rounded-0">-->
-    <!--            <img-->
-    <!--              class="card-img-top w-100 d-block rounded-0"-->
-    <!--              src="https://mdbootstrap.com/img/Photos/Others/images/81.jpg"-->
-    <!--            />-->
-    <!--            <div class="card-body">-->
-    <!--              <h4 class="card-title" [innerHTML]="blog.name | safeHtml"></h4>-->
-    <!--              <h6 class="text-muted card-subtitle mb-2">{{ blog.author }}</h6>-->
-    <!--              <p-->
-    <!--                class="dark-grey-text text"-->
-    <!--                [innerHTML]="blog.content | safeHtml"-->
-    <!--                ng-maxlength="20"-->
-    <!--              ></p>-->
-    <!--              <p class="card-text"></p>-->
-    <!--              <a class="card-link" [routerLink]="['/blog', blog.id]">Link</a>-->
-    <!--              <p>{{ blog.category }}</p>-->
-    <!--              <button-->
-    <!--                (click)="btnClicked(blog)"-->
-    <!--                [ngClass]="{ white: blog.liked, blue2: !blog.liked }"-->
-    <!--                class="likedBtn"-->
-    <!--                id="btn"-->
-    <!--              >-->
-    <!--                <span id="likeIcon"><i class="fas fa-thumbs-up"></i></span>-->
-    <!--              </button>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </div>-->
-    <!--  </section>-->
-    <!--  <section>-->
-    <!--    <div class="container">-->
-    <!--      <h2>Zdravie Blogy</h2>-->
-    <!--      <div class="row">-->
-    <!--        <div-->
-    <!--          class="col-lg-4 col-md-12 mb-4"-->
-    <!--          *ngFor="let blog of zdravieBlogs.slice(0, 3)"-->
-    <!--        >-->
-    <!--          <div class="card mb-4 box-shadow rounded-0">-->
-    <!--            <img-->
-    <!--              class="card-img-top w-100 d-block rounded-0"-->
-    <!--              src="https://mdbootstrap.com/img/Photos/Others/images/81.jpg"-->
-    <!--            />-->
-    <!--            <div class="card-body">-->
-    <!--              <h4 class="card-title" [innerHTML]="blog.name | safeHtml"></h4>-->
-    <!--              <h6 class="text-muted card-subtitle mb-2">{{ blog.author }}</h6>-->
-    <!--              <p-->
-    <!--                class="dark-grey-text text"-->
-    <!--                [innerHTML]="blog.content | safeHtml"-->
-    <!--                ng-maxlength="20"-->
-    <!--              ></p>-->
-    <!--              <p class="card-text"></p>-->
-    <!--              <a class="card-link" [routerLink]="['/blog', blog.id]">Link</a>-->
-    <!--              <p>{{ blog.category }}</p>-->
-    <!--              <button-->
-    <!--                (click)="btnClicked(blog)"-->
-    <!--                [ngClass]="{ white: blog.liked, blue2: !blog.liked }"-->
-    <!--                class="likedBtn"-->
-    <!--                id="btn"-->
-    <!--              >-->
-    <!--                <span id="likeIcon"><i class="fas fa-thumbs-up"></i></span>-->
-    <!--              </button>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </div>-->
-    <!--  </section>-->
-    <!--  <section>-->
-    <!--    <div class="container">-->
-    <!--      <h2>Kultura Blogy</h2>-->
-    <!--      <div class="row">-->
-    <!--        <div-->
-    <!--          class="col-lg-4 col-md-12 mb-4"-->
-    <!--          *ngFor="let blog of kulturaBlogs.slice(0, 3)"-->
-    <!--        >-->
-    <!--          <div class="card mb-4 box-shadow rounded-0">-->
-    <!--            <img-->
-    <!--              class="card-img-top w-100 d-block rounded-0"-->
-    <!--              src="https://mdbootstrap.com/img/Photos/Others/images/81.jpg"-->
-    <!--            />-->
-    <!--            <div class="card-body">-->
-    <!--              <h4 class="card-title" [innerHTML]="blog.name | safeHtml"></h4>-->
-    <!--              <h6 class="text-muted card-subtitle mb-2">{{ blog.author }}</h6>-->
-    <!--              <p-->
-    <!--                class="dark-grey-text text"-->
-    <!--                [innerHTML]="blog.content | safeHtml"-->
-    <!--                ng-maxlength="20"-->
-    <!--              ></p>-->
-    <!--              <p class="card-text"></p>-->
-    <!--              <a class="card-link" [routerLink]="['/blog', blog.id]">Link</a>-->
-    <!--              <p>{{ blog.category }}</p>-->
-    <!--              <button-->
-    <!--                (click)="btnClicked(blog)"-->
-    <!--                [ngClass]="{ white: blog.liked, blue2: !blog.liked }"-->
-    <!--                class="likedBtn"-->
-    <!--                id="btn"-->
-    <!--              >-->
-    <!--                <span id="likeIcon"><i class="fas fa-thumbs-up"></i></span>-->
-    <!--              </button>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </div>-->
-    <!--  </section>-->
-    <!--  <section>-->
-    <!--    <div class="container">-->
-    <!--      <h2>Priroda Blogy</h2>-->
-    <!--      <div class="row">-->
-    <!--        <div-->
-    <!--          class="col-lg-4 col-md-12 mb-4"-->
-    <!--          *ngFor="let blog of prirodaBlogs.slice(0, 3)"-->
-    <!--        >-->
-    <!--          <div class="card mb-4 box-shadow rounded-0">-->
-    <!--            <img-->
-    <!--              class="card-img-top w-100 d-block rounded-0"-->
-    <!--              src="https://mdbootstrap.com/img/Photos/Others/images/81.jpg"-->
-    <!--            />-->
-    <!--            <div class="card-body">-->
-    <!--              <h4 class="card-title" [innerHTML]="blog.name | safeHtml"></h4>-->
-    <!--              <h6 class="text-muted card-subtitle mb-2">{{ blog.author }}</h6>-->
-    <!--              <p-->
-    <!--                class="dark-grey-text text"-->
-    <!--                [innerHTML]="blog.content | safeHtml"-->
-    <!--                ng-maxlength="20"-->
-    <!--              ></p>-->
-    <!--              <p class="card-text"></p>-->
-    <!--              <a class="card-link" [routerLink]="['/blog', blog.id]">Link</a>-->
-    <!--              <p>{{ blog.category }}</p>-->
-    <!--              <button-->
-    <!--                (click)="btnClicked(blog)"-->
-    <!--                [ngClass]="{ white: blog.liked, blue2: !blog.liked }"-->
-    <!--                class="likedBtn"-->
-    <!--                id="btn"-->
-    <!--              >-->
-    <!--                <span id="likeIcon"><i class="fas fa-thumbs-up"></i></span>-->
-    <!--              </button>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </div>-->
-    <!--  </section>-->
-    <!--  <div class="container"></div>-->
+
+<div class="container" style="margin-top: 150px; margin-bottom: 30px">
+    <div class="row">
+      
   </div>
-</div>
+<!--  <section>-->
+<!--    <div class="container">-->
+<!--      <h2>TechBlogy</h2>-->
+<!--      <div class="row">-->
+<!--        <div-->
+<!--          class="col-lg-4 col-md-12 mb-4"-->
+<!--          *ngFor="let blog of techBlogs.slice(0, 3)"-->
+<!--        >-->
+<!--          <div class="card mb-4 box-shadow rounded-0">-->
+<!--            <img-->
+<!--              class="card-img-top w-100 d-block rounded-0"-->
+<!--              src="https://mdbootstrap.com/img/Photos/Others/images/81.jpg"-->
+<!--            />-->
+<!--            <div class="card-body">-->
+<!--              <h4 class="card-title" [innerHTML]="blog.name | safeHtml"></h4>-->
+<!--              <h6 class="text-muted card-subtitle mb-2">{{ blog.author }}</h6>-->
+<!--              <p-->
+<!--                class="dark-grey-text text"-->
+<!--                [innerHTML]="blog.content | safeHtml"-->
+<!--                ng-maxlength="20"-->
+<!--              ></p>-->
+<!--              <p class="card-text"></p>-->
+<!--              <a class="card-link" [routerLink]="['/blog', blog.id]">Link</a>-->
+<!--              <p>{{ blog.category }}</p>-->
+<!--              <button-->
+<!--                (click)="btnClicked(blog)"-->
+<!--                [ngClass]="{ white: blog.liked, blue2: !blog.liked }"-->
+<!--                class="likedBtn"-->
+<!--                id="btn"-->
+<!--              >-->
+<!--                <span id="likeIcon"><i class="fas fa-thumbs-up"></i></span>-->
+<!--              </button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--  <section>-->
+<!--    <div class="container">-->
+<!--      <h2>Zdravie Blogy</h2>-->
+<!--      <div class="row">-->
+<!--        <div-->
+<!--          class="col-lg-4 col-md-12 mb-4"-->
+<!--          *ngFor="let blog of zdravieBlogs.slice(0, 3)"-->
+<!--        >-->
+<!--          <div class="card mb-4 box-shadow rounded-0">-->
+<!--            <img-->
+<!--              class="card-img-top w-100 d-block rounded-0"-->
+<!--              src="https://mdbootstrap.com/img/Photos/Others/images/81.jpg"-->
+<!--            />-->
+<!--            <div class="card-body">-->
+<!--              <h4 class="card-title" [innerHTML]="blog.name | safeHtml"></h4>-->
+<!--              <h6 class="text-muted card-subtitle mb-2">{{ blog.author }}</h6>-->
+<!--              <p-->
+<!--                class="dark-grey-text text"-->
+<!--                [innerHTML]="blog.content | safeHtml"-->
+<!--                ng-maxlength="20"-->
+<!--              ></p>-->
+<!--              <p class="card-text"></p>-->
+<!--              <a class="card-link" [routerLink]="['/blog', blog.id]">Link</a>-->
+<!--              <p>{{ blog.category }}</p>-->
+<!--              <button-->
+<!--                (click)="btnClicked(blog)"-->
+<!--                [ngClass]="{ white: blog.liked, blue2: !blog.liked }"-->
+<!--                class="likedBtn"-->
+<!--                id="btn"-->
+<!--              >-->
+<!--                <span id="likeIcon"><i class="fas fa-thumbs-up"></i></span>-->
+<!--              </button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--  <section>-->
+<!--    <div class="container">-->
+<!--      <h2>Kultura Blogy</h2>-->
+<!--      <div class="row">-->
+<!--        <div-->
+<!--          class="col-lg-4 col-md-12 mb-4"-->
+<!--          *ngFor="let blog of kulturaBlogs.slice(0, 3)"-->
+<!--        >-->
+<!--          <div class="card mb-4 box-shadow rounded-0">-->
+<!--            <img-->
+<!--              class="card-img-top w-100 d-block rounded-0"-->
+<!--              src="https://mdbootstrap.com/img/Photos/Others/images/81.jpg"-->
+<!--            />-->
+<!--            <div class="card-body">-->
+<!--              <h4 class="card-title" [innerHTML]="blog.name | safeHtml"></h4>-->
+<!--              <h6 class="text-muted card-subtitle mb-2">{{ blog.author }}</h6>-->
+<!--              <p-->
+<!--                class="dark-grey-text text"-->
+<!--                [innerHTML]="blog.content | safeHtml"-->
+<!--                ng-maxlength="20"-->
+<!--              ></p>-->
+<!--              <p class="card-text"></p>-->
+<!--              <a class="card-link" [routerLink]="['/blog', blog.id]">Link</a>-->
+<!--              <p>{{ blog.category }}</p>-->
+<!--              <button-->
+<!--                (click)="btnClicked(blog)"-->
+<!--                [ngClass]="{ white: blog.liked, blue2: !blog.liked }"-->
+<!--                class="likedBtn"-->
+<!--                id="btn"-->
+<!--              >-->
+<!--                <span id="likeIcon"><i class="fas fa-thumbs-up"></i></span>-->
+<!--              </button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--  <section>-->
+<!--    <div class="container">-->
+<!--      <h2>Priroda Blogy</h2>-->
+<!--      <div class="row">-->
+<!--        <div-->
+<!--          class="col-lg-4 col-md-12 mb-4"-->
+<!--          *ngFor="let blog of prirodaBlogs.slice(0, 3)"-->
+<!--        >-->
+<!--          <div class="card mb-4 box-shadow rounded-0">-->
+<!--            <img-->
+<!--              class="card-img-top w-100 d-block rounded-0"-->
+<!--              src="https://mdbootstrap.com/img/Photos/Others/images/81.jpg"-->
+<!--            />-->
+<!--            <div class="card-body">-->
+<!--              <h4 class="card-title" [innerHTML]="blog.name | safeHtml"></h4>-->
+<!--              <h6 class="text-muted card-subtitle mb-2">{{ blog.author }}</h6>-->
+<!--              <p-->
+<!--                class="dark-grey-text text"-->
+<!--                [innerHTML]="blog.content | safeHtml"-->
+<!--                ng-maxlength="20"-->
+<!--              ></p>-->
+<!--              <p class="card-text"></p>-->
+<!--              <a class="card-link" [routerLink]="['/blog', blog.id]">Link</a>-->
+<!--              <p>{{ blog.category }}</p>-->
+<!--              <button-->
+<!--                (click)="btnClicked(blog)"-->
+<!--                [ngClass]="{ white: blog.liked, blue2: !blog.liked }"-->
+<!--                class="likedBtn"-->
+<!--                id="btn"-->
+<!--              >-->
+<!--                <span id="likeIcon"><i class="fas fa-thumbs-up"></i></span>-->
+<!--              </button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--  <div class="container"></div>-->
+
+
