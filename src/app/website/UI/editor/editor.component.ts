@@ -170,16 +170,16 @@ export class EditorComponent implements OnInit {
     content: new FormControl('', Validators.required),
     category: new FormControl('', Validators.required),
     blog: new FormControl('', Validators.required),
-    date: new FormControl('', Validators.required),
+    //date: new FormControl('', Validators.required),
     author: new FormControl('', Validators.required),
     image: new FormControl('', Validators.required),
   })
 
   addBlog(){
     console.log(this.addBlogGroup.value);
-    const { name, title, content, category, author, date } = this.addBlogGroup.value;
+    const { name, title, content, category, author } = this.addBlogGroup.value;
 
-    this.addBlogService.addBlog({name, title, content, category, author, date}, this.selectedFile)
+    this.addBlogService.addBlog({name, title, content, category, author}, this.selectedFile)
       .subscribe(() => {
         this.commonService.notifyBlogAddition();
         this.router.navigate(['../../../mainblog'], { relativeTo: this.route });
@@ -188,6 +188,7 @@ export class EditorComponent implements OnInit {
 
   onFileChange(event) {
     this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
   }
 
   // addBlog() {

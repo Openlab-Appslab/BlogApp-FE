@@ -12,7 +12,7 @@ interface BlogData {
   content: string;
   author: string;
   category: string;
-  date: string;
+  //date: string;
 }
 
 @Injectable({
