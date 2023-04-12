@@ -23,14 +23,17 @@ export class MainblogComponent implements OnInit {
   public kulturaBlogs: Blog [];
   public svetadielBlogs: Blog [];
   public prirodaBlogs: Blog [];
+  
   //date: number = Date.now();
   date: Date
 
   constructor(
-    private titleService:Title, 
+    private titleService: Title, 
     private showPostService: ShowPostService,
     private commonService: CommonService,
-    private route: ActivatedRoute,iconRegistry: MatIconRegistry, sanitizer: DomSanitizer
+    private route: ActivatedRoute,
+    iconRegistry: MatIconRegistry, 
+    sanitizer: DomSanitizer
     ) {
 
       this.titleService.setTitle("Domov • Stránka plná zaujívamých blogov");

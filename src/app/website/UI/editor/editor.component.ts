@@ -40,12 +40,12 @@ export class EditorComponent implements OnInit {
   selectedFile: File;
 
   categories: Category[] = [
-    {value: 'Kultúra', viewValue: 'Kultúra'},
-    {value: 'Tech', viewValue: 'Tech'},
-    {value: 'Priroda', viewValue: 'Príroda'},
-    {value: 'Politika', viewValue: 'Politika'},
-    {value: 'Zdravie', viewValue: 'Zdravie'},
-    {value: 'Svetadiel', viewValue: 'Svetadiel'},
+    {value: 'kultura', viewValue: 'Kultúra'},
+    {value: 'tech', viewValue: 'Tech'},
+    {value: 'priroda', viewValue: 'Príroda'},
+    {value: 'politika', viewValue: 'Politika'},
+    {value: 'zdravie', viewValue: 'Zdravie'},
+    {value: 'svetadiel', viewValue: 'Svetadiel'},
   ];
 
   created(event){

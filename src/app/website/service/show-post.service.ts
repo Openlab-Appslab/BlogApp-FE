@@ -40,6 +40,10 @@ export class ShowPostService {
 		return this.httpClient.get<Blog[]>('http://localhost:8080/noAuth/getSvetadielBlogs');
 	}
 
+  getBlogByCategory(blogCategory: string): Observable<Blog[]>{
+    return this.httpClient.get<Blog[]>('http://localhost:8080/noAuth/getBlogByCategory/'+ blogCategory);
+  }
+
   getUserBlog(){
     let authString = `${this.authS.cookies.get('email')}:${this.authS.cookies.get('password')}`
 

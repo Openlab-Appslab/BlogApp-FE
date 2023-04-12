@@ -67,7 +67,7 @@ const routes: Routes = [
       { path: 'ui/profile/public',  canActivate: [AuthGuard], component: PublicComponent},
       { path: 'ui/profile/blogs', canActivate: [AuthGuard], component: LatestblogComponent},
       { path: 'ui/profile/blogstmp', canActivate: [AuthGuard], component: BlogsComponent},
-      { path: 'categoryDetail', canActivate: [AuthGuard], component:CategoryDetailComponent }
+      { path: 'categoryDetail/:category', canActivate: [AuthGuard], component:CategoryDetailComponent }
     ]
 
   },
