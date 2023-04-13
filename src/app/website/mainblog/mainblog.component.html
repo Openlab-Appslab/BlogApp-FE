@@ -214,7 +214,7 @@
     <div class="col-sm-6 col-md-8 col-lg-8">
       <div class="row">
 
-        <ng-container *ngIf="(blogs | searchFilter:searchTerm) as blogs" >
+        <!-- <ng-container *ngIf="(blogs | searchFilter:searchTerm) as blogs" > -->
 
           <div *ngIf="blogs.length === 0 ">
             <h1 class="noBlogs">Nenašli sa žiadne blogy.</h1>
@@ -271,7 +271,7 @@
               Zverejnené {{ blog.date | date : "dd. MM. YYYY" }}
             </div>
           </div>
-        </ng-container>
+        <!-- </ng-container> -->
       </div>
       <hr />
     </div>
